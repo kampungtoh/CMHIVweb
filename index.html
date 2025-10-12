@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>奇美友善醫療日嘉年華｜Eyes on Ukraine 台灣首映</title>
+<meta name="description" content="奇美友善醫療日嘉年華：融合紀錄片《Eyes on Ukraine》台灣首映、友善論壇、性別論壇、表演、餐點、抽獎與互動遊戲的年度活動。">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+  :root{
+    --blue:#0e7aa8;
+    --yellow:#e0c23a;
+    --ink:#10212a;
+    --bg:#f7f8fb;
+    --card:#ffffff;
+    --muted:#6c7a86;
+    --accent:#145c74;
+    --success:#2f9e44;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Noto Sans TC,Roboto,Helvetica,Arial,"PingFang TC","Microsoft JhengHei",sans-serif;color:var(--ink);background:var(--bg)}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .container{max-width:1200px;margin:0 auto;padding:0 20px}
+  /* HERO */
+  header.hero{
+    position:relative;
+    min-height:80vh;
+    display:grid;
+    place-items:center;
+    background:linear-gradient(180deg,rgba(16,33,42,0.65),rgba(16,33,42,0.85)),url('assets/poster.jpg') center/cover no-repeat;
+    color:#fff;
+    text-align:left;
+  }
+  .hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center;width:100%}
+  .brand{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+  .brand .logo{width:44px;height:44px;border-radius:8px;background:#fff;display:grid;place-items:center;color:var(--ink);font-weight:700}
+  h1{font-size:clamp(28px, 4.2vw, 56px);line-height:1.05;margin:0 0 12px}
+  .kicker{letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#f8f9fa;opacity:.95;font-size:14px}
+  .badges{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+  .badge{background:rgba(255,255,255,.12);padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.25);font-size:13px}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--yellow);color:#1a1a1a;font-weight:800;border-radius:12px;padding:12px 16px;
+    border:none;cursor:pointer;font-size:16px;box-shadow:0 6px 16px rgba(0,0,0,.18);
+  }
+  .btn.secondary{background:#fff;color:var(--ink)}
+  .meta{margin-top:16px;color:#e8f0f5;font-size:14px}
+  /* INFOGRAPHIC STRIP */
+  .infostrip{background:#fff;box-shadow:0 4px 18px rgba(0,0,0,.06);margin-top:-48px;border-radius:16px;padding:18px}
+  .infogrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .icard{background:var(--card);border:1px solid #eef1f4;border-radius:14px;padding:18px;display:flex;gap:12px;align-items:flex-start}
+  .icard svg{width:28px;height:28px;flex:0 0 auto}
+  .icard h4{margin:0 0 6px;font-size:16px}
+  .icard p{margin:0;color:var(--muted);font-size:14px}
+  /* SECTIONS */
+  section{padding:56px 0}
+  section h2{font-size:32px;margin:0 0 16px}
+  .lead{color:var(--muted);max-width:820px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+  .card{background:#fff;border:1px solid #eef1f4;border-radius:14px;padding:18px}
+  .card h3{margin:0 0 10px}
+  .pill{display:inline-block;background:var(--blue);color:#fff;padding:4px 10px;border-radius:999px;font-size:12px;margin-right:6px}
+  /* Timeline */
+  .timeline{position:relative;margin-top:18px}
+  .timeline:before{content:"";position:absolute;left:18px;top:0;bottom:0;width:3px;background:#e6edf2}
+  .titem{position:relative;margin-left:44px;margin-bottom:16px}
+  .titem:before{content:"";position:absolute;left:-29px;top:6px;width:16px;height:16px;background:var(--yellow);border:3px solid #fff;border-radius:50%;box-shadow:0 0 0 2px #e6edf2}
+  .titem h4{margin:0 0 6px}
+  /* Gallery */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .gallery img{width:100%;height:180px;object-fit:cover;border-radius:10px;border:1px solid #ecf0f3;cursor:pointer}
+  /* Accordion */
+  .accordion{border:1px solid #e8edf1;border-radius:12px;overflow:hidden}
+  .acc{border-top:1px solid #e8edf1;background:#fff}
+  .acc summary{list-style:none;cursor:pointer;padding:16px 18px;font-weight:700}
+  .acc summary::-webkit-details-marker{display:none}
+  .acc .content{padding:0 18px 16px;color:var(--muted)}
+  /* Footer */
+  footer{background:#0c1d26;color:#cfe5ef;padding:36px 0}
+  footer a{color:#fff;text-decoration:underline}
+  .grid-2{display:grid;grid-template-columns:1.1fr 1fr;gap:20px}
+  /* Responsive */
+  @media(max-width:960px){
+    .hero .wrap{grid-template-columns:1fr}
+    .infogrid{grid-template-columns:repeat(2,1fr)}
+    .cards{grid-template-columns:1fr}
+    .gallery{grid-template-columns:repeat(2,1fr)}
+    .grid-2{grid-template-columns:1fr}
+  }
+</style>
+<link rel="alternate" hreflang="en" href="index-en.html">
+</head>
+<body>
+<div style="position:fixed;top:12px;right:12px;z-index:10"><a href="index-en.html" style="background:#fff;color:#0e7aa8;border-radius:999px;padding:6px 10px;border:1px solid #e6edf2">EN</a></div>
+
+<header class="hero">
+  <div class="container wrap">
+    <div>
+      <div class="brand">
+        <div class="logo">奇美</div>
+        <div class="kicker">Chi Mei HIV Care Team — Official</div>
+      </div>
+      <h1>奇美友善醫療日嘉年華<br>Eyes on Ukraine 台灣首映</h1>
+      <div class="badges">
+        <span class="badge">2025/11/21（五）13:00–17:00</span>
+        <span class="badge">奇美醫院第五醫療大樓｜國際會議廳</span>
+        <span class="badge">免費入場・需報名</span>
+      </div>
+      <p class="meta">本活動包含：紀錄片放映、友善論壇、性別論壇、餐點、表演、抽獎、互動遊戲。</p>
+      <div class="cta">
+        <a class="btn" href="#register">立即報名</a>
+        <a class="btn secondary" href="#film">了解電影</a>
+      </div>
+      <p class="meta" id="countdown">距離活動開始：計算中…</p>
+    </div>
+    <div aria-hidden="true">
+      <img src="assets/poster.jpg" alt="活動主視覺海報" style="width:100%;border-radius:16px;box-shadow:0 10px 26px rgba(0,0,0,.35);border:4px solid rgba(255,255,255,.25)">
+    </div>
+  </div>
+</header>
+
+<div class="container infostrip" role="region" aria-label="關鍵資訊">
+  <div class="infogrid">
+    <div class="icard">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M8 7h8M8 11h8M8 15h6"/><rect x="3" y="4" width="18" height="16" rx="2" ry="2" stroke-width="2"/></svg>
+      <div>
+        <h4>什麼是友善醫療？</h4>
+        <p>以尊重、無歧視、保密與可近性為核心，提供 HIV 友善、跨專業整合的照護服務。</p>
+      </div>
+    </div>
+    <div class="icard">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5v14M5 12h14" stroke-width="2"/></svg>
+      <div>
+        <h4>為何舉辦嘉年華？</h4>
+        <p>把醫療、教育與社群串聯成好玩、好懂、可參與的行動日，擴大理解與支持。</p>
+      </div>
+    </div>
+    <div class="icard">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="4"/><path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+      <div>
+        <h4>活動目標</h4>
+        <p>破除汙名、促進友善醫療共識、凝聚跨域夥伴、激發民眾參與與具體行動。</p>
+      </div>
+    </div>
+    <div class="icard">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18M12 3v18" /><circle cx="12" cy="12" r="9"/></svg>
+      <div>
+        <h4>全球首映季</h4>
+        <p>台灣場為《Eyes on Ukraine》官方 Season of Premieres 的一部分（台灣首映）。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="program">
+  <div class="container">
+    <h2>活動程序</h2>
+    <p class="lead">現場採嘉年華形式，穿插表演、遊戲、抽獎與茶點，並以兩大論壇深入對談。</p>
+    <div class="timeline">
+      <div class="titem">
+        <h4>13:00 開場與暖身</h4>
+        <p>嘉年華攤位開放、闖關遊戲啟動、餐點入場。</p>
+      </div>
+      <div class="titem">
+        <h4>13:20 紀錄片放映 《Eyes on Ukraine》</h4>
+        <p>片長 37 分鐘。建議觀影後留 10 分鐘沉澱與交流。</p>
+      </div>
+      <div class="titem">
+        <h4>14:15 友善論壇</h4>
+        <p>各管師 × 感染者先生對談：就醫經驗、支持網絡與心理健康。</p>
+      </div>
+      <div class="titem">
+        <h4>15:00 性別論壇</h4>
+        <p>性別講師 × 社群朋友座談：性別友善與臨床實務連結。</p>
+      </div>
+      <div class="titem">
+        <h4>15:45 嘉年華壓軸</h4>
+        <p>現場表演、抽獎與合影。</p>
+      </div>
+      <div class="titem">
+        <h4>17:00 活動結束</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="film" style="background:#fff">
+  <div class="container grid-2">
+    <div>
+      <h2>關於電影｜Eyes on Ukraine</h2>
+      <p class="lead">本片追隨 24 歲的烏克蘭 HIV 行動者 Yana Panfilova，在戰爭流離後於柏林持續領導青年組織 Teenergizer，並與攝影師 Gideon Mendel 合作，讓 HIV 帶原者親自拍攝、轉化為敘事者。她與 Liza、Mariia、Yehor 受訓後返烏，以影像揭露戰時下獨特的公共衛生危機。</p>
+      <div class="card">
+        <div class="pill">DCP 彩色</div><div class="pill">37 分鐘</div><div class="pill">導演 Mo Stoebe</div><div class="pill">執行製片 Richard Gere</div>
+        <p style="margin-top:10px;color:var(--muted)">製片：David Gere、Katja Kulenkampff。演出：Yana Panfilova、Liza Shevchuck、Yehor Pasko、Mariia Deriuha。</p>
+        <p style="margin-top:6px;">參展：Awareness Festival（Santa Monica, 2025/10）、Newport Beach Film Festival（2025/10）、Voices Rising Festival（New York, 2025/11）。榮譽：Love Wins Film Festival（2025/5）。</p>
+        <p style="margin-top:6px;">世界首映：2025/12/5 UCLA Hammer Museum（免費入場，無須預約）。</p>
+      </div>
+    </div>
+    <div>
+      <h2>行動資源｜Watch Party</h2>
+      <p class="lead">UCLA Art & Global Health Center 與 UNAIDS 推動全球預映行動，已於哈佛、康乃爾、Noaks Ark Stockholm、柏林多點與德國波昂聯合國園區等地舉辦。提供「討論指南」以利社群自辦觀影交流。</p>
+      <div class="card">
+        <h3>討論指南內容</h3>
+        <ul>
+          <li>關鍵議題：HIV 汙名、心理健康、青年參與</li>
+          <li>討論題綱與主持小撇步</li>
+          <li>延伸行動建議（志工、倡議、捐款）</li>
+        </ul>
+        <p>索取與合作：<a href="mailto:TPE@arts.ucla.edu">TPE@arts.ucla.edu</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="activities">
+  <div class="container">
+    <h2>嘉年華亮點</h2>
+    <div class="cards">
+      <div class="card"><h3>🎬 影片放映</h3><p>《Eyes on Ukraine》台灣首映（Season of Premieres）。</p></div>
+      <div class="card"><h3>🗣️ 兩大論壇</h3><p>友善論壇、性別論壇：從臨床到社群的雙向理解。</p></div>
+      <div class="card"><h3>🎭 表演</h3><p>舞台節目與驚喜嘉賓，活力滿點。</p></div>
+      <div class="card"><h3>🍴 餐點</h3><p>貼心茶點，邊交流邊補充能量。</p></div>
+      <div class="card"><h3>🎯 遊戲</h3><p>闖關集點拿好禮，學習友善醫療知識。</p></div>
+      <div class="card"><h3>🎁 抽獎</h3><p>多重獎項，現場參與就有機會！</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="partners" style="background:#fff">
+  <div class="container">
+    <h2>主辦與協力</h2>
+    <p class="lead">本活動由奇美醫院內科部感染科、感染管制中心、奇美友愛照護團隊與友善醫療推動小組共同主辦；並與社群與國際夥伴攜手合作。</p>
+    <div class="cards">
+      <div class="card">
+        <h3>主辦單位</h3>
+        <ul>
+          <li>奇美醫院 內科部感染科</li>
+          <li>感染管制中心</li>
+          <li>奇美友愛照護團隊</li>
+          <li>友善醫療推動小組</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>協力夥伴</h3>
+        <ul>
+          <li>愛之希望協會</li>
+          <li>UCLA Art & Global Health Center、UNAIDS</li>
+          <li>（國際單位補充：請確認 UCSF 是否為合作單位）</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>媒體與學術夥伴</h3>
+        <ul>
+          <li>UCLA Film & Television Archive</li>
+          <li>UCLA School of the Arts and Architecture</li>
+          <li>UCLA AIDS Institute</li>
+          <li>Herb Ritts Foundation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <h2>去年度活動回顧</h2>
+    <p class="lead">以下為去年的活動花絮，更多照片歡迎提供以便更新。</p>
+    <div class="gallery">
+      <img src="assets/poster.jpg" alt="花絮照片示意" onclick="openLightbox(this.src)">
+      <img src="assets/poster.jpg" alt="花絮照片示意" onclick="openLightbox(this.src)">
+      <img src="assets/poster.jpg" alt="花絮照片示意" onclick="openLightbox(this.src)">
+      <img src="assets/poster.jpg" alt="花絮照片示意" onclick="openLightbox(this.src)">
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background:#fff">
+  <div class="container">
+    <h2>常見問題（FAQ）</h2>
+    <div class="accordion">
+      <details class="acc" open>
+        <summary>如何報名參加？</summary>
+        <div class="content">
+          <p>點擊「立即報名」按鈕前往表單。若需團體報名，請電郵活動小組。</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>是否需要門票？</summary>
+        <div class="content"><p>本活動免費入場，惟名額有限，建議事先報名保留座位。</p></div>
+      </details>
+      <details class="acc">
+        <summary>場地無障礙與交通？</summary>
+        <div class="content"><p>國際會議廳備有無障礙動線與座位。交通資訊與停車可依院方公告為準。</p></div>
+      </details>
+      <details class="acc">
+        <summary>我可以如何支持？</summary>
+        <div class="content"><p>加入志工、分享資訊、參與討論、或與主辦單位洽談合作。</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="register">
+  <div class="container grid-2">
+    <div>
+      <h2>報名資訊</h2>
+      <p class="lead">時間：2025/11/21（五）13:00–17:00｜地點：奇美醫院第五醫療大樓 國際會議廳</p>
+      <p>請填寫報名表完成登記；若您是合作夥伴或媒體，請來信聯繫專人協助。</p>
+      <p>聯絡信箱：<a href="mailto:hivcare@chimei.org.tw">hivcare@chimei.org.tw</a>（示意，請替換為實際信箱）</p>
+      <div class="badges">
+        <span class="badge">現場供餐</span>
+        <span class="badge">抽獎活動</span>
+        <span class="badge">互動闖關</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>線上報名</h3>
+      <p><a class="btn" href="#" onclick="alert('請替換為實際報名連結');return false;">開啟報名表</a></p>
+      <h3 style="margin-top:20px">地圖</h3>
+      <p>奇美醫院第五醫療大樓・國際會議廳</p>
+      <div style="background:#e9f2f7;border:1px solid #d8e6ee;border-radius:12px;height:220px;display:grid;place-items:center;color:#49708a">可嵌入地圖 iframe（待上線時替換）</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="grid-2">
+      <div>
+        <h3>奇美友愛 HIV 照護團隊</h3>
+        <p>我們提供整合式、友善且尊重多元的 HIV 照護服務，涵蓋醫療、心理、社會支持與社群連結。</p>
+        <p>&copy; 2025 Chi Mei Hospital. All rights reserved.</p>
+      </div>
+      <div>
+        <h3>聯絡我們</h3>
+        <p>電子郵件：<a href="mailto:hivcare@chimei.org.tw">hivcare@chimei.org.tw</a>（示意）</p>
+        <p>社群媒體：Facebook／Instagram（上線後補）</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox & Countdown -->
+<div id="lightbox" style="position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;padding:24px" onclick="this.style.display='none'">
+  <img src="" alt="預覽" style="max-width:96%;max-height:92%;border-radius:10px;border:2px solid #fff">
+</div>
+
+<script>
+  // countdown
+  (function(){
+    const target = new Date('2025-11-21T13:00:00+08:00').getTime();
+    const el = document.getElementById('countdown');
+    function tick(){
+      const now = Date.now();
+      let diff = Math.max(0, target - now);
+      const d = Math.floor(diff/86400000);
+      diff -= d*86400000;
+      const h = Math.floor(diff/3600000);
+      diff -= h*3600000;
+      const m = Math.floor(diff/60000);
+      el.textContent = `距離活動開始：${d} 天 ${h} 小時 ${m} 分鐘`;
+    }
+    tick(); setInterval(tick, 30000);
+  })();
+  // lightbox
+  window.openLightbox = function(src){
+    const lb = document.getElementById('lightbox');
+    lb.querySelector('img').src = src;
+    lb.style.display = 'flex';
+  }
+</script>
+
+</body>
+</html>
