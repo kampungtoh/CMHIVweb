@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>奇美友善醫療日嘉年華｜Eyes on Ukraine 台灣首映</title>
-<meta name="description" content="奇美友善醫療日嘉年華：融合紀錄片《Eyes on Ukraine》台灣首映、友善論壇、性別論壇、表演、餐點、抽獎與互動遊戲的年度活動。">
+<title>奇美友善醫療日嘉年華｜Eyes of Ukraine 全球首映季系列</title>
+<meta name="description" content="奇美友善醫療日嘉年華：Eyes of Ukraine 全球首映季系列台灣場，結合紀錄片放映、友善論壇、性別論壇、表演、餐點、抽獎與互動遊戲的年度活動。">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <style>
   :root{
@@ -28,7 +28,7 @@
     min-height:80vh;
     display:grid;
     place-items:center;
-    background:linear-gradient(180deg,rgba(16,33,42,0.65),rgba(16,33,42,0.85)),url('assets/poster.jpg') center/cover no-repeat;
+    background:linear-gradient(180deg,rgba(16,33,42,0.65),rgba(16,33,42,0.85)),url('PosterBG.jpg') center/cover no-repeat;
     color:#fff;
     text-align:left;
   }
@@ -48,7 +48,7 @@
   .btn.secondary{background:#fff;color:var(--ink)}
   .meta{margin-top:16px;color:#e8f0f5;font-size:14px}
   /* INFOGRAPHIC STRIP */
-  .infostrip{background:#fff;box-shadow:0 4px 18px rgba(0,0,0,.06);margin-top:-48px;border-radius:16px;padding:18px}
+  .infostrip{background:#fff;box-shadow:0 4px 18px rgba(0,0,0,.06);margin-top:-48px;border-radius:16px;padding:18px;position:relative;z-index:1}
   .infogrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
   .icard{background:var(--card);border:1px solid #eef1f4;border-radius:14px;padding:18px;display:flex;gap:12px;align-items:flex-start}
   .icard svg{width:28px;height:28px;flex:0 0 auto}
@@ -102,7 +102,7 @@
         <div class="logo">奇美</div>
         <div class="kicker">Chi Mei HIV Care Team — Official</div>
       </div>
-      <h1>奇美友善醫療日嘉年華<br>Eyes on Ukraine 台灣首映</h1>
+      <h1>奇美友善醫療日嘉年華<br>Eyes of Ukraine 全球首映季系列</h1>
       <div class="badges">
         <span class="badge">2025/11/21（五）13:00–17:00</span>
         <span class="badge">奇美醫院第五醫療大樓｜國際會議廳</span>
@@ -116,7 +116,7 @@
       <p class="meta" id="countdown">距離活動開始：計算中…</p>
     </div>
     <div aria-hidden="true">
-      <img src="assets/poster.jpg" alt="活動主視覺海報" style="width:100%;border-radius:16px;box-shadow:0 10px 26px rgba(0,0,0,.35);border:4px solid rgba(255,255,255,.25)">
+      <img src="Poster11.jpg" alt="活動主視覺海報" style="width:100%;border-radius:16px;box-shadow:0 10px 26px rgba(0,0,0,.35);border:4px solid rgba(255,255,255,.25)">
     </div>
   </div>
 </header>
@@ -127,14 +127,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M8 7h8M8 11h8M8 15h6"/><rect x="3" y="4" width="18" height="16" rx="2" ry="2" stroke-width="2"/></svg>
       <div>
         <h4>什麼是友善醫療？</h4>
-        <p>以尊重、無歧視、保密與可近性為核心，提供 HIV 友善、跨專業整合的照護服務。</p>
-      </div>
-    </div>
-    <div class="icard">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5v14M5 12h14" stroke-width="2"/></svg>
-      <div>
-        <h4>為何舉辦嘉年華？</h4>
-        <p>把醫療、教育與社群串聯成好玩、好懂、可參與的行動日，擴大理解與支持。</p>
+        <p>以尊重、隱私與可近性為核心，不因年齡、性別、身份或疾病標籤而差別對待，提供每位民眾友善、跨專業整合的照護服務。</p>
       </div>
     </div>
     <div class="icard">
@@ -145,14 +138,28 @@
       </div>
     </div>
     <div class="icard">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5v14M5 12h14" stroke-width="2"/></svg>
+      <div>
+        <h4>什麼是友善醫療日？</h4>
+        <p>把醫療、教育與社群串聯成好玩、好懂、可參與的行動日，擴大理解與支持。</p>
+      </div>
+    </div>
+    <div class="icard">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18M12 3v18" /><circle cx="12" cy="12" r="9"/></svg>
       <div>
         <h4>全球首映季</h4>
-        <p>台灣場為《Eyes on Ukraine》官方 Season of Premieres 的一部分（台灣首映）。</p>
+        <p>本場放映為紀錄片《Eyes on Ukraine》全球官方首映系列（Season of Premieres）台灣場。繼烏克蘭基輔、美國洛杉磯之後，讓我們一同見證這部關於人權、疾病與韌性的感人紀錄片。</p>
       </div>
     </div>
   </div>
 </div>
+
+<section id="friendly-day">
+  <div class="container">
+    <h2>什麼是友善醫療日？</h2>
+    <p class="lead">友善醫療日以跨領域合作為基礎，串聯醫療、教育與社群夥伴，打造好玩、好懂、可參與的互動體驗日，共同擴大社會對友善醫療的理解與支持。</p>
+  </div>
+</section>
 
 <section id="program">
   <div class="container">
@@ -268,10 +275,10 @@
     <h2>去年度活動回顧</h2>
     <p class="lead">以下為去年的活動花絮，更多照片歡迎提供以便更新。</p>
     <div class="gallery">
-      <img src="assets/poster.jpg" alt="花絮照片示意" onclick="openLightbox(this.src)">
-      <img src="assets/poster.jpg" alt="花絮照片示意" onclick="openLightbox(this.src)">
-      <img src="assets/poster.jpg" alt="花絮照片示意" onclick="openLightbox(this.src)">
-      <img src="assets/poster.jpg" alt="花絮照片示意" onclick="openLightbox(this.src)">
+      <img src="Poster11.jpg" alt="花絮照片示意" onclick="openLightbox(this.src)">
+      <img src="Poster11.jpg" alt="花絮照片示意" onclick="openLightbox(this.src)">
+      <img src="Poster11.jpg" alt="花絮照片示意" onclick="openLightbox(this.src)">
+      <img src="Poster11.jpg" alt="花絮照片示意" onclick="openLightbox(this.src)">
     </div>
   </div>
 </section>
