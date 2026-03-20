@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A⁺ 奇抗菌回覆｜2025 使用分析報告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+
+<style>
+:root {
+  --bg: #F5F2EC;
+  --surface: #FDFAF5;
+  --border: #D8D2C4;
+  --text: #1A1714;
+  --muted: #6B6358;
+  --accent: #2D5A3D;
+  --accent2: #8B3A1E;
+  --accent3: #1E3A5A;
+  --gold: #B8923A;
+  --green-light: #E8F2EA;
+  --red-light: #F5E8E3;
+  --mono: 'DM Mono', monospace;
+  --serif: 'Noto Serif TC', serif;
+  --display: 'Instrument Serif', serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ─── Layout ─── */
+.page { max-width: 960px; margin: 0 auto; padding: 0 24px 80px; }
+
+/* ─── Hero ─── */
+.hero {
+  padding: 64px 0 48px;
+  border-bottom: 1.5px solid var(--border);
+  position: relative;
+}
+.hero-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero-tag::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 1.5px;
+  background: var(--accent);
+}
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(36px, 6vw, 62px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+.hero-sub {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  margin-top: 20px;
+}
+.hero-year {
+  position: absolute;
+  right: 0;
+  top: 64px;
+  font-family: var(--display);
+  font-size: 96px;
+  font-weight: 400;
+  color: var(--border);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ─── Section ─── */
+.section {
+  padding: 48px 0 0;
+}
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding-bottom: 12px;
+  border-bottom: 0.5px solid var(--border);
+}
+.section-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+/* ─── KPI Grid ─── */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5px;
+  background: var(--border);
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.kpi {
+  background: var(--surface);
+  padding: 24px 20px;
+  position: relative;
+}
+.kpi-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.kpi-val {
+  font-family: var(--display);
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--text);
+}
+.kpi-val sup {
+  font-size: 18px;
+  vertical-align: super;
+}
+.kpi-note {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 8px;
+  letter-spacing: 0.04em;
+}
+.kpi.accent .kpi-val { color: var(--accent); }
+.kpi.gold .kpi-val { color: var(--gold); }
+
+/* ─── Half-year comparison ─── */
+.half-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.half-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  padding: 24px 24px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.half-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.half-card.h1::before { background: var(--accent3); }
+.half-card.h2::before { background: var(--accent); }
+.half-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.half-rate {
+  font-family: var(--display);
+  font-size: 52px;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.half-card.h1 .half-rate { color: var(--accent3); }
+.half-card.h2 .half-rate { color: var(--accent); }
+.half-arrow {
+  text-align: center;
+  padding-top: 52px;
+  font-family: var(--display);
+  font-size: 28px;
+  color: var(--accent);
+  font-style: italic;
+}
+.half-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 6px;
+  line-height: 1.8;
+}
+.half-bar-wrap {
+  margin-top: 14px;
+  background: var(--bg);
+  border-radius: 2px;
+  height: 6px;
+  overflow: hidden;
+}
+.half-bar {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+.half-card.h1 .half-bar { background: var(--accent3); }
+.half-card.h2 .half-bar { background: var(--accent); }
+
+/* ─── Charts ─── */
+.chart-wrap {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  padding: 28px 24px 20px;
+  margin-bottom: 16px;
+}
+.chart-wrap canvas { display: block; }
+
+/* ─── Two-col charts ─── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* ─── Donut card ─── */
+.donut-center {
+  position: relative;
+}
+.donut-label-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+}
+.donut-big { font-family: var(--display); font-size: 26px; line-height: 1; color: var(--text); }
+.donut-small { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.05em; }
+
+/* ─── Time bars ─── */
+.time-bars { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+.time-row { display: flex; align-items: center; gap: 10px; }
+.time-name { font-family: var(--mono); font-size: 11px; color: var(--muted); width: 52px; letter-spacing: 0.04em; flex-shrink: 0; }
+.time-bar-outer { flex: 1; background: var(--bg); border-radius: 2px; height: 24px; overflow: hidden; }
+.time-bar-inner {
+  height: 100%;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: #fff;
+  font-weight: 500;
+  transition: width 1.4s cubic-bezier(0.4,0,0.2,1);
+}
+.time-pct { font-family: var(--mono); font-size: 11px; color: var(--muted); width: 36px; text-align: right; }
+
+/* ─── Discordant items ─── */
+.disc-list { display: flex; flex-direction: column; gap: 10px; }
+.disc-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+}
+.disc-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent2);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.disc-cat { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.disc-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+.disc-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 2px;
+  background: var(--red-light);
+  color: var(--accent2);
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+}
+
+/* ─── Model pills ─── */
+.model-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.model-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 2px;
+}
+.model-dot { width: 8px; height: 8px; border-radius: 50%; }
+.model-name { font-family: var(--mono); font-size: 12px; color: var(--text); }
+.model-pct { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+
+/* ─── Footer ─── */
+.footer {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1.5px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-left {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  line-height: 1.8;
+}
+.footer-right {
+  font-family: var(--display);
+  font-size: 22px;
+  font-style: italic;
+  color: var(--border);
+}
+
+/* ─── Animate on load ─── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.6s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 680px) {
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .half-grid { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  .hero-year { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Hero -->
+  <header class="hero fade-up">
+    <div class="hero-tag">Chi Mei Medical Center · 奇美醫院</div>
+    <h1>A⁺ 奇抗菌回覆<br><em>使用分析報告</em></h1>
+    <div class="hero-sub">統計區間 2025/01/01 — 2025/12/31 ｜ 資料筆數 770</div>
+    <div class="hero-year">2025</div>
+  </header>
+
+  <!-- Section 1: KPIs -->
+  <section class="section fade-up" style="animation-delay:0.1s">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-title">整體使用概覽</span>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-label">總使用次數</div>
+        <div class="kpi-val">770</div>
+        <div class="kpi-note">次諮詢 / 2025 全年</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">平均執行時間</div>
+        <div class="kpi-val">8.8<sup>秒</sup></div>
+        <div class="kpi-note">中位數 8 秒</div>
+      </div>
+      <div class="kpi accent">
+        <div class="kpi-label">建議一致比例</div>
+        <div class="kpi-val">78.4<sup>%</sup></div>
+        <div class="kpi-note">87 / 111 有回饋筆數</div>
+      </div>
+      <div class="kpi gold">
+        <div class="kpi-label">平均滿意度</div>
+        <div class="kpi-val">4.88<sup>★</sup></div>
+        <div class="kpi-note">總星數 546（112 筆評分）</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Half-year -->
+  <section class="section fade-up" style="animation-delay:0.15s">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-title">上下半年建議一致性比較</span>
+    </div>
+    <div class="half-grid">
+      <div class="half-card h1">
+        <div class="half-label">2025 上半年 (H1)</div>
+        <div class="half-rate">71.8<span style="font-size:22px">%</span></div>
+        <div class="half-bar-wrap"><div class="half-bar" style="width:71.8%"></div></div>
+        <div class="half-meta">使用次數: 450　回饋筆數: 71　一致: 51 筆</div>
+      </div>
+      <div class="half-card h2">
+        <div class="half-label">2025 下半年 (H2)</div>
+        <div class="half-rate">90.0<span style="font-size:22px">%</span></div>
+        <div class="half-bar-wrap"><div class="half-bar" style="width:90%"></div></div>
+        <div class="half-meta">使用次數: 320　回饋筆數: 40　一致: 36 筆</div>
+      </div>
+    </div>
+    <div style="background:var(--green-light);border-radius:4px;padding:14px 18px;border:1.5px solid #b8d9bf;">
+      <span style="font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:0.08em;">↑ +18.2 個百分點</span>
+      <span style="font-family:var(--serif);font-size:13px;color:var(--accent);margin-left:10px;">下半年建議一致性顯著提升，11 月、12 月均達 100%</span>
+    </div>
+  </section>
+
+  <!-- Section 3: Monthly trend -->
+  <section class="section fade-up" style="animation-delay:0.2s">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <span class="section-title">月度使用次數與建議一致率</span>
+    </div>
+    <div class="chart-wrap">
+      <div style="position:relative;height:300px;"><canvas id="monthlyChart"></canvas></div>
+    </div>
+    <div style="display:flex;gap:20px;font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:8px;">
+      <span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:4px;background:#2D5A3D;border-radius:2px;display:inline-block;"></span>使用次數（左軸）</span>
+      <span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:3px;border-top:2px dashed #B8923A;display:inline-block;"></span>建議一致率（右軸，有回饋月份）</span>
+    </div>
+  </section>
+
+  <!-- Section 4: Time + Stars -->
+  <section class="section fade-up" style="animation-delay:0.25s">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <span class="section-title">使用時段分佈與星數評分</span>
+    </div>
+    <div class="two-col">
+      <!-- Time bars -->
+      <div class="chart-wrap" style="margin-bottom:0">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">使用時段分佈（770 次）</div>
+        <div class="time-bars">
+          <div class="time-row">
+            <div class="time-name">早班<br><span style="font-size:9px;">06–12</span></div>
+            <div class="time-bar-outer">
+              <div class="time-bar-inner" style="width:25.7%;background:#1E3A5A;">198</div>
+            </div>
+            <div class="time-pct">25.7%</div>
+          </div>
+          <div class="time-row">
+            <div class="time-name">午班<br><span style="font-size:9px;">12–18</span></div>
+            <div class="time-bar-outer">
+              <div class="time-bar-inner" style="width:59.7%;background:#2D5A3D;">460</div>
+            </div>
+            <div class="time-pct">59.7%</div>
+          </div>
+          <div class="time-row">
+            <div class="time-name">晚班<br><span style="font-size:9px;">18–24</span></div>
+            <div class="time-bar-outer">
+              <div class="time-bar-inner" style="width:7.5%;background:#8B3A1E;padding-left:6px;">58</div>
+            </div>
+            <div class="time-pct">7.5%</div>
+          </div>
+          <div class="time-row">
+            <div class="time-name">夜班<br><span style="font-size:9px;">00–06</span></div>
+            <div class="time-bar-outer">
+              <div class="time-bar-inner" style="width:7.0%;background:#6B6358;padding-left:6px;">54</div>
+            </div>
+            <div class="time-pct">7.0%</div>
+          </div>
+        </div>
+        <div style="margin-top:16px;padding-top:12px;border-top:0.5px solid var(--border);font-family:var(--mono);font-size:10px;color:var(--muted);">查房時段（午班）佔比最高，符合 ICU 臨床作業模式</div>
+      </div>
+
+      <!-- Stars donut -->
+      <div class="chart-wrap" style="margin-bottom:0">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">星數評分分佈（112 筆）</div>
+        <div class="donut-center" style="position:relative;height:180px;">
+          <canvas id="starDonut"></canvas>
+          <div class="donut-label-center">
+            <div class="donut-big">4.88</div>
+            <div class="donut-small">平均星數</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;">
+          <div style="display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;color:var(--muted);">
+            <span style="width:10px;height:10px;background:#2D5A3D;border-radius:2px;"></span>5星 102筆 91.1%
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;color:var(--muted);">
+            <span style="width:10px;height:10px;background:#B8923A;border-radius:2px;"></span>4星 6筆 5.4%
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;color:var(--muted);">
+            <span style="width:10px;height:10px;background:#8B3A1E;border-radius:2px;"></span>3星 4筆 3.6%
+          </div>
+        </div>
+        <div style="margin-top:12px;padding-top:12px;border-top:0.5px solid var(--border);font-family:var(--mono);font-size:10px;color:var(--muted);">總計 546 顆星 · 使用者滿意度極高</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Discordant analysis -->
+  <section class="section fade-up" style="animation-delay:0.3s">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <span class="section-title">不一致意見分類分析（24 筆）</span>
+    </div>
+    <div class="two-col" style="margin-bottom:20px;">
+      <div class="chart-wrap" style="margin-bottom:0">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">不一致意見類別</div>
+        <div style="position:relative;height:200px;"><canvas id="discChart"></canvas></div>
+      </div>
+      <div class="chart-wrap" style="margin-bottom:0;">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">使用模型分佈</div>
+        <div style="position:relative;height:140px;"><canvas id="modelChart"></canvas></div>
+        <div class="model-row">
+          <div class="model-pill">
+            <div class="model-dot" style="background:#2D5A3D;"></div>
+            <span class="model-name">GPT-4o</span>
+            <span class="model-pct">87.7%</span>
+          </div>
+          <div class="model-pill">
+            <div class="model-dot" style="background:#B8923A;"></div>
+            <span class="model-name">GPT-5</span>
+            <span class="model-pct">12.3%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="disc-list">
+      <div class="disc-row">
+        <div class="disc-icon">藥</div>
+        <div>
+          <div class="disc-cat">用藥種類判斷差異</div>
+          <div class="disc-desc">特殊菌種（C. glabrata → Echinocandin；Legionella → Cravit）或中介性（I）藥敏結果造成選藥分歧</div>
+          <span class="disc-badge">5 筆</span>
+        </div>
+      </div>
+      <div class="disc-row">
+        <div class="disc-icon">$</div>
+        <div>
+          <div class="disc-cat">成本效益與藥物供應鏈</div>
+          <div class="disc-desc">系統建議理論最適藥物，但臨床考量院內可及性、藥物供應與成本，建議替代選項</div>
+          <span class="disc-badge">4 筆</span>
+        </div>
+      </div>
+      <div class="disc-row">
+        <div class="disc-icon">菌</div>
+        <div>
+          <div class="disc-cat">菌株臨床意義判讀困難</div>
+          <div class="disc-desc">系統無法自動區分 colonization / contamination / true pathogen，需臨床醫師補充判斷</div>
+          <span class="disc-badge">1 筆</span>
+        </div>
+      </div>
+      <div class="disc-row">
+        <div class="disc-icon">程</div>
+        <div>
+          <div class="disc-cat">療程與升階時機</div>
+          <div class="disc-desc">治療天數建議差異（liver abscess）、不必要的後線用藥、未建議降階等臨床判斷分歧</div>
+          <span class="disc-badge">3 筆</span>
+        </div>
+      </div>
+      <div class="disc-row">
+        <div class="disc-icon">量</div>
+        <div>
+          <div class="disc-cat">劑量或頻次不符</div>
+          <div class="disc-desc">如 Cefoperazone/Sulbactam 應建議 4g Q12H 而非 2g；合併療法頻次不符臨床需求等</div>
+          <span class="disc-badge">2 筆</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer fade-up" style="animation-delay:0.35s">
+    <div class="footer-left">
+      奇美醫院品質管理部<br>
+      資料截止：2025/12/31｜分析工具：Claude AI<br>
+      A⁺ 奇抗菌回覆 — Antibiotic Advisory System
+    </div>
+    <div class="footer-right">Chi Mei</div>
+  </footer>
+
+</div>
+
+<script>
+const months = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+const usage  = [75,151,95,31,14,84,73,89,61,18,45,34];
+const rates  = [null,54.5,76.0,66.7,null,94.1,78.6,75.0,100,100,100,100];
+
+// Monthly chart
+new Chart(document.getElementById('monthlyChart'), {
+  data: {
+    labels: months,
+    datasets: [
+      {
+        type: 'bar',
+        label: '使用次數',
+        data: usage,
+        backgroundColor: 'rgba(45,90,61,0.75)',
+        hoverBackgroundColor: 'rgba(45,90,61,0.95)',
+        borderRadius: 3,
+        yAxisID: 'y',
+        order: 2,
+      },
+      {
+        type: 'line',
+        label: '建議一致率',
+        data: rates,
+        borderColor: '#B8923A',
+        borderWidth: 2,
+        borderDash: [5,4],
+        pointBackgroundColor: '#B8923A',
+        pointBorderColor: '#F5F2EC',
+        pointBorderWidth: 2,
+        pointRadius: 5,
+        pointHoverRadius: 7,
+        spanGaps: false,
+        tension: 0.4,
+        fill: false,
+        yAxisID: 'y2',
+        order: 1,
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#1A1714',
+        titleColor: '#F5F2EC',
+        bodyColor: '#A89E8C',
+        padding: 10,
+        callbacks: {
+          label: ctx => ctx.datasetIndex === 0
+            ? '使用次數: ' + ctx.parsed.y
+            : '一致率: ' + (ctx.parsed.y !== null ? ctx.parsed.y + '%' : '無資料')
+        }
+      }
+    },
+    scales: {
+      x: {
+        ticks: { color: '#6B6358', font: { family: "'DM Mono'", size: 11 } },
+        grid: { color: 'rgba(90,80,70,0.1)' }
+      },
+      y: {
+        position: 'left',
+        ticks: { color: '#6B6358', font: { family: "'DM Mono'", size: 11 } },
+        grid: { color: 'rgba(90,80,70,0.1)' },
+        title: { display: true, text: '次數', color: '#6B6358', font: { family: "'DM Mono'", size: 10 } }
+      },
+      y2: {
+        position: 'right',
+        min: 0, max: 115,
+        ticks: { color: '#B8923A', font: { family: "'DM Mono'", size: 11 }, callback: v => v + '%' },
+        grid: { display: false },
+        title: { display: true, text: '一致率 %', color: '#B8923A', font: { family: "'DM Mono'", size: 10 } }
+      }
+    }
+  }
+});
+
+// Star donut
+new Chart(document.getElementById('starDonut'), {
+  type: 'doughnut',
+  data: {
+    labels: ['5星','4星','3星'],
+    datasets: [{
+      data: [102, 6, 4],
+      backgroundColor: ['#2D5A3D','#B8923A','#8B3A1E'],
+      borderColor: '#FDFAF5',
+      borderWidth: 3,
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    cutout: '68%',
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#1A1714',
+        titleColor: '#F5F2EC',
+        bodyColor: '#A89E8C',
+        callbacks: { label: ctx => ctx.label + ': ' + ctx.parsed + ' 筆' }
+      }
+    }
+  }
+});
+
+// Discordant bar
+new Chart(document.getElementById('discChart'), {
+  type: 'bar',
+  data: {
+    labels: ['用藥種類','成本效益','療程差異','劑量差異','菌株判讀','其他'],
+    datasets: [{
+      data: [5, 4, 3, 2, 1, 9],
+      backgroundColor: [
+        'rgba(30,58,90,0.8)',
+        'rgba(184,146,58,0.8)',
+        'rgba(139,58,30,0.8)',
+        'rgba(45,90,61,0.8)',
+        'rgba(107,99,88,0.8)',
+        'rgba(107,99,88,0.45)',
+      ],
+      borderRadius: 3,
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#1A1714',
+        titleColor: '#F5F2EC',
+        bodyColor: '#A89E8C',
+        callbacks: { label: ctx => ctx.parsed.x + ' 筆' }
+      }
+    },
+    scales: {
+      x: { ticks: { color: '#6B6358', font: { family: "'DM Mono'", size: 10 }, stepSize: 1 }, grid: { color: 'rgba(90,80,70,0.1)' } },
+      y: { ticks: { color: '#6B6358', font: { family: "'DM Mono'", size: 10 } }, grid: { display: false } }
+    }
+  }
+});
+
+// Model pie
+new Chart(document.getElementById('modelChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['GPT-4o','GPT-5'],
+    datasets: [{
+      data: [675, 95],
+      backgroundColor: ['rgba(45,90,61,0.85)', 'rgba(184,146,58,0.85)'],
+      borderColor: '#FDFAF5',
+      borderWidth: 3,
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    cutout: '60%',
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#1A1714',
+        titleColor: '#F5F2EC',
+        bodyColor: '#A89E8C',
+        callbacks: { label: ctx => ctx.label + ': ' + ctx.parsed + ' 次' }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>
