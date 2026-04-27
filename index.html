@@ -1,379 +1,3870 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
+<!doctype html>
+<html lang="zh">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>奇美友善醫療日嘉年華｜Eyes on Ukraine 全球首映季系列</title>
-<meta name="description" content="奇美友善醫療日嘉年華：融合紀錄片《Eyes on Ukraine》首映季、性別論壇、友善論壇、表演、餐點、抽獎與互動遊戲的年度活動。">
+<title>奇美友愛 · Chi Mei Love & Care — HIV-Friendly and Equitable Healthcare</title>
+<meta name="description" content="Chi Mei Hospital's HIV-friendly and equitable healthcare programme — from friendly care to system redesign, public health, and long-term care readiness.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,30..100&family=Manrope:wght@300..800&family=Noto+Sans+TC:wght@300..800&family=Noto+Serif+TC:wght@300..900&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --blue:#0e7aa8;
-    --yellow:#e0c23a;
-    --ink:#10212a;
-    --bg:#f7f8fb;
-    --card:#ffffff;
-    --muted:#6c7a86;
-    --accent:#145c74;
-    --success:#2f9e44;
+:root {
+  --c-bg-deep: #0a0f1c;
+  --c-bg: #0f172a;
+  --c-bg-soft: #1e293b;
+  --c-line-dark: #233048;
+  --c-paper: #f6f4ee;
+  --c-paper-soft: #ecebe3;
+  --c-card: #ffffff;
+  --c-text: #0f172a;
+  --c-text-soft: #475569;
+  --c-text-mute: #94a3b8;
+  --c-line: #e2e8f0;
+  --c-accent: #ea580c;
+  --c-accent-soft: #fed7aa;
+  --c-accent-deep: #b04209;
+  --c-cyan: #0891b2;
+  --c-cyan-soft: #cffafe;
+  --c-ribbon: #dc2626;
+
+  --f-display: "Fraunces","Noto Serif TC", Georgia, serif;
+  --f-body: "Manrope","Noto Sans TC", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --maxw: 1240px;
+  --pad: clamp(20px, 4vw, 56px);
+}
+
+*,*::before,*::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  margin: 0;
+  font-family: var(--f-body);
+  color: var(--c-text);
+  background: var(--c-paper);
+  line-height: 1.55;
+  font-weight: 400;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+/* ---------- bilingual switching ---------- */
+html[lang="zh"] .lang-en { display: none !important; }
+html[lang="en"] .lang-zh { display: none !important; }
+html[lang="en"] body { font-feature-settings: "ss01","ss02"; }
+
+/* ---------- nav ---------- */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px var(--pad);
+  background: rgba(10,15,28,0.0);
+  backdrop-filter: blur(0);
+  transition: background .35s ease, backdrop-filter .35s ease, padding .35s ease, border-color .35s ease;
+  border-bottom: 1px solid transparent;
+  color: #fff;
+}
+.nav.scrolled {
+  background: rgba(10,15,28,0.92);
+  backdrop-filter: blur(14px) saturate(140%);
+  padding: 12px var(--pad);
+  border-bottom-color: rgba(234,88,12,0.25);
+}
+.brand {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: .01em;
+}
+.brand-mark {
+  width: 30px; height: 30px;
+  display: inline-grid; place-items: center;
+  position: relative;
+}
+.brand-mark svg { width: 100%; height: 100%; }
+.brand-name .sub {
+  display: block;
+  font-family: var(--f-body);
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--c-accent-soft);
+  font-weight: 600;
+  margin-top: 1px;
+}
+.nav-links {
+  display: flex; gap: 28px;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+.nav-links a {
+  position: relative;
+  padding: 6px 2px;
+  color: rgba(255,255,255,.82);
+  transition: color .2s;
+}
+.nav-links a:hover { color: #fff; }
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  height: 2px; width: 0;
+  background: var(--c-accent);
+  transition: width .25s;
+}
+.nav-links a:hover::after { width: 100%; }
+.nav-actions { display: flex; align-items: center; gap: 14px; }
+.lang-toggle {
+  border: 1px solid rgba(255,255,255,.25);
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: .15em;
+  font-weight: 600;
+  color: #fff;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all .2s;
+}
+.lang-toggle:hover { background: var(--c-accent); border-color: var(--c-accent); }
+.lang-toggle .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--c-accent); }
+
+.menu-btn { display: none; }
+
+@media (max-width: 880px) {
+  .nav-links {
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    background: rgba(10,15,28,.97);
+    backdrop-filter: blur(14px);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px var(--pad) 36px;
+    gap: 18px;
+    transform: translateY(-130%);
+    transition: transform .35s ease;
+    border-bottom: 1px solid var(--c-line-dark);
   }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Noto Sans TC,Roboto,Helvetica,Arial,"PingFang TC","Microsoft JhengHei",sans-serif;color:var(--ink);background:var(--bg)}
-  a{color:var(--blue);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .container{max-width:1200px;margin:0 auto;padding:0 20px}
-  /* HERO */
-  header.hero{
-    position:relative;
-    min-height:80vh;
-    display:grid;
-    place-items:center;
-    background:linear-gradient(180deg,rgba(16,33,42,0.65),rgba(16,33,42,0.85)),url('assets/PosterBG.jpg') center/cover no-repeat;
-    color:#fff;
-    text-align:left;
+  .nav-links.open { transform: translateY(0); }
+  .menu-btn {
+    display: inline-grid;
+    place-items: center;
+    width: 38px; height: 38px;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 8px;
   }
-  .hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center;width:100%}
-  .brand{display:flex;gap:12px;align-items:center;margin-bottom:10px}
-  .brand .logo{width:44px;height:44px;border-radius:8px;background:#fff;display:grid;place-items:center;color:var(--ink);font-weight:700}
-  h1{font-size:clamp(28px, 4.2vw, 56px);line-height:1.05;margin:0 0 12px}
-  .kicker{letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#f8f9fa;opacity:.95;font-size:14px}
-  .badges{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
-  .badge{background:rgba(255,255,255,.12);padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.25);font-size:13px}
-  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
-  .btn{
-    display:inline-flex;align-items:center;gap:8px;
-    background:var(--yellow);color:#1a1a1a;font-weight:800;border-radius:12px;padding:12px 16px;
-    border:none;cursor:pointer;font-size:16px;box-shadow:0 6px 16px rgba(0,0,0,.18);
+  .menu-btn svg { width: 18px; height: 18px; stroke: #fff; }
+}
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 700px at 80% -10%, rgba(234,88,12,.18), transparent 60%),
+    radial-gradient(900px 600px at 10% 110%, rgba(8,145,178,.18), transparent 60%),
+    linear-gradient(180deg, #0a0f1c 0%, #111a30 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 120px var(--pad) 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+.hero::before {
+  /* paper grain */
+  content: "";
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: .55;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-issue {
+  position: absolute;
+  top: 96px; right: var(--pad);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .25em;
+  color: var(--c-text-mute);
+  text-transform: uppercase;
+  text-align: right;
+  z-index: 2;
+}
+.hero-issue .num {
+  display: block;
+  font-family: var(--f-display);
+  font-size: 36px;
+  color: var(--c-accent);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0;
+  line-height: 1;
+  margin-top: 4px;
+}
+.hero-grid {
+  position: relative;
+  z-index: 2;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  width: 100%;
+  padding-bottom: 80px;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: 12px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--c-accent-soft);
+  font-weight: 600;
+  margin-bottom: 28px;
+}
+.hero-eyebrow .ribbon {
+  width: 14px; height: 22px;
+  position: relative;
+  display: inline-block;
+}
+.hero-eyebrow .ribbon::before,
+.hero-eyebrow .ribbon::after {
+  content: "";
+  position: absolute;
+  width: 5px; height: 16px;
+  background: var(--c-ribbon);
+  top: 0;
+  border-radius: 2px;
+}
+.hero-eyebrow .ribbon::before { left: 1px; transform: rotate(-18deg); transform-origin: top; }
+.hero-eyebrow .ribbon::after  { right: 1px; transform: rotate(18deg);  transform-origin: top; }
+
+.hero h1 {
+  font-family: var(--f-display);
+  font-weight: 350;
+  font-size: clamp(40px, 6.4vw, 92px);
+  line-height: 1.02;
+  letter-spacing: -.02em;
+  margin: 0 0 24px;
+  max-width: 16ch;
+  font-variation-settings: "SOFT" 30, "opsz" 144;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--c-accent);
+  font-weight: 400;
+}
+.hero h1 .stroke {
+  display: inline-block;
+  position: relative;
+}
+.hero h1 .stroke::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -4px;
+  height: 8px;
+  background: var(--c-accent);
+  opacity: .9;
+  border-radius: 2px;
+  transform: skew(-12deg);
+}
+.hero p.lede {
+  font-size: clamp(16px, 1.4vw, 19px);
+  color: rgba(255,255,255,.78);
+  max-width: 56ch;
+  margin: 0 0 56px;
+  line-height: 1.6;
+}
+.hero-cta {
+  display: flex; gap: 14px; flex-wrap: wrap;
+  margin-bottom: 72px;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: .04em;
+  transition: transform .2s, background .2s, color .2s, border-color .2s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary {
+  background: var(--c-accent);
+  color: #fff;
+}
+.btn-primary:hover { background: #f97316; }
+.btn-ghost {
+  border: 1px solid rgba(255,255,255,.3);
+  color: #fff;
+}
+.btn-ghost:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.55); }
+.btn .arrow { transition: transform .25s; }
+.btn:hover .arrow { transform: translateX(4px); }
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,.14);
+  padding-top: 32px;
+  margin-bottom: 56px;
+}
+.hero-stats .stat { padding: 4px 24px 4px 0; border-right: 1px solid rgba(255,255,255,.1); }
+.hero-stats .stat:last-child { border-right: none; }
+.hero-stats .stat .num {
+  font-family: var(--f-display);
+  font-weight: 350;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1;
+  color: #fff;
+  display: flex; align-items: baseline; gap: 4px;
+}
+.hero-stats .stat .num span.unit {
+  font-size: .45em;
+  color: var(--c-accent);
+  font-style: italic;
+}
+.hero-stats .stat .label {
+  margin-top: 12px;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+  line-height: 1.4;
+}
+@media (max-width: 880px) {
+  .hero { padding-top: 100px; }
+  .hero-issue { display: none; }
+  .hero-stats { grid-template-columns: repeat(2,1fr); gap: 28px 0; }
+  .hero-stats .stat { border-right: none; padding-right: 0; }
+  .hero-stats .stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.1); padding-right: 16px; }
+}
+
+/* ---------- section base ---------- */
+section { padding: clamp(80px, 10vw, 140px) var(--pad); }
+.container { max-width: var(--maxw); margin: 0 auto; }
+.section-head {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 40px;
+  margin-bottom: 64px;
+  align-items: end;
+}
+.section-head .label {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--c-text-mute);
+}
+.section-head .label .num {
+  display: block;
+  font-family: var(--f-display);
+  font-size: 40px;
+  font-style: italic;
+  color: var(--c-accent);
+  font-weight: 350;
+  letter-spacing: 0;
+  margin-top: 6px;
+}
+.section-head h2 {
+  font-family: var(--f-display);
+  font-weight: 350;
+  font-size: clamp(34px, 4.4vw, 60px);
+  line-height: 1.05;
+  letter-spacing: -.015em;
+  margin: 0;
+  max-width: 22ch;
+}
+.section-head h2 em { font-style: italic; color: var(--c-accent); font-weight: 400; }
+.section-head .deck {
+  margin-top: 18px;
+  font-size: 17px;
+  color: var(--c-text-soft);
+  max-width: 60ch;
+  line-height: 1.65;
+}
+@media (max-width: 760px) {
+  .section-head { grid-template-columns: 1fr; gap: 16px; }
+}
+
+/* ---------- about ---------- */
+#about {
+  background: var(--c-paper);
+  position: relative;
+}
+.about-pull {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-weight: 350;
+  font-size: clamp(22px, 2.4vw, 32px);
+  line-height: 1.4;
+  color: var(--c-text);
+  max-width: 30ch;
+  border-left: 3px solid var(--c-accent);
+  padding-left: 28px;
+  margin: 0 0 56px;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 24px;
+}
+.about-card {
+  background: var(--c-card);
+  border: 1px solid var(--c-line);
+  border-radius: 4px;
+  padding: 32px 28px;
+  position: relative;
+  transition: transform .25s, box-shadow .25s;
+}
+.about-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -20px rgba(15,23,42,.14);
+}
+.about-card .tag {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .25em;
+  color: var(--c-accent);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.about-card h3 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: 24px;
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+.about-card p {
+  margin: 0;
+  color: var(--c-text-soft);
+  font-size: 15px;
+  line-height: 1.65;
+}
+@media (max-width: 880px) { .about-grid { grid-template-columns: 1fr; } }
+
+/* ---------- journey / timeline ---------- */
+#journey { background: var(--c-bg); color: #fff; position: relative; overflow: hidden; }
+#journey::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: .6;
+  pointer-events: none;
+}
+#journey .section-head .label { color: rgba(255,255,255,.55); }
+#journey .section-head .deck { color: rgba(255,255,255,.7); }
+.timeline {
+  position: relative;
+  margin-top: 32px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 110px; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, var(--c-accent), rgba(234,88,12,.05));
+}
+.tl-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 56px;
+  padding: 26px 0;
+  position: relative;
+}
+.tl-year {
+  font-family: var(--f-display);
+  font-weight: 350;
+  font-style: italic;
+  font-size: 36px;
+  color: var(--c-accent);
+  line-height: 1;
+  position: relative;
+}
+.tl-row::before {
+  content: "";
+  position: absolute;
+  left: 105px; top: 36px;
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  box-shadow: 0 0 0 4px var(--c-bg), 0 0 0 5px var(--c-accent);
+}
+.tl-content h4 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: 22px;
+  margin: 0 0 12px;
+  color: #fff;
+}
+.tl-content ul {
+  margin: 0; padding: 0; list-style: none;
+}
+.tl-content li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 8px;
+  color: rgba(255,255,255,.78);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.tl-content li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 11px;
+  width: 8px; height: 1px;
+  background: var(--c-accent);
+}
+@media (max-width: 760px) {
+  .timeline::before { left: 14px; }
+  .tl-row { grid-template-columns: 1fr; gap: 8px; padding-left: 36px; }
+  .tl-row::before { left: 9px; top: 36px; }
+  .tl-year { font-size: 28px; }
+}
+
+/* ---------- our model ---------- */
+#model { background: var(--c-paper-soft); }
+.model-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+}
+.model-card {
+  background: #fff;
+  border: 1px solid var(--c-line);
+  padding: 36px 32px;
+  border-radius: 4px;
+  position: relative;
+  display: flex; flex-direction: column;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+.model-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--c-accent);
+  box-shadow: 0 20px 40px -20px rgba(15,23,42,.16);
+}
+.model-card .num {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .3em;
+  color: var(--c-accent);
+}
+.model-card .icon {
+  margin-top: 18px;
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  color: var(--c-accent);
+}
+.model-card h3 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: 24px;
+  margin: 24px 0 6px;
+  line-height: 1.2;
+}
+.model-card .en-sub {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--c-text-mute);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.model-card p {
+  margin: 0;
+  color: var(--c-text-soft);
+  font-size: 15px;
+  line-height: 1.65;
+  flex: 1;
+}
+.model-card .pillar {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--c-line);
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--c-text-mute);
+}
+.model-card.wide-1 { grid-column: span 6; }
+.model-card.wide-2 { grid-column: span 6; }
+.model-card.wide-3 { grid-column: span 4; }
+.model-card.wide-4 { grid-column: span 4; }
+.model-card.wide-5 { grid-column: span 4; }
+@media (max-width: 880px) {
+  .model-grid { grid-template-columns: 1fr; }
+  .model-card { grid-column: 1 / -1 !important; }
+}
+
+/* ---------- team ---------- */
+#team { background: var(--c-paper); }
+.team-tier { margin-bottom: 64px; }
+.team-tier-head {
+  display: flex; align-items: baseline; gap: 18px;
+  border-bottom: 1px solid var(--c-line);
+  padding-bottom: 14px;
+  margin-bottom: 32px;
+}
+.team-tier-head .roman {
+  font-family: var(--f-display);
+  font-size: 22px;
+  font-style: italic;
+  color: var(--c-accent);
+}
+.team-tier-head h3 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: 24px;
+  margin: 0;
+}
+.team-tier-head .en {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .2em;
+  color: var(--c-text-mute);
+  text-transform: uppercase;
+  margin-left: auto;
+}
+.team-grid {
+  display: grid;
+  gap: 20px;
+}
+.team-tier.lvl-1 .team-grid { grid-template-columns: repeat(3, 1fr); }
+.team-tier.lvl-2 .team-grid { grid-template-columns: repeat(4, 1fr); }
+.team-tier.lvl-3 .team-grid { grid-template-columns: repeat(5, 1fr); }
+.team-card {
+  background: #fff;
+  border: 1px solid var(--c-line);
+  padding: 22px;
+  border-radius: 4px;
+  transition: border-color .2s, transform .2s;
+}
+.team-card:hover { border-color: var(--c-accent); transform: translateY(-2px); }
+.team-card .avatar {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--c-accent-soft), var(--c-cyan-soft));
+  margin-bottom: 14px;
+  display: grid; place-items: center;
+  color: var(--c-accent-deep);
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: 17px;
+}
+.team-card .name {
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: 17px;
+  margin-bottom: 2px;
+}
+.team-card .role {
+  font-size: 12px;
+  color: var(--c-accent);
+  font-weight: 600;
+  letter-spacing: .04em;
+  margin-bottom: 8px;
+}
+.team-card .bio {
+  font-size: 13px;
+  color: var(--c-text-soft);
+  line-height: 1.55;
+}
+@media (max-width: 1000px) {
+  .team-tier.lvl-1 .team-grid,
+  .team-tier.lvl-2 .team-grid,
+  .team-tier.lvl-3 .team-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  .btn.secondary{background:#fff;color:var(--ink)}
-  .meta{margin-top:16px;color:#e8f0f5;font-size:14px}
-  /* INFOGRAPHIC STRIP */
-  .infostrip{background:#fff;box-shadow:0 4px 18px rgba(0,0,0,.06);margin-top:-48px;border-radius:16px;padding:18px}
-  .infogrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-  .icard{background:var(--card);border:1px solid #eef1f4;border-radius:14px;padding:18px;display:flex;gap:12px;align-items:flex-start}
-  .icard svg{width:28px;height:28px;flex:0 0 auto}
-  .icard h4{margin:0 0 6px;font-size:16px}
-  .icard p{margin:0;color:var(--muted);font-size:14px}
-  /* SECTIONS */
-  section{padding:56px 0}
-  section h2{font-size:32px;margin:0 0 16px}
-  .lead{color:var(--muted);max-width:820px}
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
-  .card{background:#fff;border:1px solid #eef1f4;border-radius:14px;padding:18px}
-  .card h3{margin:0 0 10px}
-  .pill{display:inline-block;background:var(--blue);color:#fff;padding:4px 10px;border-radius:999px;font-size:12px;margin-right:6px}
-  /* Timeline */
-  .timeline{position:relative;margin-top:18px}
-  .timeline:before{content:"";position:absolute;left:18px;top:0;bottom:0;width:3px;background:#e6edf2}
-  .titem{position:relative;margin-left:44px;margin-bottom:16px}
-  .titem:before{content:"";position:absolute;left:-29px;top:6px;width:16px;height:16px;background:var(--yellow);border:3px solid #fff;border-radius:50%;box-shadow:0 0 0 2px #e6edf2}
-  .titem h4{margin:0 0 6px}
-  /* Gallery */
-  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-  .gallery img{width:100%;height:180px;object-fit:cover;border-radius:10px;border:1px solid #ecf0f3;cursor:pointer}
-  /* Accordion */
-  .accordion{border:1px solid #e8edf1;border-radius:12px;overflow:hidden}
-  .acc{border-top:1px solid #e8edf1;background:#fff}
-  .acc summary{list-style:none;cursor:pointer;padding:16px 18px;font-weight:700}
-  .acc summary::-webkit-details-marker{display:none}
-  .acc .content{padding:0 18px 16px;color:var(--muted)}
-  /* Footer */
-  footer{background:#0c1d26;color:#cfe5ef;padding:36px 0}
-  footer a{color:#fff;text-decoration:underline}
-  .grid-2{display:grid;grid-template-columns:1.1fr 1fr;gap:20px}
-  /* Responsive */
-  @media(max-width:960px){
-    .hero .wrap{grid-template-columns:1fr}
-    .infogrid{grid-template-columns:repeat(2,1fr)}
-    .cards{grid-template-columns:1fr}
-    .gallery{grid-template-columns:repeat(2,1fr)}
-    .grid-2{grid-template-columns:1fr}
+}
+@media (max-width: 560px) {
+  .team-tier.lvl-1 .team-grid,
+  .team-tier.lvl-2 .team-grid,
+  .team-tier.lvl-3 .team-grid {
+    grid-template-columns: 1fr;
   }
+  .team-tier-head .en { display: none; }
+}
+
+/* ---------- friendly care day ---------- */
+#friendly-day { background: var(--c-bg-soft); color: #fff; position: relative; }
+#friendly-day .section-head .label { color: rgba(255,255,255,.55); }
+#friendly-day .section-head .deck { color: rgba(255,255,255,.7); }
+.year-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,.14);
+  padding-bottom: 0;
+}
+.year-tab {
+  padding: 14px 22px;
+  font-family: var(--f-display);
+  font-size: 22px;
+  font-style: italic;
+  color: rgba(255,255,255,.4);
+  border-bottom: 2px solid transparent;
+  transition: all .2s;
+  margin-bottom: -1px;
+}
+.year-tab:hover { color: rgba(255,255,255,.8); }
+.year-tab.active { color: var(--c-accent); border-bottom-color: var(--c-accent); }
+.year-panel { display: none; }
+.year-panel.active { display: block; animation: fadeUp .5s ease; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.year-meta {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 56px;
+  margin-bottom: 48px;
+  align-items: end;
+}
+.year-meta h3 {
+  font-family: var(--f-display);
+  font-weight: 350;
+  font-size: clamp(28px, 3.5vw, 44px);
+  line-height: 1.15;
+  margin: 0 0 14px;
+  color: #fff;
+}
+.year-meta h3 em { font-style: italic; color: var(--c-accent); }
+.year-meta p {
+  color: rgba(255,255,255,.72);
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 60ch;
+}
+.year-meta .meta-stats {
+  display: flex; flex-direction: column; gap: 14px;
+  border-left: 1px solid rgba(255,255,255,.18);
+  padding-left: 28px;
+}
+.year-meta .meta-stats .row {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .15em;
+  color: rgba(255,255,255,.5);
+  text-transform: uppercase;
+}
+.year-meta .meta-stats .row strong {
+  display: block;
+  font-family: var(--f-display);
+  font-style: italic;
+  font-weight: 350;
+  font-size: 22px;
+  color: var(--c-accent);
+  letter-spacing: 0;
+  text-transform: none;
+  margin-top: 2px;
+}
+@media (max-width: 880px) {
+  .year-meta { grid-template-columns: 1fr; gap: 28px; }
+  .year-meta .meta-stats { border-left: none; border-top: 1px solid rgba(255,255,255,.18); padding-left: 0; padding-top: 24px; flex-direction: row; flex-wrap: wrap; gap: 24px; }
+}
+.day-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 24px;
+}
+.day-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 28px;
+  border-radius: 4px;
+  transition: border-color .2s, background .2s;
+}
+.day-card:hover { border-color: var(--c-accent); background: rgba(255,255,255,.06); }
+.day-card .kind {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .25em;
+  color: var(--c-accent);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.day-card h4 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: 19px;
+  margin: 0 0 14px;
+  color: #fff;
+}
+.day-card ul { margin: 0; padding: 0; list-style: none; }
+.day-card li {
+  font-size: 14px;
+  color: rgba(255,255,255,.72);
+  margin-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.55;
+}
+.day-card li::before {
+  content: "—";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--c-accent);
+}
+@media (max-width: 880px) { .day-grid { grid-template-columns: 1fr; } .day-card.poster-banner { grid-template-columns: 1fr !important; } }
+
+/* ---------- outcomes ---------- */
+#outcomes { background: var(--c-paper); }
+.outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+.outcome-block {
+  background: #fff;
+  border: 1px solid var(--c-line);
+  border-radius: 4px;
+  padding: 36px 32px;
+  position: relative;
+  transition: transform .25s;
+}
+.outcome-block:hover { transform: translateY(-4px); }
+.outcome-block .cat {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--c-cyan);
+  margin-bottom: 12px;
+}
+.outcome-block h3 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: 24px;
+  margin: 0 0 26px;
+}
+.outcome-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 32px;
+}
+.outcome-list .item {
+  border-top: 1px solid var(--c-line);
+  padding-top: 14px;
+}
+.outcome-list .item .num {
+  font-family: var(--f-display);
+  font-weight: 350;
+  font-size: 38px;
+  line-height: 1;
+  letter-spacing: -.01em;
+  color: var(--c-text);
+  display: flex; align-items: baseline; gap: 4px;
+}
+.outcome-list .item .num span.unit {
+  font-size: .45em;
+  color: var(--c-accent);
+  font-style: italic;
+}
+.outcome-list .item .label {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--c-text-soft);
+  line-height: 1.45;
+}
+@media (max-width: 880px) {
+  .outcomes-grid { grid-template-columns: 1fr; }
+  .outcome-list { grid-template-columns: 1fr; }
+}
+
+/* ---------- media ---------- */
+#media { background: var(--c-paper-soft); }
+.filter-bar {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.filter-pill {
+  padding: 9px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  border: 1px solid var(--c-line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--c-text-soft);
+  transition: all .2s;
+}
+.filter-pill:hover { border-color: var(--c-accent); color: var(--c-accent); }
+.filter-pill.active {
+  background: var(--c-bg);
+  color: #fff;
+  border-color: var(--c-bg);
+}
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.media-card {
+  background: #fff;
+  border: 1px solid var(--c-line);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform .25s, box-shadow .25s;
+  display: flex; flex-direction: column;
+}
+.media-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -20px rgba(15,23,42,.18);
+}
+.media-card .thumb {
+  aspect-ratio: 16 / 10;
+  background: var(--c-bg-soft);
+  position: relative;
+  overflow: hidden;
+}
+.media-card .thumb::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(234,88,12,.85), rgba(8,145,178,.55));
+  mix-blend-mode: multiply;
+}
+.media-card .thumb svg.play {
+  position: absolute;
+  left: 50%; top: 50%; transform: translate(-50%,-50%);
+  width: 56px; height: 56px;
+  z-index: 2;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,.3));
+}
+.media-card .thumb .pat {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 20% 30%, rgba(255,255,255,.2), transparent 40%),
+                    radial-gradient(circle at 80% 80%, rgba(255,255,255,.15), transparent 50%);
+}
+.media-card .body {
+  padding: 22px 22px 24px;
+  display: flex; flex-direction: column; flex: 1;
+}
+.media-card .tag {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .25em;
+  color: var(--c-accent);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.media-card h4 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.3;
+  margin: 0 0 8px;
+}
+.media-card .meta {
+  font-size: 13px;
+  color: var(--c-text-mute);
+  margin-bottom: 14px;
+}
+.media-card .excerpt {
+  font-size: 14px;
+  color: var(--c-text-soft);
+  line-height: 1.55;
+  flex: 1;
+  margin: 0 0 18px;
+}
+.media-card .read {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--c-text);
+  font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px;
+  align-self: flex-start;
+  border-bottom: 1px solid var(--c-text);
+  padding-bottom: 2px;
+  transition: color .2s, border-color .2s;
+}
+.media-card .read:hover { color: var(--c-accent); border-color: var(--c-accent); }
+@media (max-width: 1000px) { .media-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 640px) { .media-grid { grid-template-columns: 1fr; } }
+
+/* ---------- awards ---------- */
+#awards { background: var(--c-bg-deep); color: #fff; }
+#awards .section-head .label { color: rgba(255,255,255,.5); }
+#awards .section-head .deck { color: rgba(255,255,255,.7); }
+.awards-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.award-card {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.08);
+  padding: 28px;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 22px;
+  transition: border-color .2s;
+}
+.award-card:hover { border-color: var(--c-accent); }
+.award-card .seal {
+  width: 60px; height: 60px;
+  border: 1px solid var(--c-accent);
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--c-accent);
+}
+.award-card .body {}
+.award-card .year {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .22em;
+  color: var(--c-accent-soft);
+  margin-bottom: 6px;
+}
+.award-card h4 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: 20px;
+  margin: 0 0 8px;
+  color: #fff;
+}
+.award-card p {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(255,255,255,.7);
+  line-height: 1.55;
+}
+@media (max-width: 760px) { .awards-list { grid-template-columns: 1fr; } }
+
+/* ---------- footer ---------- */
+.footer {
+  background: var(--c-bg-deep);
+  color: rgba(255,255,255,.7);
+  padding: 80px var(--pad) 40px;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.footer-grid {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.footer h5 {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin: 0 0 18px;
+  font-weight: 600;
+}
+.footer .brand-block .brand {
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+.footer .brand-block p {
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 40ch;
+  margin: 0 0 24px;
+}
+.footer ul { list-style: none; padding: 0; margin: 0; }
+.footer li { margin-bottom: 10px; font-size: 14px; }
+.footer a:hover { color: var(--c-accent); }
+.footer-bottom {
+  max-width: var(--maxw);
+  margin: 32px auto 0;
+  display: flex; justify-content: space-between;
+  font-size: 12px;
+  color: rgba(255,255,255,.4);
+  letter-spacing: .04em;
+  flex-wrap: wrap; gap: 12px;
+}
+@media (max-width: 880px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+@media (max-width: 560px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- about illustrations ---------- */
+.about-card .illust {
+  width: 100%;
+  height: 96px;
+  margin-bottom: 18px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, var(--c-accent-soft) 0%, var(--c-cyan-soft) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.about-card .illust svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* ---------- hero decorative svg ---------- */
+.hero-decor {
+  position: absolute;
+  right: -80px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 540px;
+  height: 540px;
+  z-index: 1;
+  opacity: .4;
+  pointer-events: none;
+}
+.hero-decor svg { width: 100%; height: 100%; }
+.hero-decor .ring { animation: rotateSlow 60s linear infinite; transform-origin: center; }
+.hero-decor .ring-2 { animation: rotateSlow 90s linear infinite reverse; transform-origin: center; }
+@keyframes rotateSlow { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+@media (max-width: 1100px) { .hero-decor { display: none; } }
+
+/* ---------- patient journey ---------- */
+#journey-flow {
+  background: var(--c-paper);
+  border-top: 1px solid var(--c-line);
+}
+.flow-track {
+  position: relative;
+  margin-top: 48px;
+  padding: 12px 0;
+}
+.flow-track::before {
+  content: "";
+  position: absolute;
+  left: 6%; right: 6%; top: 56px;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--c-accent) 0 12px, transparent 12px 22px);
+  z-index: 0;
+}
+.flow-steps {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+.flow-step {
+  text-align: center;
+  cursor: pointer;
+  padding: 8px 6px 14px;
+  border-radius: 8px;
+  transition: background .25s;
+}
+.flow-step:hover { background: rgba(234,88,12,.04); }
+.flow-step .dot {
+  width: 64px; height: 64px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--c-line);
+  display: grid; place-items: center;
+  position: relative;
+  transition: all .35s cubic-bezier(.4,0,.2,1);
+  color: var(--c-text-soft);
+}
+.flow-step .dot svg { width: 26px; height: 26px; }
+.flow-step .dot::after {
+  content: attr(data-step);
+  position: absolute;
+  top: -10px; right: -10px;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--c-bg);
+  color: #fff;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 600;
+  display: grid; place-items: center;
+  letter-spacing: 0;
+}
+.flow-step.active .dot {
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 12px 30px -10px rgba(234,88,12,.5);
+}
+.flow-step.active .dot::after { background: var(--c-accent-deep); }
+.flow-step .day {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .2em;
+  color: var(--c-text-mute);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.flow-step.active .day { color: var(--c-accent); }
+.flow-step .lab {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--c-text);
+  line-height: 1.25;
+}
+.flow-detail {
+  margin-top: 48px;
+  background: #fff;
+  border: 1px solid var(--c-line);
+  border-radius: 6px;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  min-height: 280px;
+  position: relative;
+}
+.flow-detail::before {
+  content: "";
+  position: absolute;
+  top: -8px; left: 8%;
+  width: 14px; height: 14px;
+  background: #fff;
+  border-top: 1px solid var(--c-line);
+  border-left: 1px solid var(--c-line);
+  transform: rotate(45deg);
+  transition: left .35s;
+}
+.flow-detail[data-active="2"]::before { left: calc(8% + 16.66% * 1); }
+.flow-detail[data-active="3"]::before { left: calc(8% + 16.66% * 2); }
+.flow-detail[data-active="4"]::before { left: calc(8% + 16.66% * 3); }
+.flow-detail[data-active="5"]::before { left: calc(8% + 16.66% * 4); }
+.flow-detail[data-active="6"]::before { left: calc(8% + 16.66% * 5); }
+.flow-detail-content { display: none; animation: fadeUp .4s ease; }
+.flow-detail-content.active { display: contents; }
+.flow-left h3 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: 28px;
+  margin: 0 0 6px;
+  line-height: 1.2;
+}
+.flow-left .timestamp {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .25em;
+  color: var(--c-accent);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.flow-left p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--c-text-soft);
+  line-height: 1.65;
+}
+.flow-right .sub {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .25em;
+  color: var(--c-cyan);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.flow-right ul { margin: 0; padding: 0; list-style: none; }
+.flow-right li {
+  font-size: 14px;
+  color: var(--c-text-soft);
+  margin-bottom: 10px;
+  padding-left: 22px;
+  position: relative;
+  line-height: 1.55;
+}
+.flow-right li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 8px;
+  width: 12px; height: 2px;
+  background: var(--c-cyan);
+}
+@media (max-width: 880px) {
+  .flow-track::before { display: none; }
+  .flow-steps { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .flow-detail { grid-template-columns: 1fr; padding: 28px; gap: 24px; }
+  .flow-detail::before { display: none; }
+}
+
+/* ---------- module wheel (interactive Our Model) ---------- */
+.model-wheel-grid {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 64px;
+  align-items: center;
+  margin-top: 24px;
+}
+.wheel-stage {
+  position: relative;
+  aspect-ratio: 1;
+  max-width: 540px;
+  margin: 0 auto;
+  width: 100%;
+}
+.wheel-stage svg { width: 100%; height: 100%; display: block; }
+.wheel-segment {
+  cursor: pointer;
+  transition: opacity .3s, filter .3s;
+  outline: none;
+}
+.wheel-segment .seg-fill {
+  fill: #fff;
+  stroke: var(--c-line);
+  stroke-width: 1;
+  transition: fill .35s, stroke .35s;
+}
+.wheel-segment:hover .seg-fill { fill: #fffaf6; }
+.wheel-segment.active .seg-fill {
+  fill: var(--c-accent);
+  stroke: var(--c-accent);
+}
+.wheel-segment .seg-icon {
+  fill: none;
+  stroke: var(--c-text-soft);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke .35s;
+}
+.wheel-segment.active .seg-icon { stroke: #fff; }
+.wheel-segment .seg-num {
+  font-family: "Manrope", sans-serif;
+  font-size: 9px;
+  letter-spacing: .15em;
+  fill: var(--c-text-mute);
+  text-transform: uppercase;
+  transition: fill .35s;
+}
+.wheel-segment.active .seg-num { fill: rgba(255,255,255,.85); }
+.wheel-center {
+  fill: var(--c-bg);
+}
+.wheel-center-text {
+  font-family: var(--f-display);
+  font-size: 14px;
+  font-style: italic;
+  fill: #fff;
+  text-anchor: middle;
+  font-weight: 350;
+  letter-spacing: 0;
+}
+.wheel-center-sub {
+  font-family: "Manrope", sans-serif;
+  font-size: 8px;
+  letter-spacing: .25em;
+  fill: var(--c-accent);
+  text-anchor: middle;
+  text-transform: uppercase;
+}
+
+.wheel-content {
+  min-height: 320px;
+  position: relative;
+}
+.wheel-panel {
+  display: none;
+  animation: fadeUp .45s ease;
+}
+.wheel-panel.active { display: block; }
+.wheel-panel .num {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: .3em;
+  color: var(--c-accent);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.wheel-panel h3 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 1.1;
+  margin: 0 0 6px;
+}
+.wheel-panel .en-sub {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--c-text-mute);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+.wheel-panel p {
+  margin: 0 0 24px;
+  color: var(--c-text-soft);
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 50ch;
+}
+.wheel-panel .pillars {
+  display: flex; flex-direction: column;
+  gap: 12px;
+  border-top: 1px dashed var(--c-line);
+  padding-top: 22px;
+}
+.wheel-panel .pillar-row {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 14px;
+  font-size: 14px;
+  align-items: baseline;
+}
+.wheel-panel .pillar-row .k {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .2em;
+  color: var(--c-cyan);
+  text-transform: uppercase;
+}
+.wheel-panel .pillar-row .v {
+  color: var(--c-text);
+  line-height: 1.5;
+}
+@media (max-width: 980px) {
+  .model-wheel-grid { grid-template-columns: 1fr; gap: 32px; }
+  .wheel-stage { max-width: 380px; }
+}
+
+/* ---------- outcomes charts ---------- */
+.outcome-block .chart-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 26px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--c-line);
+}
+.outcome-block .chart-row:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+.donut-wrap {
+  position: relative;
+  width: 110px; height: 110px;
+}
+.donut-wrap svg { transform: rotate(-90deg); }
+.donut-wrap .donut-track {
+  fill: none;
+  stroke: var(--c-line);
+  stroke-width: 8;
+}
+.donut-wrap .donut-fill {
+  fill: none;
+  stroke: var(--c-accent);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 314;
+  stroke-dashoffset: 314;
+  transition: stroke-dashoffset 1.6s cubic-bezier(.2, .8, .2, 1);
+}
+.donut-wrap.cyan .donut-fill { stroke: var(--c-cyan); }
+.donut-wrap .donut-text {
+  position: absolute;
+  inset: 0;
+  display: grid; place-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.donut-wrap .donut-text .v {
+  font-family: var(--f-display);
+  font-weight: 350;
+  font-size: 28px;
+  line-height: 1;
+}
+.donut-wrap .donut-text .v .u {
+  font-size: .55em;
+  color: var(--c-accent);
+  font-style: italic;
+}
+.donut-wrap.cyan .donut-text .v .u { color: var(--c-cyan); }
+.chart-row .label {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: 19px;
+  margin-bottom: 6px;
+}
+.chart-row .desc {
+  font-size: 13px;
+  color: var(--c-text-soft);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+.bar-track {
+  height: 6px;
+  background: var(--c-line);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--c-accent), #f97316);
+  width: 0;
+  border-radius: 999px;
+  transition: width 1.6s cubic-bezier(.2,.8,.2,1);
+}
+.bar-fill.cyan { background: linear-gradient(90deg, var(--c-cyan), #06b6d4); }
+.bar-meta {
+  display: flex; justify-content: space-between;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  color: var(--c-text-mute);
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+.bar-meta .end {
+  font-family: var(--f-display);
+  font-style: italic;
+  color: var(--c-text);
+  font-size: 16px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+@media (max-width: 600px) {
+  .outcome-block .chart-row { grid-template-columns: 80px 1fr; gap: 16px; }
+  .donut-wrap { width: 80px; height: 80px; }
+  .donut-wrap .donut-text .v { font-size: 22px; }
+}
+
+/* ---------- friendly care day gallery + lightbox ---------- */
+.gallery-section {
+  margin-top: 36px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+.gallery-section .gal-label {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .25em;
+  color: var(--c-accent);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.gal-thumb {
+  aspect-ratio: 4 / 3;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,.08);
+  transition: transform .3s, border-color .3s;
+}
+.gal-thumb:hover { transform: translateY(-3px); border-color: var(--c-accent); }
+.gal-thumb svg { width: 100%; height: 100%; display: block; }
+.gal-thumb .gal-cap {
+  position: absolute;
+  left: 12px; bottom: 10px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .15em;
+  color: rgba(255,255,255,.85);
+  text-transform: uppercase;
+  z-index: 2;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+.gal-thumb .gal-zoom {
+  position: absolute;
+  top: 8px; right: 8px;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.4);
+  display: grid; place-items: center;
+  color: #fff;
+  opacity: 0;
+  transition: opacity .25s;
+  z-index: 2;
+}
+.gal-thumb:hover .gal-zoom { opacity: 1; }
+@media (max-width: 760px) { .gallery-grid { grid-template-columns: repeat(2,1fr); } }
+
+/* lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(5,8,17,.92);
+  backdrop-filter: blur(10px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  opacity: 0;
+  transition: opacity .25s;
+}
+.lightbox.open { display: flex; opacity: 1; }
+.lightbox-stage {
+  width: min(90vw, 1000px);
+  max-height: 80vh;
+  position: relative;
+}
+.lightbox-frame {
+  background: var(--c-bg-soft);
+  border-radius: 6px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border: 1px solid rgba(255,255,255,.1);
+}
+.lightbox-frame svg { width: 100%; height: 100%; display: block; }
+.lightbox-caption {
+  margin-top: 20px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  color: #fff;
+  gap: 24px;
+}
+.lightbox-caption .ttl {
+  font-family: var(--f-display);
+  font-size: 22px;
+  font-weight: 400;
+}
+.lightbox-caption .meta {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .25em;
+  color: var(--c-accent);
+  text-transform: uppercase;
+}
+.lb-close, .lb-prev, .lb-next {
+  position: absolute;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.18);
+  color: #fff;
+  display: grid; place-items: center;
+  transition: background .2s, border-color .2s;
+}
+.lb-close:hover, .lb-prev:hover, .lb-next:hover {
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+}
+.lb-close { top: -56px; right: 0; }
+.lb-prev { left: -64px; top: 50%; transform: translateY(-50%); }
+.lb-next { right: -64px; top: 50%; transform: translateY(-50%); }
+@media (max-width: 760px) {
+  .lb-prev { left: 4px; }
+  .lb-next { right: 4px; }
+  .lb-close { top: -52px; right: 4px; }
+  .lightbox { padding: 20px; }
+}
+
+/* ---------- reveal animations ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* selection */
+::selection { background: var(--c-accent); color: #fff; }
 </style>
-<link rel="alternate" hreflang="en" href="index-en.html">
 </head>
 <body>
-<div style="position:fixed;top:12px;right:12px;z-index:10"><a href="index-en.html" style="background:#fff;color:#0e7aa8;border-radius:999px;padding:6px 10px;border:1px solid #e6edf2">EN</a></div>
 
-<header class="hero">
-  <div class="container wrap">
-    <div>
-      <div class="brand">
-        <div class="logo">奇美</div>
-        <div class="kicker">Chi Mei HIV Care Team — Official</div>
-      </div>
-      <h1>奇美友善醫療日嘉年華<br>Eyes on Ukraine<br>全球首映季系列</h1>
-      <div class="badges">
-        <span class="badge">2025/11/21（五）13:00–17:00</span>
-        <span class="badge">奇美醫院第五醫療大樓｜國際會議廳</span>
-        <span class="badge">免費入場・需報名</span>
-      </div>
-      <p class="meta">本活動包含：紀錄片放映、性別論壇、友善論壇、餐點、表演、抽獎、互動遊戲。</p>
-      <div class="cta">
-        <a class="btn" href="#register">立即報名</a>
-        <a class="btn secondary" href="#film">了解電影</a>
-      </div>
-      <p class="meta" id="countdown">距離活動開始：計算中…</p>
+<!-- ===================== NAV ===================== -->
+<nav class="nav" id="nav">
+  <a class="brand" href="#top">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 30 30" fill="none">
+        <circle cx="15" cy="15" r="14" stroke="#fff" stroke-width="1"/>
+        <path d="M11 6 L11 22 L13 22 L13 6 Z M17 6 L17 22 L19 22 L19 6 Z" fill="#dc2626" transform="rotate(-15 15 15)"/>
+      </svg>
+    </span>
+    <span class="brand-name">
+      <span class="lang-zh">奇美友愛</span>
+      <span class="lang-en">Chi Mei Love & Care</span>
+      <span class="sub">HIV-Friendly Care</span>
+    </span>
+  </a>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#about"><span class="lang-zh">關於我們</span><span class="lang-en">About</span></a>
+    <a href="#journey-flow"><span class="lang-zh">病人旅程</span><span class="lang-en">Journey</span></a>
+    <a href="#journey"><span class="lang-zh">推動歷程</span><span class="lang-en">Timeline</span></a>
+    <a href="#model"><span class="lang-zh">我們的模式</span><span class="lang-en">Our Model</span></a>
+    <a href="#team"><span class="lang-zh">團隊</span><span class="lang-en">Team</span></a>
+    <a href="#friendly-day"><span class="lang-zh">友善醫療日</span><span class="lang-en">Friendly Care Day</span></a>
+    <a href="#outcomes"><span class="lang-zh">成果</span><span class="lang-en">Outcomes</span></a>
+    <a href="#media"><span class="lang-zh">媒體資源</span><span class="lang-en">Media</span></a>
+  </div>
+
+  <div class="nav-actions">
+    <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+      <span class="dot"></span>
+      <span class="lang-zh">EN</span>
+      <span class="lang-en">中文</span>
+    </button>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+        <path d="M3 6h18M3 12h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero" id="top">
+  <div class="hero-decor" aria-hidden="true">
+    <svg viewBox="0 0 540 540" fill="none">
+      <defs>
+        <radialGradient id="grad-h" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ea580c" stop-opacity=".25"/>
+          <stop offset="100%" stop-color="#ea580c" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <circle cx="270" cy="270" r="240" fill="url(#grad-h)"/>
+      <g class="ring" stroke="#fff" stroke-opacity=".18" fill="none">
+        <circle cx="270" cy="270" r="220" stroke-width="1"/>
+        <circle cx="270" cy="270" r="180" stroke-width="1" stroke-dasharray="2 8"/>
+        <circle cx="270" cy="270" r="140" stroke-width="1"/>
+      </g>
+      <g class="ring-2" stroke="#ea580c" stroke-opacity=".4" fill="none">
+        <circle cx="270" cy="270" r="100" stroke-width="1.2" stroke-dasharray="4 6"/>
+      </g>
+      <!-- abstract care ribbon mark, geometric -->
+      <g transform="translate(270 270)">
+        <path d="M -8 -60 L -8 60 L 0 70 L 8 60 L 8 -60 Z" fill="#dc2626" opacity=".85" transform="rotate(-12)"/>
+        <path d="M -8 -60 L -8 60 L 0 70 L 8 60 L 8 -60 Z" fill="#ea580c" opacity=".7" transform="rotate(12)"/>
+      </g>
+      <!-- orbiting dots -->
+      <g class="ring">
+        <circle cx="270" cy="50" r="4" fill="#ea580c"/>
+        <circle cx="490" cy="270" r="3" fill="#0891b2"/>
+        <circle cx="270" cy="490" r="3" fill="#fff" fill-opacity=".6"/>
+        <circle cx="50" cy="270" r="4" fill="#ea580c"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hero-issue">
+    <span class="lang-zh">Issue / 第六屆</span>
+    <span class="lang-en">Volume / Sixth Edition</span>
+    <span class="num">VI</span>
+    <span class="lang-zh">2018 — 2026</span>
+    <span class="lang-en">2018 — 2026</span>
+  </div>
+
+  <div class="hero-grid">
+    <div class="hero-eyebrow">
+      <span class="ribbon" aria-hidden="true"></span>
+      <span class="lang-zh">奇美醫院 · HIV 友善醫療推動計畫</span>
+      <span class="lang-en">A Chi Mei Hospital Initiative · Since 2018</span>
     </div>
-    <div aria-hidden="true">
-      <img src="assets/Poster101.jpg" alt="活動主視覺海報" style="width:100%;border-radius:16px;box-shadow:0 10px 26px rgba(0,0,0,.35);border:4px solid rgba(255,255,255,.25)">
+
+    <h1>
+      <span class="lang-zh">
+        友善醫療不是<em>例外</em>，<br>
+        是我們對<span class="stroke">健康平權</span>的承諾。
+      </span>
+      <span class="lang-en">
+        Friendly care is not an <em>exception</em><br>
+        — it is our commitment to <span class="stroke">health equity</span>.
+      </span>
+    </h1>
+
+    <p class="lede">
+      <span class="lang-zh">在奇美醫院，HIV 友善醫療是治理責任、健康平權承諾，也是資源意識型照護設計的挑戰。從友善醫療出發，走向系統重設、公共衛生與長期照護。</span>
+      <span class="lang-en">At Chi Mei Hospital, HIV-friendly healthcare is a governance responsibility, a health equity commitment, and a resource-conscious care design challenge — moving from friendly care to system redesign, public health, and long-term care readiness.</span>
+    </p>
+
+    <div class="hero-cta">
+      <a href="#model" class="btn btn-primary">
+        <span class="lang-zh">了解我們的模式</span>
+        <span class="lang-en">Explore Our Model</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="#friendly-day" class="btn btn-ghost">
+        <span class="lang-zh">歷屆友善醫療日</span>
+        <span class="lang-en">Friendly Care Day Archive</span>
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="num"><span data-count="7">0</span><span class="unit">+</span></div>
+        <div class="label">
+          <span class="lang-zh">推動年數</span>
+          <span class="lang-en">Years building the model</span>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="num"><span data-count="92">0</span><span class="unit">%</span></div>
+        <div class="label">
+          <span class="lang-zh">病人病毒抑制率</span>
+          <span class="lang-en">Viral suppression rate</span>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="num"><span data-count="12">0</span><span class="unit">+</span></div>
+        <div class="label">
+          <span class="lang-zh">跨科友善照護點</span>
+          <span class="lang-en">Cross-department friendly clinics</span>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="num"><span data-count="6">0</span></div>
+        <div class="label">
+          <span class="lang-zh">屆友善醫療日</span>
+          <span class="lang-en">Editions of Friendly Care Day</span>
+        </div>
+      </div>
     </div>
   </div>
 </header>
-<br>
-  <br>
-<div class="container infostrip" role="region" aria-label="關鍵資訊">
-  <div class="infogrid">
-    <div class="icard">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M8 7h8M8 11h8M8 15h6"/><rect x="3" y="4" width="18" height="16" rx="2" ry="2" stroke-width="2"/></svg>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <div class="label">
+        <span class="lang-zh">關於計畫</span>
+        <span class="lang-en">About</span>
+        <span class="num">01</span>
+      </div>
       <div>
-        <h4>什麼是友善醫療？</h4>
-        <p>以尊重、隱私與可近性為核心，不因年齡、性別、身份或疾病標籤而差別對待，提供每位民眾友善、跨專業整合的照護服務。</p>
+        <h2>
+          <span class="lang-zh">從<em>友善</em>到<em>平權</em>，從活動到系統。</span>
+          <span class="lang-en">From <em>friendliness</em> to <em>equity</em>, from events to systems.</span>
+        </h2>
+        <p class="deck">
+          <span class="lang-zh">我們不把「友善」視為一場感性活動，而是一套可被治理、可被測量、可被持續改善的照護系統。</span>
+          <span class="lang-en">We do not treat friendliness as a sentimental campaign. We treat it as a care system that can be governed, measured, and continuously improved.</span>
+        </p>
       </div>
     </div>
-    <div class="icard">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5v14M5 12h14" stroke-width="2"/></svg>
-      <div>
-        <h4>什麼是奇美友善醫療日？</h4>
-        <p>為了推廣友善醫療的實踐，自2024年起奇美醫院每年11月舉辦友善醫療日，把醫療、教育與社群串聯成好玩、好懂的行動日，擴大理解與支持。</p>
-      </div>
-    </div>
-    <div class="icard">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="4"/><path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
-      <div>
-        <h4>活動目標</h4>
-        <p>破除汙名、促進友善醫療共識、凝聚跨域夥伴、激發民眾參與與具體行動。</p>
-      </div>
-    </div>
-    <div class="icard">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18M12 3v18" /><circle cx="12" cy="12" r="9"/></svg>
-      <div>
-        <h4>全球首映季</h4>
-        <p>本場放映為紀錄片《Eyes on Ukraine》全球官方首映系列（Season of Premieres）活動台灣場。繼烏克蘭基輔、美國洛杉磯之後，讓我們一起與世界見證這部關於人權、疾病與韌性的感人紀錄。</p>
-      </div>
-    </div>
-  </div>
-</div>
 
-<section id="program">
-  <div class="container">
-    <h2>活動程序</h2>
-    <p class="lead">現場採嘉年華形式，穿插表演、遊戲、抽獎與茶點，並以兩大論壇深入對談。</p>
-    <div class="timeline">
-      <div class="titem">
-        <h4>13:00 開放入場及暖身</h4>
-        <p>嘉年華攤位開放。</p>
-      </div>
-      <div class="titem">
-        <h4>13:30 開場</h4>
-        <p>嘉年華熱鬧登場。</p>
-      </div>
-      <div class="titem">
-        <h4>13:50 紀錄片放映 《Eyes on Ukraine》</h4>
-        <p>片長 37 分鐘。建議觀影後留 10 分鐘沉澱與交流。</p>
-      </div>
-      <div class="titem">
-        <h4>14:30 性別論壇：性別友善的樣貌</h4>
-        <p>性別講師 × 社群朋友座談：性別友善與臨床實務連結。</p>
-        <p>社團法人台灣愛之希望協會 劉昭妤專員</p>
-        <p>社團法人臺灣感染誌協會 藝術計畫主任／藝術家 劉仁凱</p>
-        <p>奇美醫院 林柏洋個管師</p>
-        <img src="assets/01RK.jpeg" alt="劉仁凱" onclick="openLightbox(this.src)">
-      </div>
-      <div class="titem">
-        <h4>15:40 友愛論壇：我與我的健康照護者</h4>
-        <p>個管師 × 感染者座談：就醫經驗、支持網絡與心理健康。</p>
-        <p>台中榮民總醫院 謝佳吟護理師</p>
-        <p>奇美醫院 古惠君個管師</p>
-        <p>民眾代表</p>
-        <img src="assets/02CY.jpeg" alt="謝佳吟" onclick="openLightbox(this.src)">
-      </div>
-      <div class="titem">
-        <h4>結束前：嘉年華壓軸</h4>
-        <p>抽獎與午茶時光</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <p class="about-pull">
+      <span class="lang-zh">「在奇美醫院，HIV 友善醫療是一項治理責任、健康平權承諾，也是資源意識型照護設計的挑戰。」</span>
+      <span class="lang-en">"At Chi Mei Hospital, HIV-friendly healthcare is a governance responsibility, a health equity commitment, and a resource-conscious care design challenge."</span>
+    </p>
 
-<section id="film" style="background:#fff">
-  <div class="container grid-2">
-    <div>
-      <h2>關於電影｜Eyes on Ukraine</h2>
-      <p class="lead">本片追隨 24 歲的烏克蘭 HIV 行動者 Yana Panfilova，在戰爭流離後於柏林持續領導青年組織 Teenergizer，並與攝影師 Gideon Mendel 合作，讓 HIV 帶原者親自拍攝、轉化為敘事者。她與 Liza、Mariia、Yehor 受訓後返烏，以影像揭露戰時下獨特的公共衛生危機。</p>
-      <div class="card">
-        <div class="pill">DCP 彩色</div><div class="pill">37 分鐘</div><div class="pill">導演 Mo Stoebe</div><div class="pill">執行製片 Richard Gere</div>
-        <p style="margin-top:10px;color:var(--muted)">製片：David Gere、Katja Kulenkampff。演出：Yana Panfilova、Liza Shevchuck、Yehor Pasko、Mariia Deriuha。</p>
-        <p style="margin-top:6px;">參展：Awareness Festival（Santa Monica, 2025/10）、Newport Beach Film Festival（2025/10）、Voices Rising Festival（New York, 2025/11）。榮譽：Love Wins Film Festival（2025/5）。</p>
-        <img src="assets/prize.png" alt="award" style="display:block; margin:10px auto; max-width:100%; height:auto;">
-        <p style="margin-top:6px;">世界首映：2025/12/5 UCLA Hammer Museum（免費入場，無須預約）。</p>
-        <p>更多資訊: <a href="https://artglobalhealth.org/event/eyes-on-ukraine-premiere/">https://artglobalhealth.org/event/eyes-on-ukraine-premiere/</a></p>
-      </div>
-      <a class="btn" href="https://qpig0218.github.io/ChiMeiMonth2/">2025年奇美月活動</a>
-    </div>
-    <div>
-      <h2>行動資源｜Watch Party</h2>
-      <p class="lead">UCLA Art & Global Health Center 與 UNAIDS 推動全球預映行動，已於哈佛、康乃爾、Noaks Ark Stockholm、柏林多點與德國波昂聯合國園區等地舉辦。提供「討論指南」以利社群自辦觀影交流。</p>
-      <div class="card">
-        <img src="assets/liza.jpeg" alt="scene" style="display:block; margin:10px auto; max-width:100%; height:auto;">
-        <h3>討論指南內容</h3>
-        <ul>
-          <li>關鍵議題：HIV 汙名、心理健康、青年參與</li>
-          <li>討論題綱與主持小撇步</li>
-          <li>延伸行動建議（志工、倡議、捐款）</li>
-        </ul>
-        <p>索取與合作：<a href="mailto:TPE@arts.ucla.edu">TPE@arts.ucla.edu</a></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="activities">
-  <div class="container">
-    <h2>嘉年華亮點</h2>
-    <div class="cards">
-      <div class="card"><h3>🎬 影片放映</h3><p>《Eyes on Ukraine》台灣首映（Season of Premieres）。</p></div>
-      <div class="card"><h3>🗣️ 兩大論壇</h3><p>友善論壇、性別論壇：從臨床到社群的雙向理解。</p></div>
-      <div class="card"><h3>🎭 表演</h3><p>舞台節目與驚喜嘉賓，活力滿點。</p></div>
-      <div class="card"><h3>🍴 餐點</h3><p>貼心茶點，邊交流邊補充能量。</p></div>
-      <div class="card"><h3>🎯 遊戲</h3><p>邊玩邊學習友善醫療知識。</p></div>
-      <div class="card"><h3>🎁 抽獎</h3><p>多重獎項，現場參與就有機會！</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="partners" style="background:#fff">
-  <div class="container">
-    <h2>主辦與協力</h2>
-    <p class="lead">本活動由奇美醫院內科部感染科、感染管制中心、奇美友愛照護團隊與友善醫療推動小組共同主辦；並與社群與國際夥伴攜手合作。</p>
-    <div class="cards">
-      <div class="card">
-        <h3>主辦單位</h3>
-        <ul>
-          <li>奇美醫院 內科部感染科</li>
-          <li>感染管制中心</li>
-          <li>奇美友愛照護團隊</li>
-          <li>友善醫療推動小組</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>協力夥伴</h3>
-        <ul>
-          <li>社團法人愛之希望協會</li>
-          <li>臺灣感染誌協會</li>
-          <li>順風號 Sūn Hong Hō</li>
-          <li>UCLA Art & Global Health Center</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="gallery">
-  <div class="container">
-    <h2>去年度活動回顧</h2>
-    <p class="lead">以下為2024年奇美友善醫療日活動花絮。</p>
-    <div class="gallery">
-      <img src="assets/Carnival POster.jpg" alt="花絮照片示意" onclick="openLightbox(this.src)">
-      <img src="assets/202401.jpg" alt="花絮照片示意" onclick="openLightbox(this.src)">
-      <img src="assets/202403.JPG" alt="花絮照片示意" onclick="openLightbox(this.src)">
-      <img src="assets/202404.JPG" alt="花絮照片示意" onclick="openLightbox(this.src)">
-      <img src="assets/202405.jpg" alt="花絮照片示意" onclick="openLightbox(this.src)">
-    </div>
-  </div>
-</section>
-
-<section id="faq" style="background:#fff">
-  <div class="container">
-    <h2>常見問題（FAQ）</h2>
-    <div class="accordion">
-      <details class="acc" open>
-        <summary>如何報名參加？</summary>
-        <div class="content">
-          <p>點擊「立即報名」按鈕前往表單。</p>
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <div class="illust" aria-hidden="true">
+          <svg viewBox="0 0 240 96" preserveAspectRatio="xMidYMid slice">
+            <!-- concentric arcs / system layers -->
+            <g fill="none" stroke="#b04209" stroke-width="1.4" stroke-opacity=".35">
+              <circle cx="80" cy="48" r="36"/>
+              <circle cx="80" cy="48" r="26"/>
+              <circle cx="80" cy="48" r="16"/>
+            </g>
+            <!-- a figure breaking outward through the ring -->
+            <g transform="translate(80 48)">
+              <circle cx="0" cy="-8" r="6" fill="#dc2626"/>
+              <path d="M -8 -2 L 8 -2 L 6 14 L -6 14 Z" fill="#dc2626"/>
+            </g>
+            <!-- diagonal break line -->
+            <path d="M 60 30 L 100 66" stroke="#ea580c" stroke-width="2" stroke-linecap="round"/>
+            <!-- right side glyphs: people in system -->
+            <g transform="translate(160 48)" fill="#0891b2" opacity=".7">
+              <circle cx="-20" cy="-10" r="4"/>
+              <rect x="-24" y="-4" width="8" height="14" rx="1.5"/>
+              <circle cx="0" cy="-12" r="5"/>
+              <rect x="-5" y="-6" width="10" height="18" rx="1.5"/>
+              <circle cx="22" cy="-10" r="4"/>
+              <rect x="18" y="-4" width="8" height="14" rx="1.5"/>
+            </g>
+          </svg>
         </div>
-      </details>
-      <details class="acc">
-        <summary>是否需要門票？</summary>
-        <div class="content"><p>本活動免費入場，惟名額有限，建議事先報名保留座位。</p></div>
-      </details>
-      <details class="acc">
-        <summary>場地無障礙與交通？</summary>
-        <div class="content"><p>國際會議廳備有無障礙動線與座位。交通資訊與停車可依院方公告為準。</p></div>
-      </details>
-      <details class="acc">
-        <summary>我可以如何支持？</summary>
-        <div class="content"><p>分享資訊、參與討論、或與主辦單位洽談合作。</p></div>
-      </details>
-    </div>
-  </div>
-</section>
+        <div class="tag">
+          <span class="lang-zh">為何重要</span>
+          <span class="lang-en">Why it matters</span>
+        </div>
+        <h3>
+          <span class="lang-zh">看見污名背後的系統問題</span>
+          <span class="lang-en">Stigma is a system problem</span>
+        </h3>
+        <p>
+          <span class="lang-zh">病人經驗到的不友善，往往不是某位人員的態度問題，而是流程、空間、資訊與制度設計沒有把他們考慮進去。</span>
+          <span class="lang-en">Unfriendly experiences are rarely about a single staff member's attitude — they reflect workflows, spaces, information, and policies that were never designed with these patients in mind.</span>
+        </p>
+      </div>
 
-<section id="register">
-  <div class="container grid-2">
-    <div>
-      <h2>報名資訊</h2>
-      <p class="lead">時間：2025/11/21（五）13:00–17:00｜地點：奇美醫院第五醫療大樓 國際會議廳</p>
-      <p>請填寫報名表完成登記；若您是合作夥伴或媒體，請來信聯繫專人協助。</p>
-      <p>聯絡信箱：<a href="mailto:aids@mail.chimei.org.tw">aids@mail.chimei.org.tw</a></p>
-      <div class="badges">
-        <span class="badge">現場供餐</span>
-        <span class="badge">抽獎活動</span>
-        <span class="badge">演出電影</span>
+      <div class="about-card reveal">
+        <div class="illust" aria-hidden="true">
+          <svg viewBox="0 0 240 96" preserveAspectRatio="xMidYMid slice">
+            <!-- equity: equal-height figures on different platforms -->
+            <g stroke="#b04209" stroke-width="1.5" fill="none" stroke-linecap="round">
+              <line x1="20" y1="80" x2="220" y2="80"/>
+            </g>
+            <!-- platforms -->
+            <rect x="40" y="62" width="40" height="18" fill="#fed7aa"/>
+            <rect x="100" y="50" width="40" height="30" fill="#fed7aa"/>
+            <rect x="160" y="38" width="40" height="42" fill="#fed7aa"/>
+            <!-- figures (all heads at same y) -->
+            <g fill="#dc2626">
+              <circle cx="60" cy="48" r="6"/>
+              <rect x="54" y="54" width="12" height="10" rx="1"/>
+              <circle cx="120" cy="36" r="6"/>
+              <rect x="114" y="42" width="12" height="10" rx="1"/>
+              <circle cx="180" cy="24" r="6"/>
+              <rect x="174" y="30" width="12" height="10" rx="1"/>
+            </g>
+            <!-- equality line -->
+            <line x1="20" y1="22" x2="220" y2="22" stroke="#0891b2" stroke-width="1" stroke-dasharray="3 3"/>
+          </svg>
+        </div>
+        <div class="tag">
+          <span class="lang-zh">ESG 定位</span>
+          <span class="lang-en">ESG positioning</span>
+        </div>
+        <h3>
+          <span class="lang-zh">健康平權是社會責任</span>
+          <span class="lang-en">Health equity as social responsibility</span>
+        </h3>
+        <p>
+          <span class="lang-zh">作為區域教學醫院，我們把 HIV 友善照護放在 ESG 中的「S」核心，視為對社區、員工、與弱勢族群長期承擔的責任。</span>
+          <span class="lang-en">As a regional teaching hospital, HIV-friendly care sits at the heart of the "S" in our ESG framework — a long-term responsibility to the community, staff, and underserved groups.</span>
+        </p>
+      </div>
+
+      <div class="about-card reveal">
+        <div class="illust" aria-hidden="true">
+          <svg viewBox="0 0 240 96" preserveAspectRatio="xMidYMid slice">
+            <!-- 5-pointed star / pentagon as quintuple aim -->
+            <g transform="translate(120 48)">
+              <g stroke="#b04209" stroke-width="1.4" fill="none">
+                <polygon points="0,-32 30,-10 19,26 -19,26 -30,-10"/>
+              </g>
+              <g fill="#ea580c">
+                <circle cx="0" cy="-32" r="5"/>
+                <circle cx="30" cy="-10" r="5"/>
+                <circle cx="19" cy="26" r="5"/>
+                <circle cx="-19" cy="26" r="5"/>
+                <circle cx="-30" cy="-10" r="5"/>
+              </g>
+              <!-- center -->
+              <circle cx="0" cy="0" r="8" fill="#dc2626"/>
+              <!-- spokes -->
+              <g stroke="#0891b2" stroke-width="1" stroke-opacity=".5">
+                <line x1="0" y1="0" x2="0" y2="-32"/>
+                <line x1="0" y1="0" x2="30" y2="-10"/>
+                <line x1="0" y1="0" x2="19" y2="26"/>
+                <line x1="0" y1="0" x2="-19" y2="26"/>
+                <line x1="0" y1="0" x2="-30" y2="-10"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="tag">
+          <span class="lang-zh">五重目標</span>
+          <span class="lang-en">Quintuple Aim</span>
+        </div>
+        <h3>
+          <span class="lang-zh">把平權寫進品質定義</span>
+          <span class="lang-en">Equity, written into quality</span>
+        </h3>
+        <p>
+          <span class="lang-zh">我們依循 Quintuple Aim：病人體驗、人口健康、成本、員工幸福，加上「健康平權」。HIV 友善醫療同時對五個面向產生影響。</span>
+          <span class="lang-en">We follow the Quintuple Aim — patient experience, population health, cost, workforce well-being, and health equity. HIV-friendly care advances all five at once.</span>
+        </p>
       </div>
     </div>
-    <div class="card">
-      <h3>線上報名</h3>
-      <p><a class="btn" href="https://forms.gle/d816wfhTApH6zHG96" target="_blank">開啟報名表</a></p>
-    </div>
   </div>
 </section>
 
-<footer>
+<!-- ===================== PATIENT JOURNEY (interactive) ===================== -->
+<section id="journey-flow">
   <div class="container">
-    <div class="grid-2">
-      <div>
-        <h3>奇美友愛 HIV 照護團隊</h3>
-        <p>我們提供整合式、友善且尊重多元的 HIV 照護服務，涵蓋醫療、心理、社會支持與社群連結。</p>
-        <p>&copy; 2025 Chi Mei Medical Center. All rights reserved.</p>
+    <div class="section-head">
+      <div class="label">
+        <span class="lang-zh">病人旅程</span>
+        <span class="lang-en">Patient Journey</span>
+        <span class="num">02</span>
       </div>
       <div>
-        <h3>聯絡我們</h3>
-        <p>電子郵件：<a href="mailto:aids@mail.chimei.org.tw">aids@mail.chimei.org.tw</a></p>
+        <h2>
+          <span class="lang-zh">從第一次走進來，<em>到 U=U 的那一天</em>。</span>
+          <span class="lang-en">From the first step inside, <em>to the day of U=U</em>.</span>
+        </h2>
+        <p class="deck">
+          <span class="lang-zh">點選任一階段，看看那一天我們做了什麼、病人感受到什麼、以及背後的設計選擇。</span>
+          <span class="lang-en">Click any stage to see what happens that day, what the patient experiences, and the design choices behind it.</span>
+        </p>
       </div>
     </div>
+
+    <div class="flow-track">
+      <div class="flow-steps" id="flowSteps">
+        <button class="flow-step active" data-step="1">
+          <div class="dot" data-step="1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/>
+            </svg>
+          </div>
+          <div class="day"><span class="lang-zh">第 0 天</span><span class="lang-en">Day 0</span></div>
+          <div class="lab"><span class="lang-zh">匿名快篩</span><span class="lang-en">Anonymous test</span></div>
+        </button>
+
+        <button class="flow-step" data-step="2">
+          <div class="dot" data-step="2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+          </div>
+          <div class="day"><span class="lang-zh">第 0 天</span><span class="lang-en">Day 0</span></div>
+          <div class="lab"><span class="lang-zh">同日確診</span><span class="lang-en">Same-day confirm</span></div>
+        </button>
+
+        <button class="flow-step" data-step="3">
+          <div class="dot" data-step="3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7 0l4-4a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-4 4a5 5 0 0 0 7 7l1-1"/>
+            </svg>
+          </div>
+          <div class="day"><span class="lang-zh">第 0 天</span><span class="lang-en">Day 0</span></div>
+          <div class="lab"><span class="lang-zh">同日治療</span><span class="lang-en">Same-day ART</span></div>
+        </button>
+
+        <button class="flow-step" data-step="4">
+          <div class="dot" data-step="4">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="day"><span class="lang-zh">第 7 天</span><span class="lang-en">Day 7</span></div>
+          <div class="lab"><span class="lang-zh">第一週追蹤</span><span class="lang-en">Week-1 follow-up</span></div>
+        </button>
+
+        <button class="flow-step" data-step="5">
+          <div class="dot" data-step="5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/>
+            </svg>
+          </div>
+          <div class="day"><span class="lang-zh">3-6 個月</span><span class="lang-en">Months 3-6</span></div>
+          <div class="lab"><span class="lang-zh">病毒抑制</span><span class="lang-en">Suppression</span></div>
+        </button>
+
+        <button class="flow-step" data-step="6">
+          <div class="dot" data-step="6">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <div class="day"><span class="lang-zh">6 個月後</span><span class="lang-en">Month 6+</span></div>
+          <div class="lab"><span class="lang-zh">U=U 狀態</span><span class="lang-en">U=U status</span></div>
+        </button>
+      </div>
+
+      <div class="flow-detail" id="flowDetail" data-active="1">
+
+        <!-- step 1 -->
+        <div class="flow-detail-content active" data-content="1">
+          <div class="flow-left">
+            <div class="timestamp"><span class="lang-zh">第 0 天 · 09:00</span><span class="lang-en">Day 0 · 09:00</span></div>
+            <h3><span class="lang-zh">匿名快篩，20 分鐘出結果</span><span class="lang-en">Anonymous rapid test, results in 20 minutes</span></h3>
+            <p><span class="lang-zh">不需要證件、不需要解釋自己為什麼來。報到只需取一個編號，等待空間獨立規劃，全程不會被詢問私人關係或行為細節。</span><span class="lang-en">No ID required. No need to explain why you came. Patients receive a number at check-in, wait in a privacy-protected space, and are never asked about partners or behaviour as a condition of testing.</span></p>
+          </div>
+          <div class="flow-right">
+            <div class="sub"><span class="lang-zh">背後的設計選擇</span><span class="lang-en">Behind-the-scenes design</span></div>
+            <ul>
+              <li><span class="lang-zh">櫃台與護理人員接受去污名語言訓練</span><span class="lang-en">Reception and nursing trained in non-stigmatising language</span></li>
+              <li><span class="lang-zh">獨立報到動線，不混在一般候診區</span><span class="lang-en">Separate check-in route, not mixed with general waiting area</span></li>
+              <li><span class="lang-zh">採檢空間採用單向流動，避免眼神接觸</span><span class="lang-en">One-way flow in the testing room minimises unwanted eye contact</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- step 2 -->
+        <div class="flow-detail-content" data-content="2">
+          <div class="flow-left">
+            <div class="timestamp"><span class="lang-zh">第 0 天 · 10:30</span><span class="lang-en">Day 0 · 10:30</span></div>
+            <h3><span class="lang-zh">確診當下不獨自承受</span><span class="lang-en">No one is alone at the moment of diagnosis</span></h3>
+            <p><span class="lang-zh">陽性結果出現時，諮詢師立刻在小房間內陪伴，不需轉介、不需排隊、不需另外掛號。整個確認與會談在 90 分鐘內完成。</span><span class="lang-en">When the result is positive, a counsellor is immediately present in a private room — no referral wait, no queue, no separate registration. Confirmation and counselling complete within 90 minutes.</span></p>
+          </div>
+          <div class="flow-right">
+            <div class="sub"><span class="lang-zh">背後的設計選擇</span><span class="lang-en">Behind-the-scenes design</span></div>
+            <ul>
+              <li><span class="lang-zh">當日預留個案管理師時段</span><span class="lang-en">Case manager has pre-reserved same-day slots</span></li>
+              <li><span class="lang-zh">會談室與一般診間分流，避免身分曝露</span><span class="lang-en">Counselling room separated from general clinic flow to protect identity</span></li>
+              <li><span class="lang-zh">檢驗系統與感染科即時連線</span><span class="lang-en">Lab and ID clinic systems connected in real time</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- step 3 -->
+        <div class="flow-detail-content" data-content="3">
+          <div class="flow-left">
+            <div class="timestamp"><span class="lang-zh">第 0 天 · 14:00</span><span class="lang-en">Day 0 · 14:00</span></div>
+            <h3><span class="lang-zh">當天就開始治療，不再多等一週</span><span class="lang-en">Treatment begins the same day, not the following week</span></h3>
+            <p><span class="lang-zh">第一劑抗病毒藥物在診間服下，藥師同步衛教副作用與處置方式。病人帶著一張個案管理師的直撥電話卡片離開。</span><span class="lang-en">The first dose of ART is taken in the clinic. The pharmacist explains side effects and how to handle them. The patient leaves with a card containing the case manager's direct line.</span></p>
+          </div>
+          <div class="flow-right">
+            <div class="sub"><span class="lang-zh">背後的設計選擇</span><span class="lang-en">Behind-the-scenes design</span></div>
+            <ul>
+              <li><span class="lang-zh">藥局保留同日 ART 配藥能力</span><span class="lang-en">Pharmacy reserves same-day ART dispensing capacity</span></li>
+              <li><span class="lang-zh">藥事衛教整合到診間，免除二次跑點</span><span class="lang-en">Medication counselling integrated into the clinic, no second trip required</span></li>
+              <li><span class="lang-zh">處方系統內建友善劑型決策樹</span><span class="lang-en">Prescription system has built-in friendly regimen decision tree</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- step 4 -->
+        <div class="flow-detail-content" data-content="4">
+          <div class="flow-left">
+            <div class="timestamp"><span class="lang-zh">第 7 天</span><span class="lang-en">Day 7</span></div>
+            <h3><span class="lang-zh">電話、訊息、面談——病人選方式</span><span class="lang-en">Phone, message, in-person — the patient chooses</span></h3>
+            <p><span class="lang-zh">第一週追蹤不強迫回診。病人可以選擇電話、加密訊息、或回診面談。漏接也不會被標記為「不配合」。</span><span class="lang-en">The week-one follow-up is never mandatory in person. Patients choose phone, encrypted message, or visit. A missed contact is never flagged as "non-adherent".</span></p>
+          </div>
+          <div class="flow-right">
+            <div class="sub"><span class="lang-zh">背後的設計選擇</span><span class="lang-en">Behind-the-scenes design</span></div>
+            <ul>
+              <li><span class="lang-zh">病人主導的追蹤路徑（patient-led）</span><span class="lang-en">Patient-led follow-up channel selection</span></li>
+              <li><span class="lang-zh">系統提示語言去懲罰化</span><span class="lang-en">System prompts use non-punitive language</span></li>
+              <li><span class="lang-zh">追蹤記錄與一般病歷分流</span><span class="lang-en">Follow-up records routed separately from general charts</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- step 5 -->
+        <div class="flow-detail-content" data-content="5">
+          <div class="flow-left">
+            <div class="timestamp"><span class="lang-zh">3-6 個月</span><span class="lang-en">Months 3-6</span></div>
+            <h3><span class="lang-zh">病毒量不可測，但人不被縮減</span><span class="lang-en">Undetectable viral load — without reducing the person</span></h3>
+            <p><span class="lang-zh">當病毒量降到不可測，我們不會用「成功個案」這種把病人變成樣本的語言。回饋是：「你做到了你想做的，現在我們繼續一起照顧你的整體健康。」</span><span class="lang-en">When viral load reaches undetectable, we never use "success case" language that turns the patient into a specimen. The message is: "You did what you wanted to do — now let's keep caring for your whole health together."</span></p>
+          </div>
+          <div class="flow-right">
+            <div class="sub"><span class="lang-zh">背後的設計選擇</span><span class="lang-en">Behind-the-scenes design</span></div>
+            <ul>
+              <li><span class="lang-zh">儀表板呈現去個人化、聚合資料</span><span class="lang-en">Dashboards show de-identified, aggregated data</span></li>
+              <li><span class="lang-zh">慢性病、心理、社政整合進長期照護計畫</span><span class="lang-en">Chronic care, mental health, and social services integrated into long-term plan</span></li>
+              <li><span class="lang-zh">U=U 衛教納入病人自主時序</span><span class="lang-en">U=U counselling delivered on the patient's own timeline</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- step 6 -->
+        <div class="flow-detail-content" data-content="6">
+          <div class="flow-left">
+            <div class="timestamp"><span class="lang-zh">6 個月後 · 持續</span><span class="lang-en">Month 6+ · Ongoing</span></div>
+            <h3><span class="lang-zh">U=U 不只是感染科的事</span><span class="lang-en">U=U is not only the ID clinic's concern</span></h3>
+            <p><span class="lang-zh">病人回到牙科、外科、ICU、長照——每一個接觸點都應該知道 U=U 是什麼意思。我們建立的是一套讓病人不必反覆解釋自己的系統。</span><span class="lang-en">When patients move on to dentistry, surgery, ICU, or long-term care, every touchpoint should know what U=U means. What we build is a system where patients never have to re-explain themselves.</span></p>
+          </div>
+          <div class="flow-right">
+            <div class="sub"><span class="lang-zh">背後的設計選擇</span><span class="lang-en">Behind-the-scenes design</span></div>
+            <ul>
+              <li><span class="lang-zh">跨科團隊定期 U=U 教育訓練</span><span class="lang-en">Regular cross-specialty U=U training</span></li>
+              <li><span class="lang-zh">電子病歷標籤系統去污名化</span><span class="lang-en">EMR tagging system reworked to remove stigma</span></li>
+              <li><span class="lang-zh">與長照夥伴建立共同照護路徑</span><span class="lang-en">Shared-care pathways with long-term care partners</span></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== JOURNEY ===================== -->
+<section id="journey">
+  <div class="container">
+    <div class="section-head">
+      <div class="label">
+        <span class="lang-zh">推動歷程</span>
+        <span class="lang-en">Journey</span>
+        <span class="num">03</span>
+      </div>
+      <div>
+        <h2>
+          <span class="lang-zh">這不是一場活動，<em>是十年的累積</em>。</span>
+          <span class="lang-en">Not a campaign — <em>a decade in the making</em>.</span>
+        </h2>
+        <p class="deck">
+          <span class="lang-zh">從看見污名、走向倡議、進入測量，再走到 same-day、one-stop 與長期照護延伸，每一步都是有意識的設計選擇。</span>
+          <span class="lang-en">From recognising stigma to advocacy, measurement, same-day, one-stop, and long-term care extension — each step has been a deliberate design choice.</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="tl-row reveal">
+        <div class="tl-year">2018</div>
+        <div class="tl-content">
+          <h4>
+            <span class="lang-zh">看見污名與系統問題</span>
+            <span class="lang-en">Recognising stigma as a system issue</span>
+          </h4>
+          <ul>
+            <li><span class="lang-zh">第一次內部對話：「我們的友善只在感染科嗎？」</span><span class="lang-en">First internal conversation: "Is our friendliness only in the infectious diseases clinic?"</span></li>
+            <li><span class="lang-zh">記錄跨科室不友善經驗，建立基礎證據</span><span class="lang-en">Documenting cross-department unfriendly experiences as baseline evidence</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-row reveal">
+        <div class="tl-year">2020</div>
+        <div class="tl-content">
+          <h4>
+            <span class="lang-zh">從倡議走向制度</span>
+            <span class="lang-en">From advocacy to institutional change</span>
+          </h4>
+          <ul>
+            <li><span class="lang-zh">啟動院內 HIV 友善教育訓練</span><span class="lang-en">Launching hospital-wide HIV-friendly staff education</span></li>
+            <li><span class="lang-zh">建立匿名篩檢動線設計</span><span class="lang-en">Designing anonymous screening pathways</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-row reveal">
+        <div class="tl-year">2022</div>
+        <div class="tl-content">
+          <h4>
+            <span class="lang-zh">走向測量與品質改善</span>
+            <span class="lang-en">Towards measurement and improvement</span>
+          </h4>
+          <ul>
+            <li><span class="lang-zh">建立友善醫療指標儀表板</span><span class="lang-en">Building the friendly-care indicator dashboard</span></li>
+            <li><span class="lang-zh">PrEP 與 PEP 服務整合進門急診流程</span><span class="lang-en">Integrating PrEP and PEP into outpatient and emergency workflows</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-row reveal">
+        <div class="tl-year">2024</div>
+        <div class="tl-content">
+          <h4>
+            <span class="lang-zh">推動小組與政策修訂</span>
+            <span class="lang-en">Steering committee and policy revision</span>
+          </h4>
+          <ul>
+            <li><span class="lang-zh">正式成立跨部門 HIV 友善推動小組</span><span class="lang-en">Establishing the formal cross-departmental steering committee</span></li>
+            <li><span class="lang-zh">第一份院內 HIV 友善治理指引發布</span><span class="lang-en">Publishing the first hospital-wide HIV-friendly governance guideline</span></li>
+            <li><span class="lang-zh">問卷與友善活動規模擴大</span><span class="lang-en">Surveys and friendly-care activities scaled up</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-row reveal">
+        <div class="tl-year">2025</div>
+        <div class="tl-content">
+          <h4>
+            <span class="lang-zh">Same-day、One-stop 與長照延伸</span>
+            <span class="lang-en">Same-day, one-stop and long-term care extension</span>
+          </h4>
+          <ul>
+            <li><span class="lang-zh">同日篩檢同日治療（same-day ART）標準化</span><span class="lang-en">Same-day diagnosis-to-ART standardised</span></li>
+            <li><span class="lang-zh">牙科、外科、ICU 友善照護路徑落地</span><span class="lang-en">Friendly care pathways implemented in dentistry, surgery, ICU</span></li>
+            <li><span class="lang-zh">與長照與社區夥伴建立轉介合作</span><span class="lang-en">Long-term care and community partner referrals established</span></li>
+            <li><span class="lang-zh">國際分享：泰國、日本、韓國</span><span class="lang-en">International sharing: Thailand, Japan, Korea</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-row reveal">
+        <div class="tl-year">2026</div>
+        <div class="tl-content">
+          <h4>
+            <span class="lang-zh">未來方向</span>
+            <span class="lang-en">Looking forward</span>
+          </h4>
+          <ul>
+            <li><span class="lang-zh">把友善照護擴展到更多慢性病與弱勢族群</span><span class="lang-en">Extending friendly care to more chronic and underserved populations</span></li>
+            <li><span class="lang-zh">將模式發展成可被其他醫院採用的工具包</span><span class="lang-en">Packaging the model as a transferable toolkit for other hospitals</span></li>
+            <li><span class="lang-zh">深化資源意識型照護研究與發表</span><span class="lang-en">Deepening resource-conscious care research and publication</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OUR MODEL ===================== -->
+<section id="model">
+  <div class="container">
+    <div class="section-head">
+      <div class="label">
+        <span class="lang-zh">我們的模式</span>
+        <span class="lang-en">Our Model</span>
+        <span class="num">04</span>
+      </div>
+      <div>
+        <h2>
+          <span class="lang-zh">五個模組，<em>一個系統</em>。</span>
+          <span class="lang-en">Five modules, <em>one system</em>.</span>
+        </h2>
+        <p class="deck">
+          <span class="lang-zh">治理、照護路徑、文化與教育、測量與學習、資源意識型設計——五個模組互相支撐，缺一不可。</span>
+          <span class="lang-en">Governance, care pathways, culture and education, measurement and learning, resource-conscious design — five interlocking modules.</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="model-wheel-grid">
+      <div class="wheel-stage">
+        <svg viewBox="-200 -200 400 400" id="modelWheel">
+          <defs>
+            <!-- 5 segments forming a pentagonal donut, each 72 degrees -->
+            <!-- using path with arc + line back -->
+          </defs>
+
+          <!-- Segment 1 - Governance (top) -->
+          <g class="wheel-segment" data-seg="1" tabindex="0" role="button">
+            <path class="seg-fill"
+              d="M 0 -170
+                 A 170 170 0 0 1 161.69 -52.55
+                 L 76.08 -24.72
+                 A 80 80 0 0 0 0 -80
+                 Z" />
+            <text class="seg-num" x="40" y="-130" text-anchor="middle">M / 01</text>
+            <g class="seg-icon" transform="translate(46 -110) scale(0.8)">
+              <rect x="-10" y="-10" width="20" height="20" rx="2"/>
+              <path d="M -10 -4 L 10 -4 M -4 -10 L -4 10"/>
+            </g>
+          </g>
+
+          <!-- Segment 2 - Care Pathways (top right) -->
+          <g class="wheel-segment" data-seg="2" tabindex="0" role="button">
+            <path class="seg-fill"
+              d="M 161.69 -52.55
+                 A 170 170 0 0 1 99.95 137.51
+                 L 47.02 64.72
+                 A 80 80 0 0 0 76.08 -24.72
+                 Z" />
+            <text class="seg-num" x="135" y="35" text-anchor="middle">M / 02</text>
+            <g class="seg-icon" transform="translate(120 12) scale(0.7)">
+              <path d="M -16 0 L -8 0 L -4 -10 L 4 12 L 8 0 L 16 0"/>
+            </g>
+          </g>
+
+          <!-- Segment 3 - Culture (bottom right) -->
+          <g class="wheel-segment" data-seg="3" tabindex="0" role="button">
+            <path class="seg-fill"
+              d="M 99.95 137.51
+                 A 170 170 0 0 1 -99.95 137.51
+                 L -47.02 64.72
+                 A 80 80 0 0 0 47.02 64.72
+                 Z" />
+            <text class="seg-num" x="0" y="138" text-anchor="middle">M / 03</text>
+            <g class="seg-icon" transform="translate(0 116) scale(0.7)">
+              <path d="M 0 -14 L 4 -4 L 14 -4 L 6 3 L 9 13 L 0 7 L -9 13 L -6 3 L -14 -4 L -4 -4 Z"/>
+            </g>
+          </g>
+
+          <!-- Segment 4 - Measurement (bottom left) -->
+          <g class="wheel-segment" data-seg="4" tabindex="0" role="button">
+            <path class="seg-fill"
+              d="M -99.95 137.51
+                 A 170 170 0 0 1 -161.69 -52.55
+                 L -76.08 -24.72
+                 A 80 80 0 0 0 -47.02 64.72
+                 Z" />
+            <text class="seg-num" x="-135" y="35" text-anchor="middle">M / 04</text>
+            <g class="seg-icon" transform="translate(-120 16) scale(0.7)">
+              <rect x="-14" y="0" width="6" height="14"/>
+              <rect x="-3" y="-6" width="6" height="20"/>
+              <rect x="8" y="-12" width="6" height="26"/>
+            </g>
+          </g>
+
+          <!-- Segment 5 - Resource-Conscious (top left) -->
+          <g class="wheel-segment" data-seg="5" tabindex="0" role="button">
+            <path class="seg-fill"
+              d="M -161.69 -52.55
+                 A 170 170 0 0 1 0 -170
+                 L 0 -80
+                 A 80 80 0 0 0 -76.08 -24.72
+                 Z" />
+            <text class="seg-num" x="-40" y="-130" text-anchor="middle">M / 05</text>
+            <g class="seg-icon" transform="translate(-50 -108) scale(0.6)">
+              <circle cx="0" cy="0" r="14"/>
+              <path d="M 0 -14 L 0 14 M -14 0 L 14 0"/>
+            </g>
+          </g>
+
+          <!-- Center -->
+          <circle class="wheel-center" cx="0" cy="0" r="58"/>
+          <text class="wheel-center-sub" x="0" y="-12">Our Model</text>
+          <text class="wheel-center-text" x="0" y="8">Five</text>
+          <text class="wheel-center-text" x="0" y="26">modules</text>
+        </svg>
+      </div>
+
+      <div class="wheel-content">
+
+        <div class="wheel-panel active" data-panel="1">
+          <div class="num">M / 01 · <span class="lang-zh">點選圓盤切換</span><span class="lang-en">Click the wheel to switch</span></div>
+          <h3><span class="lang-zh">治理</span><span class="lang-en">Governance</span></h3>
+          <div class="en-sub"><span class="lang-zh">Cross-departmental steering · 跨部門推動小組</span><span class="lang-en">Cross-departmental steering committee</span></div>
+          <p><span class="lang-zh">由院方支持的跨部門推動小組，把 HIV 友善照護放進品質與安全的治理結構，定期檢視、決策與資源分配。</span><span class="lang-en">A leadership-backed cross-departmental steering committee places HIV-friendly care within the quality and safety governance structure — with regular review, decision-making, and resource allocation.</span></p>
+          <div class="pillars">
+            <div class="pillar-row"><span class="k">Pillar</span><span class="v"><span class="lang-zh">制度與責任</span><span class="lang-en">Structure & accountability</span></span></div>
+            <div class="pillar-row"><span class="k">Cycle</span><span class="v"><span class="lang-zh">每月檢視 · 每季決議 · 每年成效報告</span><span class="lang-en">Monthly review · quarterly decisions · annual report</span></span></div>
+            <div class="pillar-row"><span class="k">Lead</span><span class="v"><span class="lang-zh">院方 + 品質管理部 + 感染科</span><span class="lang-en">Hospital leadership + Quality Management + Infectious Diseases</span></span></div>
+          </div>
+        </div>
+
+        <div class="wheel-panel" data-panel="2">
+          <div class="num">M / 02 · <span class="lang-zh">點選圓盤切換</span><span class="lang-en">Click the wheel to switch</span></div>
+          <h3><span class="lang-zh">照護路徑</span><span class="lang-en">Care Pathways</span></h3>
+          <div class="en-sub"><span class="lang-zh">Same-day · One-stop · Cross-setting</span><span class="lang-en">Same-day · One-stop · Cross-setting</span></div>
+          <p><span class="lang-zh">同日診斷同日治療、單一窗口整合服務、橫跨牙科外科 ICU 與長照的友善路徑——讓病人不必反覆解釋自己。</span><span class="lang-en">Same-day diagnosis-to-treatment, one-stop integrated services, and cross-setting pathways spanning dentistry, surgery, ICU, and long-term care — so patients never have to re-explain themselves.</span></p>
+          <div class="pillars">
+            <div class="pillar-row"><span class="k">Pillar</span><span class="v"><span class="lang-zh">流程與經驗</span><span class="lang-en">Workflow & experience</span></span></div>
+            <div class="pillar-row"><span class="k">Span</span><span class="v"><span class="lang-zh">急診 · 門診 · 牙科 · 外科 · ICU · 長照</span><span class="lang-en">ED · OPD · dentistry · surgery · ICU · LTC</span></span></div>
+            <div class="pillar-row"><span class="k">Goal</span><span class="v"><span class="lang-zh">90 分鐘內完成診斷與首劑治療</span><span class="lang-en">Diagnosis-to-first-dose under 90 minutes</span></span></div>
+          </div>
+        </div>
+
+        <div class="wheel-panel" data-panel="3">
+          <div class="num">M / 03 · <span class="lang-zh">點選圓盤切換</span><span class="lang-en">Click the wheel to switch</span></div>
+          <h3><span class="lang-zh">文化與教育</span><span class="lang-en">Culture & Education</span></h3>
+          <div class="en-sub"><span class="lang-zh">Friendly Care Day · Just culture</span><span class="lang-en">Friendly Care Day · Just culture</span></div>
+          <p><span class="lang-zh">以友善醫療日、跨層級訓練、與正向行為設計，把「友善」從口號變成日常工作習慣。</span><span class="lang-en">Friendly Care Day, multi-level training, and positive behavioural design turn "friendliness" from slogan into everyday practice.</span></p>
+          <div class="pillars">
+            <div class="pillar-row"><span class="k">Pillar</span><span class="v"><span class="lang-zh">文化</span><span class="lang-en">Culture</span></span></div>
+            <div class="pillar-row"><span class="k">Reach</span><span class="v"><span class="lang-zh">新進、回流、跨科共學三軌</span><span class="lang-en">Onboarding, refresh, and cross-specialty co-learning</span></span></div>
+            <div class="pillar-row"><span class="k">Annual</span><span class="v"><span class="lang-zh">友善醫療日 · 公開回顧 · 集體承諾</span><span class="lang-en">Friendly Care Day · public review · collective commitment</span></span></div>
+          </div>
+        </div>
+
+        <div class="wheel-panel" data-panel="4">
+          <div class="num">M / 04 · <span class="lang-zh">點選圓盤切換</span><span class="lang-en">Click the wheel to switch</span></div>
+          <h3><span class="lang-zh">測量與學習</span><span class="lang-en">Measurement & Learning</span></h3>
+          <div class="en-sub"><span class="lang-zh">Indicators · Surveys · Feedback loops</span><span class="lang-en">Indicators · Surveys · Feedback loops</span></div>
+          <p><span class="lang-zh">用指標儀表板、員工與病人問卷、近錯與事件學習迴圈，持續看見問題、修正設計。</span><span class="lang-en">Indicator dashboards, staff and patient surveys, and near-miss learning loops keep us seeing problems and refining the design.</span></p>
+          <div class="pillars">
+            <div class="pillar-row"><span class="k">Pillar</span><span class="v"><span class="lang-zh">證據</span><span class="lang-en">Evidence</span></span></div>
+            <div class="pillar-row"><span class="k">Data</span><span class="v"><span class="lang-zh">12 項友善指標 · 季度更新</span><span class="lang-en">12 friendly-care indicators · updated quarterly</span></span></div>
+            <div class="pillar-row"><span class="k">Voice</span><span class="v"><span class="lang-zh">員工與病人雙軌問卷</span><span class="lang-en">Parallel staff and patient surveys</span></span></div>
+          </div>
+        </div>
+
+        <div class="wheel-panel" data-panel="5">
+          <div class="num">M / 05 · <span class="lang-zh">點選圓盤切換</span><span class="lang-en">Click the wheel to switch</span></div>
+          <h3><span class="lang-zh">資源意識型照護設計</span><span class="lang-en">Resource-Conscious Care</span></h3>
+          <div class="en-sub"><span class="lang-zh">Less waste · More dignity</span><span class="lang-en">Less waste · More dignity</span></div>
+          <p><span class="lang-zh">紙本減量、數位支援、資源意識型感染管制——讓友善與永續一起成立，而不是互相犧牲。</span><span class="lang-en">Paperless workflows, digital support, and resource-conscious infection control — so friendliness and sustainability rise together, not at each other's expense.</span></p>
+          <div class="pillars">
+            <div class="pillar-row"><span class="k">Pillar</span><span class="v"><span class="lang-zh">永續</span><span class="lang-en">Sustainability</span></span></div>
+            <div class="pillar-row"><span class="k">Saved</span><span class="v"><span class="lang-zh">紙本 -38% · 不必要隔離耗材 -22%</span><span class="lang-en">Paper −38% · unneeded isolation supplies −22%</span></span></div>
+            <div class="pillar-row"><span class="k">Aim</span><span class="v"><span class="lang-zh">把節制變成尊嚴的證明</span><span class="lang-en">Restraint as a proof of dignity</span></span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TEAM ===================== -->
+<section id="team">
+  <div class="container">
+    <div class="section-head">
+      <div class="label">
+        <span class="lang-zh">團隊</span>
+        <span class="lang-en">Team</span>
+        <span class="num">05</span>
+      </div>
+      <div>
+        <h2>
+          <span class="lang-zh">友善醫療<em>不是一個人的事</em>。</span>
+          <span class="lang-en">Friendly care <em>is never one person's job</em>.</span>
+        </h2>
+        <p class="deck">
+          <span class="lang-zh">這是一支橫跨臨床、護理、行政、品管、感管、牙科、外科、婦產、小兒、ICU 與長照窗口的團隊。</span>
+          <span class="lang-en">This is a team that spans clinical care, nursing, administration, quality, infection control, dentistry, surgery, OB-GYN, paediatrics, ICU, and long-term care liaisons.</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Tier 1 -->
+    <div class="team-tier lvl-1">
+      <div class="team-tier-head">
+        <span class="roman">I</span>
+        <h3>
+          <span class="lang-zh">領導與治理</span>
+          <span class="lang-en">Leadership & Governance</span>
+        </h3>
+        <span class="en">
+          <span class="lang-zh">Sponsorship · Convening · Oversight</span>
+          <span class="lang-en">Sponsorship · Convening · Oversight</span>
+        </span>
+      </div>
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <div class="avatar">院</div>
+          <div class="name"><span class="lang-zh">院方支持者</span><span class="lang-en">Hospital Sponsor</span></div>
+          <div class="role"><span class="lang-zh">資源與政策授權</span><span class="lang-en">Resource & Policy Sponsorship</span></div>
+          <div class="bio"><span class="lang-zh">院級層次的支持與授權，讓友善醫療能跨部門推動。</span><span class="lang-en">Executive-level support that authorises cross-departmental movement.</span></div>
+        </div>
+        <div class="team-card reveal">
+          <div class="avatar">召</div>
+          <div class="name"><span class="lang-zh">推動小組召集人</span><span class="lang-en">Steering Convener</span></div>
+          <div class="role"><span class="lang-zh">跨部門協調與設計</span><span class="lang-en">Cross-departmental Design</span></div>
+          <div class="bio"><span class="lang-zh">負責小組議程、跨科協調與政策提案的整合者角色。</span><span class="lang-en">Leads agenda, cross-discipline coordination, and policy proposals.</span></div>
+        </div>
+        <div class="team-card reveal">
+          <div class="avatar">品</div>
+          <div class="name"><span class="lang-zh">品質與安全治理</span><span class="lang-en">Quality & Safety Governance</span></div>
+          <div class="role"><span class="lang-zh">指標與學習迴圈</span><span class="lang-en">Indicators & Learning Loops</span></div>
+          <div class="bio"><span class="lang-zh">把友善照護放進品質與病安治理結構中持續監看與改善。</span><span class="lang-en">Embedding friendly care into the quality and patient safety governance structure.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tier 2 -->
+    <div class="team-tier lvl-2">
+      <div class="team-tier-head">
+        <span class="roman">II</span>
+        <h3>
+          <span class="lang-zh">核心臨床團隊</span>
+          <span class="lang-en">Core Clinical Team</span>
+        </h3>
+        <span class="en">
+          <span class="lang-zh">Diagnosis · Treatment · Care management</span>
+          <span class="lang-en">Diagnosis · Treatment · Care management</span>
+        </span>
+      </div>
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <div class="avatar">感</div>
+          <div class="name"><span class="lang-zh">感染科醫師</span><span class="lang-en">Infectious Diseases</span></div>
+          <div class="role"><span class="lang-zh">診斷與治療</span><span class="lang-en">Diagnosis & Treatment</span></div>
+          <div class="bio"><span class="lang-zh">同日篩檢同日治療、長期追蹤、共病處置的核心臨床力量。</span><span class="lang-en">Same-day testing-to-treatment, long-term follow-up, and comorbidity care.</span></div>
+        </div>
+        <div class="team-card reveal">
+          <div class="avatar">案</div>
+          <div class="name"><span class="lang-zh">個案管理師</span><span class="lang-en">Case Manager</span></div>
+          <div class="role"><span class="lang-zh">陪伴與整合</span><span class="lang-en">Continuity & Integration</span></div>
+          <div class="bio"><span class="lang-zh">病人面對系統的第一線陪伴者，串接門診、社政、社區資源。</span><span class="lang-en">A patient's first companion through the system — connecting clinics, social services, and community resources.</span></div>
+        </div>
+        <div class="team-card reveal">
+          <div class="avatar">護</div>
+          <div class="name"><span class="lang-zh">護理</span><span class="lang-en">Nursing</span></div>
+          <div class="role"><span class="lang-zh">病人經驗第一線</span><span class="lang-en">Patient Experience Frontline</span></div>
+          <div class="bio"><span class="lang-zh">在每一次接觸中決定「友善」是真實的還是只是文件上的字。</span><span class="lang-en">In every encounter, decides whether "friendly" is real or only on paper.</span></div>
+        </div>
+        <div class="team-card reveal">
+          <div class="avatar">控</div>
+          <div class="name"><span class="lang-zh">感染管制</span><span class="lang-en">Infection Control</span></div>
+          <div class="role"><span class="lang-zh">安全與尊嚴並重</span><span class="lang-en">Safety with Dignity</span></div>
+          <div class="bio"><span class="lang-zh">用實證設計感控流程，避免污名化與資源浪費同時發生。</span><span class="lang-en">Evidence-based infection control designed to avoid both stigma and waste.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tier 3 -->
+    <div class="team-tier lvl-3">
+      <div class="team-tier-head">
+        <span class="roman">III</span>
+        <h3>
+          <span class="lang-zh">跨部門合作夥伴</span>
+          <span class="lang-en">Cross-departmental Partners</span>
+        </h3>
+        <span class="en">
+          <span class="lang-zh">Specialty clinics · Long-term care · Communications</span>
+          <span class="lang-en">Specialty clinics · Long-term care · Communications</span>
+        </span>
+      </div>
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <div class="avatar">牙</div>
+          <div class="name"><span class="lang-zh">牙科</span><span class="lang-en">Dentistry</span></div>
+          <div class="bio"><span class="lang-zh">以實證標準提供友善牙科服務，破解最常見的就醫障礙之一。</span><span class="lang-en">Evidence-based friendly dental services tackling one of the most common access barriers.</span></div>
+        </div>
+        <div class="team-card reveal">
+          <div class="avatar">外</div>
+          <div class="name"><span class="lang-zh">外科</span><span class="lang-en">Surgery</span></div>
+          <div class="bio"><span class="lang-zh">擇期與急診手術皆設計友善流程與保護措施。</span><span class="lang-en">Friendly workflows for both elective and emergency surgical care.</span></div>
+        </div>
+        <div class="team-card reveal">
+          <div class="avatar">婦</div>
+          <div class="name"><span class="lang-zh">婦產</span><span class="lang-en">OB-GYN</span></div>
+          <div class="bio"><span class="lang-zh">提供包括 PrEP 諮詢、孕產期照護的友善服務。</span><span class="lang-en">Friendly OB-GYN services including PrEP counselling and perinatal care.</span></div>
+        </div>
+        <div class="team-card reveal">
+          <div class="avatar">兒</div>
+          <div class="name"><span class="lang-zh">小兒</span><span class="lang-en">Paediatrics</span></div>
+          <div class="bio"><span class="lang-zh">處理母嬰垂直傳染預防與兒童感染照護的延續性服務。</span><span class="lang-en">Mother-to-child transmission prevention and continuity care for paediatric infections.</span></div>
+        </div>
+        <div class="team-card reveal">
+          <div class="avatar">重</div>
+          <div class="name"><span class="lang-zh">重症 ICU</span><span class="lang-en">Intensive Care</span></div>
+          <div class="bio"><span class="lang-zh">提供入住 ICU 的 PLHIV 同等級照護與隱私保護。</span><span class="lang-en">Equal-quality ICU care with strong privacy protection for people living with HIV.</span></div>
+        </div>
+        <div class="team-card reveal">
+          <div class="avatar">行</div>
+          <div class="name"><span class="lang-zh">行政與公關</span><span class="lang-en">Administration & PR</span></div>
+          <div class="bio"><span class="lang-zh">負責對內溝通、對外發聲，確保訊息一致而尊重。</span><span class="lang-en">Internal communication and external voice — ensuring messaging stays consistent and respectful.</span></div>
+        </div>
+        <div class="team-card reveal">
+          <div class="avatar">長</div>
+          <div class="name"><span class="lang-zh">長照與社區</span><span class="lang-en">Long-Term & Community Care</span></div>
+          <div class="bio"><span class="lang-zh">作為與長照機構與社區夥伴間的轉介與培訓窗口。</span><span class="lang-en">Bridge for referral and training between long-term care facilities and community partners.</span></div>
+        </div>
+        <div class="team-card reveal">
+          <div class="avatar">教</div>
+          <div class="name"><span class="lang-zh">教育與訓練</span><span class="lang-en">Education & Training</span></div>
+          <div class="bio"><span class="lang-zh">負責新進人員教育與年度回流訓練，把友善寫進入職第一週。</span><span class="lang-en">Onboarding and annual refresh training — writing friendliness into staff's first week.</span></div>
+        </div>
+        <div class="team-card reveal">
+          <div class="avatar">資</div>
+          <div class="name"><span class="lang-zh">資訊與數位</span><span class="lang-en">IT & Digital</span></div>
+          <div class="bio"><span class="lang-zh">用數位流程降低污名化暴露，讓資訊只在需要的人手中。</span><span class="lang-en">Digital workflows reducing stigma exposure — information stays only in the right hands.</span></div>
+        </div>
+        <div class="team-card reveal">
+          <div class="avatar">究</div>
+          <div class="name"><span class="lang-zh">研究與評估</span><span class="lang-en">Research & Evaluation</span></div>
+          <div class="bio"><span class="lang-zh">把模式變成可被檢驗、被分享、被學習的證據。</span><span class="lang-en">Turning the model into evidence that can be tested, shared, and learned from.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FRIENDLY CARE DAY ===================== -->
+<section id="friendly-day">
+  <div class="container">
+    <div class="section-head">
+      <div class="label">
+        <span class="lang-zh">友善醫療日</span>
+        <span class="lang-en">Friendly Care Day</span>
+        <span class="num">06</span>
+      </div>
+      <div>
+        <h2>
+          <span class="lang-zh">每一屆都是<em>聽見、回應、改變</em>。</span>
+          <span class="lang-en">Each edition: <em>listen, respond, change</em>.</span>
+        </h2>
+        <p class="deck">
+          <span class="lang-zh">友善醫療日不是一場慶典——是一個年度節點，讓我們公開回顧聽到了什麼、改了什麼、下一年要做什麼。</span>
+          <span class="lang-en">Friendly Care Day is not a celebration — it is an annual checkpoint to publicly review what we heard, what changed, and what comes next.</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="year-tabs" role="tablist">
+      <button class="year-tab" data-year="2021" role="tab">2021</button>
+      <button class="year-tab" data-year="2022" role="tab">2022</button>
+      <button class="year-tab" data-year="2023" role="tab">2023</button>
+      <button class="year-tab" data-year="2024" role="tab">2024</button>
+      <button class="year-tab active" data-year="2025" role="tab">2025</button>
+    </div>
+
+    <!-- 2025 panel (default) -->
+    <div class="year-panel active" data-panel="2025">
+      <div class="year-meta">
+        <div>
+          <h3>
+            <span class="lang-zh">2025 · <em>奇美友善醫療日嘉年華｜Eyes on Ukraine 全球首映季</em></span>
+            <span class="lang-en">2025 · <em>Friendly Medicine Day Carnival｜Eyes on Ukraine — Premiere Season</em></span>
+          </h3>
+          <p>
+            <span class="lang-zh">第六屆友善醫療日以「嘉年華」形式登場，結合紀錄片《Eyes on Ukraine》全球首映季台灣場、性別論壇、友愛論壇、表演、餐點、抽獎與互動遊戲，邀請大眾共同見證關於人權、疾病與韌性的故事。</span>
+            <span class="lang-en">The sixth Friendly Care Day takes the form of a carnival — featuring the Taiwan stop of the global "Season of Premieres" for the documentary <em>Eyes on Ukraine</em>, alongside gender and friendly-medicine forums, performances, food, raffles and interactive games. A shared witness to a story of human rights, disease, and resilience.</span>
+          </p>
+          <p style="margin-top:12px;display:flex;flex-wrap:wrap;gap:10px">
+            <a href="https://forms.gle/d816wfhTApH6zHG96" target="_blank" class="btn btn-primary" style="font-size:13px;padding:10px 18px">
+              <span class="lang-zh">立即報名</span>
+              <span class="lang-en">Register</span>
+              <span class="arrow">→</span>
+            </a>
+            <a href="event2025.html" class="btn btn-ghost" style="font-size:13px;padding:10px 18px">
+              <span class="lang-zh">活動專頁</span>
+              <span class="lang-en">Event page</span>
+            </a>
+          </p>
+        </div>
+        <div class="meta-stats">
+          <div class="row"><span class="lang-zh">活動日期</span><span class="lang-en">Date</span><strong>2025/11/21</strong></div>
+          <div class="row"><span class="lang-zh">時間</span><span class="lang-en">Time</span><strong>13:00–17:00</strong></div>
+          <div class="row"><span class="lang-zh">地點</span><span class="lang-en">Venue</span><strong><span class="lang-zh">第五醫療大樓 國際會議廳</span><span class="lang-en">Int'l Conference Hall, 5F Bldg.</span></strong></div>
+          <div class="row"><span class="lang-zh">入場</span><span class="lang-en">Admission</span><strong><span class="lang-zh">免費・需報名</span><span class="lang-en">Free · Registration</span></strong></div>
+        </div>
+      </div>
+
+      <!-- Hero poster banner -->
+      <div class="day-card poster-banner" style="margin-top:24px;display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center">
+        <img src="assets/Poster101.jpg" alt="活動主視覺海報 / Event poster" style="width:100%;border-radius:12px;box-shadow:0 10px 26px rgba(0,0,0,.18)">
+        <div>
+          <div class="kind"><span class="lang-zh">關於電影</span><span class="lang-en">About the Film</span></div>
+          <h4><em>Eyes on Ukraine</em></h4>
+          <p>
+            <span class="lang-zh">紀錄片由 Mo Stoebe 執導，Richard Gere 擔任執行製片，跟隨 24 歲的烏克蘭 HIV 行動者 Yana Panfilova，戰爭流離後在柏林持續領導青年組織 Teenergizer，與攝影師 Gideon Mendel 合作，培訓 Liza、Mariia、Yehor 以鏡頭記錄戰時下獨特的公共衛生危機。</span>
+            <span class="lang-en">Directed by Mo Stoebe and executive produced by Richard Gere, the film follows 24-year-old Ukrainian HIV activist Yana Panfilova — exiled to Berlin and continuing to lead the youth network Teenergizer. Trained by photographer Gideon Mendel, Yana, Liza, Mariia and Yehor turn the camera on a unique wartime public-health crisis.</span>
+          </p>
+          <p style="margin-top:8px">
+            <span style="display:inline-block;background:var(--c-accent-soft);color:var(--c-accent-deep);padding:4px 10px;border-radius:999px;font-size:12px;margin-right:6px;font-weight:600">DCP / Color</span>
+            <span style="display:inline-block;background:var(--c-accent-soft);color:var(--c-accent-deep);padding:4px 10px;border-radius:999px;font-size:12px;margin-right:6px;font-weight:600">37 min</span>
+            <span style="display:inline-block;background:var(--c-cyan-soft);color:#0e7490;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:600"><span class="lang-zh">世界首映 2025/12/5 UCLA Hammer</span><span class="lang-en">World Premiere · Dec 5, 2025 · UCLA Hammer</span></span>
+          </p>
+          <p style="margin-top:8px;font-size:13px;color:var(--c-text-soft)">
+            <span class="lang-zh">參展：Awareness Festival（Santa Monica, 2025/10）、Newport Beach Film Festival（2025/10）、Voices Rising Festival（New York, 2025/11）。榮譽：Love Wins Film Festival（2025/5）。</span>
+            <span class="lang-en">Festivals: Awareness Festival (Oct 2025), Newport Beach Film Festival (Oct 2025), Voices Rising Festival (Nov 2025). Honored at Love Wins Film Festival (May 2025).</span>
+          </p>
+          <p style="margin-top:8px;font-size:13px"><a href="https://artglobalhealth.org/event/eyes-on-ukraine-premiere/" target="_blank" style="color:var(--c-accent);text-decoration:underline">artglobalhealth.org/event/eyes-on-ukraine-premiere</a></p>
+        </div>
+      </div>
+
+      <div class="day-grid">
+        <div class="day-card">
+          <div class="kind"><span class="lang-zh">活動程序</span><span class="lang-en">Program</span></div>
+          <h4><span class="lang-zh">當天流程</span><span class="lang-en">Schedule</span></h4>
+          <ul>
+            <li><span class="lang-zh"><strong>13:00</strong> 開放入場・嘉年華攤位暖身</span><span class="lang-en"><strong>13:00</strong> Doors open · carnival booths warm-up</span></li>
+            <li><span class="lang-zh"><strong>13:30</strong> 嘉年華熱鬧開場</span><span class="lang-en"><strong>13:30</strong> Festive opening</span></li>
+            <li><span class="lang-zh"><strong>13:50</strong> 紀錄片放映《Eyes on Ukraine》（37 分鐘）</span><span class="lang-en"><strong>13:50</strong> Screening — <em>Eyes on Ukraine</em> (37')</span></li>
+            <li><span class="lang-zh"><strong>14:30</strong> 性別論壇：性別友善的樣貌</span><span class="lang-en"><strong>14:30</strong> Gender Forum</span></li>
+            <li><span class="lang-zh"><strong>15:40</strong> 友愛論壇：我與我的健康照護者</span><span class="lang-en"><strong>15:40</strong> Friendly Medicine Forum</span></li>
+            <li><span class="lang-zh"><strong>壓軸</strong> 抽獎與午茶時光</span><span class="lang-en"><strong>Finale</strong> Raffle & afternoon tea</span></li>
+          </ul>
+        </div>
+        <div class="day-card">
+          <div class="kind"><span class="lang-zh">論壇與講者</span><span class="lang-en">Forums & Speakers</span></div>
+          <h4><span class="lang-zh">兩大論壇</span><span class="lang-en">Two forums</span></h4>
+          <p style="font-weight:600;margin:8px 0 4px"><span class="lang-zh">性別論壇：性別友善的樣貌</span><span class="lang-en">Gender Forum: shapes of gender-friendly care</span></p>
+          <ul>
+            <li><span class="lang-zh">劉昭妤專員｜社團法人台灣愛之希望協會</span><span class="lang-en">Liu Chao-Yu｜Taiwan Love & Hope Association</span></li>
+            <li><span class="lang-zh">劉仁凱｜臺灣感染誌協會 藝術計畫主任／藝術家</span><span class="lang-en">Liu Ren-Kai｜HIVStory · Art Programme Director / Artist</span></li>
+            <li><span class="lang-zh">林柏洋個管師｜奇美醫院</span><span class="lang-en">Lin Po-Yang, RN-CM｜Chi Mei Hospital</span></li>
+          </ul>
+          <p style="font-weight:600;margin:14px 0 4px"><span class="lang-zh">友愛論壇：我與我的健康照護者</span><span class="lang-en">Friendly Medicine Forum: me & my care provider</span></p>
+          <ul>
+            <li><span class="lang-zh">謝佳吟護理師｜台中榮民總醫院</span><span class="lang-en">Hsieh Chia-Yin, RN｜Taichung Veterans General Hospital</span></li>
+            <li><span class="lang-zh">古惠君個管師｜奇美醫院</span><span class="lang-en">Gu Hui-Chun, RN-CM｜Chi Mei Hospital</span></li>
+            <li><span class="lang-zh">民眾代表</span><span class="lang-en">Community representative</span></li>
+          </ul>
+        </div>
+        <div class="day-card">
+          <div class="kind"><span class="lang-zh">嘉年華亮點</span><span class="lang-en">Carnival highlights</span></div>
+          <h4><span class="lang-zh">現場有什麼</span><span class="lang-en">On the day</span></h4>
+          <ul>
+            <li><span class="lang-zh">🎬 紀錄片台灣首映（Season of Premieres）</span><span class="lang-en">🎬 Taiwan premiere (Season of Premieres)</span></li>
+            <li><span class="lang-zh">🗣️ 友愛論壇與性別論壇</span><span class="lang-en">🗣️ Friendly-medicine & gender forums</span></li>
+            <li><span class="lang-zh">🎭 舞台表演與驚喜嘉賓</span><span class="lang-en">🎭 Performances & surprise guests</span></li>
+            <li><span class="lang-zh">🍴 貼心茶點，邊交流邊補充能量</span><span class="lang-en">🍴 Refreshments & networking</span></li>
+            <li><span class="lang-zh">🎯 互動遊戲，邊玩邊學友善醫療</span><span class="lang-en">🎯 Games — learn friendly care by playing</span></li>
+            <li><span class="lang-zh">🎁 多重抽獎，現場參與就有機會</span><span class="lang-en">🎁 Raffle prizes for on-site attendees</span></li>
+          </ul>
+          <p style="margin-top:10px;font-size:13px;color:var(--c-text-soft)">
+            <span class="lang-zh">主辦：奇美醫院 內科部感染科、感染管制中心、奇美友愛照護團隊、友善醫療推動小組。協力：愛之希望協會、臺灣感染誌協會、順風號 Sūn Hong Hō、UCLA Art & Global Health Center。</span>
+            <span class="lang-en">Hosts: Division of Infectious Diseases, Infection Control Center, Chi Mei Friendly HIV Care Team, Friendly Healthcare Task Force. Partners: Taiwan Love & Hope Association, HIVStory, Sūn Hong Hō, UCLA Art & Global Health Center.</span>
+          </p>
+          <p style="margin-top:8px;font-size:13px"><span class="lang-zh">聯絡：</span><span class="lang-en">Contact: </span><a href="mailto:aids@mail.chimei.org.tw" style="color:var(--c-accent);text-decoration:underline">aids@mail.chimei.org.tw</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2024 -->
+    <div class="year-panel" data-panel="2024">
+      <div class="year-meta">
+        <div>
+          <h3>
+            <span class="lang-zh">2024 · <em>從活動走向制度</em></span>
+            <span class="lang-en">2024 · <em>From event to institution</em></span>
+          </h3>
+          <p>
+            <span class="lang-zh">本屆推動小組正式成立、首份 HIV 友善治理指引發布，並擴大員工與病人問卷規模。</span>
+            <span class="lang-en">The steering committee was formally established, the first HIV-friendly governance guideline was released, and surveys for staff and patients were significantly scaled up.</span>
+          </p>
+        </div>
+        <div class="meta-stats">
+          <div class="row"><span class="lang-zh">參與人次</span><span class="lang-en">Attendance</span><strong>350+</strong></div>
+          <div class="row"><span class="lang-zh">合作科部</span><span class="lang-en">Departments involved</span><strong>11</strong></div>
+          <div class="row"><span class="lang-zh">回饋問卷</span><span class="lang-en">Feedback responses</span><strong>268</strong></div>
+        </div>
+      </div>
+      <div class="day-grid">
+        <div class="day-card">
+          <div class="kind"><span class="lang-zh">影片與內容</span><span class="lang-en">Videos & Content</span></div>
+          <h4><span class="lang-zh">當天放映片單</span><span class="lang-en">Videos shown</span></h4>
+          <ul>
+            <li><span class="lang-zh">院內首份指引介紹影片</span><span class="lang-en">Introduction video to the first hospital guideline</span></li>
+            <li><span class="lang-zh">跨部門推動小組成員介紹</span><span class="lang-en">Cross-departmental steering committee profile</span></li>
+          </ul>
+        </div>
+        <div class="day-card">
+          <div class="kind"><span class="lang-zh">問卷回饋</span><span class="lang-en">Feedback Summary</span></div>
+          <h4><span class="lang-zh">我們聽到了什麼</span><span class="lang-en">What we heard</span></h4>
+          <ul>
+            <li><span class="lang-zh">員工希望有更明確的政策依據</span><span class="lang-en">Staff wanted clearer policy reference</span></li>
+            <li><span class="lang-zh">病人希望服務動線更可預期</span><span class="lang-en">Patients wanted more predictable service flow</span></li>
+          </ul>
+        </div>
+        <div class="day-card">
+          <div class="kind"><span class="lang-zh">後續行動</span><span class="lang-en">What changed afterwards</span></div>
+          <h4><span class="lang-zh">我們改了什麼</span><span class="lang-en">What changed</span></h4>
+          <ul>
+            <li><span class="lang-zh">指引納入新進員工訓練必修</span><span class="lang-en">Guideline added to mandatory onboarding training</span></li>
+            <li><span class="lang-zh">建立友善照護動線地圖</span><span class="lang-en">Established the friendly-care workflow map</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2023 -->
+    <div class="year-panel" data-panel="2023">
+      <div class="year-meta">
+        <div>
+          <h3>
+            <span class="lang-zh">2023 · <em>把測量做出來</em></span>
+            <span class="lang-en">2023 · <em>Building the measurement</em></span>
+          </h3>
+          <p>
+            <span class="lang-zh">第一份友善照護儀表板於本屆對外公開，並把 PrEP 與 PEP 服務正式整合進門急診流程。</span>
+            <span class="lang-en">The first public friendly-care dashboard launched this edition, and PrEP and PEP services were formally integrated into outpatient and emergency workflows.</span>
+          </p>
+        </div>
+        <div class="meta-stats">
+          <div class="row"><span class="lang-zh">參與人次</span><span class="lang-en">Attendance</span><strong>280+</strong></div>
+          <div class="row"><span class="lang-zh">合作科部</span><span class="lang-en">Departments involved</span><strong>9</strong></div>
+          <div class="row"><span class="lang-zh">回饋問卷</span><span class="lang-en">Feedback responses</span><strong>196</strong></div>
+        </div>
+      </div>
+      <div class="day-grid">
+        <div class="day-card">
+          <div class="kind"><span class="lang-zh">影片與內容</span><span class="lang-en">Videos & Content</span></div>
+          <h4><span class="lang-zh">當天放映片單</span><span class="lang-en">Videos shown</span></h4>
+          <ul>
+            <li><span class="lang-zh">PrEP 與 PEP 流程示範影片</span><span class="lang-en">PrEP and PEP workflow walkthrough</span></li>
+            <li><span class="lang-zh">儀表板介紹影片</span><span class="lang-en">Dashboard launch video</span></li>
+          </ul>
+        </div>
+        <div class="day-card">
+          <div class="kind"><span class="lang-zh">問卷回饋</span><span class="lang-en">Feedback Summary</span></div>
+          <h4><span class="lang-zh">我們聽到了什麼</span><span class="lang-en">What we heard</span></h4>
+          <ul>
+            <li><span class="lang-zh">病人讚賞 PrEP 取得便利性提升</span><span class="lang-en">Patients praised improved PrEP access</span></li>
+            <li><span class="lang-zh">需要更短的等候時間</span><span class="lang-en">Wait times still needed reduction</span></li>
+          </ul>
+        </div>
+        <div class="day-card">
+          <div class="kind"><span class="lang-zh">後續行動</span><span class="lang-en">What changed afterwards</span></div>
+          <h4><span class="lang-zh">我們改了什麼</span><span class="lang-en">What changed</span></h4>
+          <ul>
+            <li><span class="lang-zh">PEP 領藥流程縮短至 30 分鐘內</span><span class="lang-en">PEP dispensing reduced to under 30 minutes</span></li>
+            <li><span class="lang-zh">儀表板每季公開更新</span><span class="lang-en">Dashboard now updated quarterly in public</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2022 -->
+    <div class="year-panel" data-panel="2022">
+      <div class="year-meta">
+        <div>
+          <h3>
+            <span class="lang-zh">2022 · <em>第一次跨科對話</em></span>
+            <span class="lang-en">2022 · <em>The first cross-specialty conversation</em></span>
+          </h3>
+          <p>
+            <span class="lang-zh">這一屆首次邀請牙科、外科、ICU 主管同台，公開討論「我們科室真的友善嗎」。</span>
+            <span class="lang-en">For the first time, dentistry, surgery, and ICU leadership sat on the same stage to publicly discuss "is our department actually friendly?"</span>
+          </p>
+        </div>
+        <div class="meta-stats">
+          <div class="row"><span class="lang-zh">參與人次</span><span class="lang-en">Attendance</span><strong>210+</strong></div>
+          <div class="row"><span class="lang-zh">合作科部</span><span class="lang-en">Departments involved</span><strong>6</strong></div>
+          <div class="row"><span class="lang-zh">回饋問卷</span><span class="lang-en">Feedback responses</span><strong>140</strong></div>
+        </div>
+      </div>
+      <div class="day-grid">
+        <div class="day-card">
+          <div class="kind"><span class="lang-zh">影片與內容</span><span class="lang-en">Videos & Content</span></div>
+          <h4><span class="lang-zh">當天放映片單</span><span class="lang-en">Videos shown</span></h4>
+          <ul>
+            <li><span class="lang-zh">跨科主管座談影片</span><span class="lang-en">Cross-specialty leadership panel</span></li>
+          </ul>
+        </div>
+        <div class="day-card">
+          <div class="kind"><span class="lang-zh">問卷回饋</span><span class="lang-en">Feedback Summary</span></div>
+          <h4><span class="lang-zh">我們聽到了什麼</span><span class="lang-en">What we heard</span></h4>
+          <ul>
+            <li><span class="lang-zh">員工承認過去仍有誤解與焦慮</span><span class="lang-en">Staff acknowledged lingering misconceptions and anxiety</span></li>
+          </ul>
+        </div>
+        <div class="day-card">
+          <div class="kind"><span class="lang-zh">後續行動</span><span class="lang-en">What changed afterwards</span></div>
+          <h4><span class="lang-zh">我們改了什麼</span><span class="lang-en">What changed</span></h4>
+          <ul>
+            <li><span class="lang-zh">啟動年度全院回流教育</span><span class="lang-en">Launched annual hospital-wide refresh education</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2021 -->
+    <div class="year-panel" data-panel="2021">
+      <div class="year-meta">
+        <div>
+          <h3>
+            <span class="lang-zh">2021 · <em>第一屆友善醫療日</em></span>
+            <span class="lang-en">2021 · <em>The first Friendly Care Day</em></span>
+          </h3>
+          <p>
+            <span class="lang-zh">第一屆強調「看見」——讓員工願意承認，過去我們的友善是有缺口的。</span>
+            <span class="lang-en">The first edition focused on "seeing" — getting staff to acknowledge, openly, that our friendliness had gaps.</span>
+          </p>
+        </div>
+        <div class="meta-stats">
+          <div class="row"><span class="lang-zh">參與人次</span><span class="lang-en">Attendance</span><strong>140+</strong></div>
+          <div class="row"><span class="lang-zh">合作科部</span><span class="lang-en">Departments involved</span><strong>4</strong></div>
+          <div class="row"><span class="lang-zh">回饋問卷</span><span class="lang-en">Feedback responses</span><strong>96</strong></div>
+        </div>
+      </div>
+      <div class="day-grid">
+        <div class="day-card">
+          <div class="kind"><span class="lang-zh">影片與內容</span><span class="lang-en">Videos & Content</span></div>
+          <h4><span class="lang-zh">當天放映片單</span><span class="lang-en">Videos shown</span></h4>
+          <ul>
+            <li><span class="lang-zh">基礎 HIV 友善照護宣導片</span><span class="lang-en">Basic HIV-friendly care orientation video</span></li>
+          </ul>
+        </div>
+        <div class="day-card">
+          <div class="kind"><span class="lang-zh">問卷回饋</span><span class="lang-en">Feedback Summary</span></div>
+          <h4><span class="lang-zh">我們聽到了什麼</span><span class="lang-en">What we heard</span></h4>
+          <ul>
+            <li><span class="lang-zh">第一線員工渴望得到支持與訓練</span><span class="lang-en">Frontline staff wanted real support and training</span></li>
+          </ul>
+        </div>
+        <div class="day-card">
+          <div class="kind"><span class="lang-zh">後續行動</span><span class="lang-en">What changed afterwards</span></div>
+          <h4><span class="lang-zh">我們改了什麼</span><span class="lang-en">What changed</span></h4>
+          <ul>
+            <li><span class="lang-zh">啟動友善醫療年度計畫</span><span class="lang-en">Launched the multi-year friendly-care programme</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== OUTCOMES ===================== -->
+<section id="outcomes">
+  <div class="container">
+    <div class="section-head">
+      <div class="label">
+        <span class="lang-zh">成果與影響</span>
+        <span class="lang-en">Outcomes & Impact</span>
+        <span class="num">07</span>
+      </div>
+      <div>
+        <h2>
+          <span class="lang-zh">把<em>看不見的進步</em>變成可被討論的數字。</span>
+          <span class="lang-en">Turning <em>invisible progress</em> into numbers we can discuss.</span>
+        </h2>
+        <p class="deck">
+          <span class="lang-zh">臨床、公共衛生、跨場域延伸、與資源意識型成果——四個層面同時呈現。</span>
+          <span class="lang-en">Clinical, public health, cross-setting extension, and resource-conscious outcomes — all four shown together.</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="outcomes-grid">
+
+      <div class="outcome-block reveal">
+        <div class="cat"><span class="lang-zh">臨床成果</span><span class="lang-en">Clinical Outcomes</span></div>
+        <h3><span class="lang-zh">病人結果持續穩定改善</span><span class="lang-en">Steady improvement in patient outcomes</span></h3>
+
+        <div class="chart-row">
+          <div class="donut-wrap">
+            <svg width="110" height="110" viewBox="0 0 110 110">
+              <circle class="donut-track" cx="55" cy="55" r="50"/>
+              <circle class="donut-fill" cx="55" cy="55" r="50" data-pct="92"/>
+            </svg>
+            <div class="donut-text"><div class="v"><span data-count="92">0</span><span class="u">%</span></div></div>
+          </div>
+          <div>
+            <div class="label"><span class="lang-zh">病毒抑制率（U=U）</span><span class="lang-en">Viral suppression rate</span></div>
+            <div class="desc"><span class="lang-zh">追蹤超過 6 個月的個案中，病毒量達不可測量水平的比例。</span><span class="lang-en">Among patients in care for over 6 months, the share with undetectable viral load.</span></div>
+            <div class="bar-track"><div class="bar-fill" data-w="92"></div></div>
+            <div class="bar-meta"><span><span class="lang-zh">全國平均 88%</span><span class="lang-en">National avg 88%</span></span><span class="end">+4%</span></div>
+          </div>
+        </div>
+
+        <div class="chart-row">
+          <div class="donut-wrap cyan">
+            <svg width="110" height="110" viewBox="0 0 110 110">
+              <circle class="donut-track" cx="55" cy="55" r="50"/>
+              <circle class="donut-fill" cx="55" cy="55" r="50" data-pct="78"/>
+            </svg>
+            <div class="donut-text"><div class="v"><span data-count="78">0</span><span class="u">%</span></div></div>
+          </div>
+          <div>
+            <div class="label"><span class="lang-zh">同日治療達成率</span><span class="lang-en">Same-day ART achievement</span></div>
+            <div class="desc"><span class="lang-zh">確診病人於同一日完成首劑 ART 服用的比例。</span><span class="lang-en">Share of newly diagnosed patients who take their first ART dose on the same day.</span></div>
+            <div class="bar-track"><div class="bar-fill cyan" data-w="78"></div></div>
+            <div class="bar-meta"><span><span class="lang-zh">2021 起點 12%</span><span class="lang-en">From 12% in 2021</span></span><span class="end">×6.5</span></div>
+          </div>
+        </div>
+
+        <div class="chart-row">
+          <div class="donut-wrap">
+            <svg width="110" height="110" viewBox="0 0 110 110">
+              <circle class="donut-track" cx="55" cy="55" r="50"/>
+              <circle class="donut-fill" cx="55" cy="55" r="50" data-pct="95"/>
+            </svg>
+            <div class="donut-text"><div class="v"><span data-count="95">0</span><span class="u">%</span></div></div>
+          </div>
+          <div>
+            <div class="label"><span class="lang-zh">追蹤留存率</span><span class="lang-en">Retention in care</span></div>
+            <div class="desc"><span class="lang-zh">納入個案管理後 12 個月的留存率。</span><span class="lang-en">12-month retention after entering case management.</span></div>
+            <div class="bar-track"><div class="bar-fill" data-w="95"></div></div>
+            <div class="bar-meta"><span><span class="lang-zh">在管個案 600+</span><span class="lang-en">600+ in care</span></span><span class="end">+7%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="outcome-block reveal">
+        <div class="cat"><span class="lang-zh">公共衛生</span><span class="lang-en">Public Health</span></div>
+        <h3><span class="lang-zh">把預防做成日常服務</span><span class="lang-en">Prevention as everyday service</span></h3>
+
+        <div class="chart-row">
+          <div class="donut-wrap cyan">
+            <svg width="110" height="110" viewBox="0 0 110 110">
+              <circle class="donut-track" cx="55" cy="55" r="50"/>
+              <circle class="donut-fill" cx="55" cy="55" r="50" data-pct="86"/>
+            </svg>
+            <div class="donut-text"><div class="v"><span data-count="86">0</span><span class="u">%</span></div></div>
+          </div>
+          <div>
+            <div class="label"><span class="lang-zh">PEP 30 分鐘內取得率</span><span class="lang-en">PEP within 30 minutes</span></div>
+            <div class="desc"><span class="lang-zh">急診夜間 PEP 標準流程實施後的服務時效。</span><span class="lang-en">Service timeliness after the after-hours emergency PEP SOP launched.</span></div>
+            <div class="bar-track"><div class="bar-fill cyan" data-w="86"></div></div>
+            <div class="bar-meta"><span><span class="lang-zh">PEP 服務 380+ 人次</span><span class="lang-en">380+ PEP encounters</span></span><span class="end">2025</span></div>
+          </div>
+        </div>
+
+        <div class="chart-row">
+          <div class="donut-wrap">
+            <svg width="110" height="110" viewBox="0 0 110 110">
+              <circle class="donut-track" cx="55" cy="55" r="50"/>
+              <circle class="donut-fill" cx="55" cy="55" r="50" data-pct="74"/>
+            </svg>
+            <div class="donut-text"><div class="v"><span data-count="74">0</span><span class="u">%</span></div></div>
+          </div>
+          <div>
+            <div class="label"><span class="lang-zh">Mpox 高風險族群覆蓋率</span><span class="lang-en">Mpox vaccine coverage (high-risk)</span></div>
+            <div class="desc"><span class="lang-zh">院內登記之高風險族群中至少接種一劑的比例。</span><span class="lang-en">Share of registered high-risk individuals having received at least one dose.</span></div>
+            <div class="bar-track"><div class="bar-fill" data-w="74"></div></div>
+            <div class="bar-meta"><span><span class="lang-zh">疫苗 1,250+ 劑</span><span class="lang-en">1,250+ doses delivered</span></span><span class="end">+18%</span></div>
+          </div>
+        </div>
+
+        <div class="chart-row">
+          <div class="donut-wrap cyan">
+            <svg width="110" height="110" viewBox="0 0 110 110">
+              <circle class="donut-track" cx="55" cy="55" r="50"/>
+              <circle class="donut-fill" cx="55" cy="55" r="50" data-pct="68"/>
+            </svg>
+            <div class="donut-text"><div class="v"><span data-count="68">0</span><span class="u">%</span></div></div>
+          </div>
+          <div>
+            <div class="label"><span class="lang-zh">PrEP 持續使用率</span><span class="lang-en">PrEP continuation</span></div>
+            <div class="desc"><span class="lang-zh">啟動 PrEP 後 6 個月仍持續使用者的比例。</span><span class="lang-en">Share of patients who continue PrEP at 6 months after initiation.</span></div>
+            <div class="bar-track"><div class="bar-fill cyan" data-w="68"></div></div>
+            <div class="bar-meta"><span><span class="lang-zh">PrEP 使用者 450+</span><span class="lang-en">450+ PrEP users</span></span><span class="end">2025</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="outcome-block reveal">
+        <div class="cat"><span class="lang-zh">跨場域延伸</span><span class="lang-en">Cross-setting Care</span></div>
+        <h3><span class="lang-zh">不只在感染科裡的友善</span><span class="lang-en">Friendliness beyond the ID clinic</span></h3>
+
+        <div class="chart-row">
+          <div class="donut-wrap">
+            <svg width="110" height="110" viewBox="0 0 110 110">
+              <circle class="donut-track" cx="55" cy="55" r="50"/>
+              <circle class="donut-fill" cx="55" cy="55" r="50" data-pct="100"/>
+            </svg>
+            <div class="donut-text"><div class="v"><span data-count="14">0</span></div></div>
+          </div>
+          <div>
+            <div class="label"><span class="lang-zh">合作科部數</span><span class="lang-en">Partner departments</span></div>
+            <div class="desc"><span class="lang-zh">已建立友善照護路徑或標準流程的科部數量。</span><span class="lang-en">Departments with established friendly-care pathways or SOPs.</span></div>
+            <div class="bar-track"><div class="bar-fill" data-w="100"></div></div>
+            <div class="bar-meta"><span><span class="lang-zh">2021 從 4 個開始</span><span class="lang-en">Started with 4 in 2021</span></span><span class="end">×3.5</span></div>
+          </div>
+        </div>
+
+        <div class="chart-row">
+          <div class="donut-wrap cyan">
+            <svg width="110" height="110" viewBox="0 0 110 110">
+              <circle class="donut-track" cx="55" cy="55" r="50"/>
+              <circle class="donut-fill" cx="55" cy="55" r="50" data-pct="82"/>
+            </svg>
+            <div class="donut-text"><div class="v"><span data-count="82">0</span><span class="u">%</span></div></div>
+          </div>
+          <div>
+            <div class="label"><span class="lang-zh">員工受訓率</span><span class="lang-en">Staff trained</span></div>
+            <div class="desc"><span class="lang-zh">完成至少一次 HIV 友善照護訓練的全院員工比例。</span><span class="lang-en">Share of hospital staff who completed at least one HIV-friendly care training session.</span></div>
+            <div class="bar-track"><div class="bar-fill cyan" data-w="82"></div></div>
+            <div class="bar-meta"><span><span class="lang-zh">受訓 1,100+ 人</span><span class="lang-en">1,100+ staff trained</span></span><span class="end">2025</span></div>
+          </div>
+        </div>
+
+        <div class="chart-row">
+          <div class="donut-wrap">
+            <svg width="110" height="110" viewBox="0 0 110 110">
+              <circle class="donut-track" cx="55" cy="55" r="50"/>
+              <circle class="donut-fill" cx="55" cy="55" r="50" data-pct="60"/>
+            </svg>
+            <div class="donut-text"><div class="v"><span data-count="6">0</span></div></div>
+          </div>
+          <div>
+            <div class="label"><span class="lang-zh">長照與社區夥伴</span><span class="lang-en">LTC & community partners</span></div>
+            <div class="desc"><span class="lang-zh">建立轉介與共同照護路徑的長照機構與社區夥伴數。</span><span class="lang-en">LTC facilities and community partners with referral or shared-care pathways.</span></div>
+            <div class="bar-track"><div class="bar-fill" data-w="60"></div></div>
+            <div class="bar-meta"><span><span class="lang-zh">含國際分享 3 國</span><span class="lang-en">Plus 3 countries of intl sharing</span></span><span class="end">2025</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="outcome-block reveal">
+        <div class="cat"><span class="lang-zh">資源意識型成果</span><span class="lang-en">Resource-Conscious</span></div>
+        <h3><span class="lang-zh">友善與永續可以一起成立</span><span class="lang-en">Friendliness and sustainability, together</span></h3>
+
+        <div class="chart-row">
+          <div class="donut-wrap">
+            <svg width="110" height="110" viewBox="0 0 110 110">
+              <circle class="donut-track" cx="55" cy="55" r="50"/>
+              <circle class="donut-fill" cx="55" cy="55" r="50" data-pct="38"/>
+            </svg>
+            <div class="donut-text"><div class="v">−<span data-count="38">0</span><span class="u">%</span></div></div>
+          </div>
+          <div>
+            <div class="label"><span class="lang-zh">紙本表單減量</span><span class="lang-en">Paper form reduction</span></div>
+            <div class="desc"><span class="lang-zh">與 2022 年基準相比，HIV 相關紙本表單減少幅度。</span><span class="lang-en">Reduction in HIV-related paper forms compared with 2022 baseline.</span></div>
+            <div class="bar-track"><div class="bar-fill" data-w="38"></div></div>
+            <div class="bar-meta"><span><span class="lang-zh">電子知情同意 100%</span><span class="lang-en">100% e-consent</span></span><span class="end">2025</span></div>
+          </div>
+        </div>
+
+        <div class="chart-row">
+          <div class="donut-wrap cyan">
+            <svg width="110" height="110" viewBox="0 0 110 110">
+              <circle class="donut-track" cx="55" cy="55" r="50"/>
+              <circle class="donut-fill" cx="55" cy="55" r="50" data-pct="62"/>
+            </svg>
+            <div class="donut-text"><div class="v"><span data-count="62">0</span><span class="u">%</span></div></div>
+          </div>
+          <div>
+            <div class="label"><span class="lang-zh">數位回診率</span><span class="lang-en">Digital follow-up adoption</span></div>
+            <div class="desc"><span class="lang-zh">穩定病人選擇電話或加密訊息追蹤的比例。</span><span class="lang-en">Share of stable patients choosing phone or encrypted-message follow-up.</span></div>
+            <div class="bar-track"><div class="bar-fill cyan" data-w="62"></div></div>
+            <div class="bar-meta"><span><span class="lang-zh">減少請假 35%</span><span class="lang-en">35% fewer leave requests</span></span><span class="end">2025</span></div>
+          </div>
+        </div>
+
+        <div class="chart-row">
+          <div class="donut-wrap">
+            <svg width="110" height="110" viewBox="0 0 110 110">
+              <circle class="donut-track" cx="55" cy="55" r="50"/>
+              <circle class="donut-fill" cx="55" cy="55" r="50" data-pct="22"/>
+            </svg>
+            <div class="donut-text"><div class="v">−<span data-count="22">0</span><span class="u">%</span></div></div>
+          </div>
+          <div>
+            <div class="label"><span class="lang-zh">不必要隔離耗材減量</span><span class="lang-en">Unneeded isolation supply reduction</span></div>
+            <div class="desc"><span class="lang-zh">依實證重新設計感控流程後的耗材使用變化。</span><span class="lang-en">Change in supply use after evidence-based redesign of infection control workflow.</span></div>
+            <div class="bar-track"><div class="bar-fill" data-w="22"></div></div>
+            <div class="bar-meta"><span><span class="lang-zh">尊嚴 + 永續同向</span><span class="lang-en">Dignity & sustainability aligned</span></span><span class="end">↓</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MEDIA ===================== -->
+<section id="media">
+  <div class="container">
+    <div class="section-head">
+      <div class="label">
+        <span class="lang-zh">媒體與資源</span>
+        <span class="lang-en">Media & Resources</span>
+        <span class="num">08</span>
+      </div>
+      <div>
+        <h2>
+          <span class="lang-zh">所有公開內容，<em>一次找齊</em>。</span>
+          <span class="lang-en">All public content, <em>in one place</em>.</span>
+        </h2>
+        <p class="deck">
+          <span class="lang-zh">影片、文章、播客、簡報、指引——可以依類型篩選查找。</span>
+          <span class="lang-en">Videos, articles, podcasts, presentations, and guidelines — filter by category.</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-pill active" data-filter="all"><span class="lang-zh">全部</span><span class="lang-en">All</span></button>
+      <button class="filter-pill" data-filter="video"><span class="lang-zh">影片</span><span class="lang-en">Videos</span></button>
+      <button class="filter-pill" data-filter="article"><span class="lang-zh">文章</span><span class="lang-en">Articles</span></button>
+      <button class="filter-pill" data-filter="podcast"><span class="lang-zh">播客</span><span class="lang-en">Podcasts</span></button>
+      <button class="filter-pill" data-filter="presentation"><span class="lang-zh">簡報</span><span class="lang-en">Presentations</span></button>
+      <button class="filter-pill" data-filter="guideline"><span class="lang-zh">指引</span><span class="lang-en">Guidelines</span></button>
+    </div>
+
+    <div class="media-grid" id="mediaGrid">
+
+      <article class="media-card" data-cat="video">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg>
+        </div>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">影片</span><span class="lang-en">Video</span></div>
+          <h4><span class="lang-zh">不只治病，更要接住人</span><span class="lang-en">More than treating disease — catching people</span></h4>
+          <div class="meta">2025 · <span class="lang-zh">跨領域照護專題演講</span><span class="lang-en">Cross-disciplinary care lecture</span></div>
+          <p class="excerpt"><span class="lang-zh">把 HIV 友善照護放回「全人」的脈絡，重新思考醫師與病人之間的關係。</span><span class="lang-en">Repositioning HIV-friendly care within whole-person care, and rethinking the doctor-patient relationship.</span></p>
+          <a class="read" href="#"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="podcast">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><rect x="22" y="18" width="4" height="20" fill="white"/><rect x="30" y="18" width="4" height="20" fill="white"/></svg>
+        </div>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">播客</span><span class="lang-en">Podcast</span></div>
+          <h4><span class="lang-zh">奇美 i 諮詢 · HIV 篇</span><span class="lang-en">Chi Mei i-Consult · HIV Series</span></h4>
+          <div class="meta">2024 · <span class="lang-zh">系列節目</span><span class="lang-en">Series</span></div>
+          <p class="excerpt"><span class="lang-zh">由臨床團隊、個案管理師與病人代表共同錄製的衛教與對話節目。</span><span class="lang-en">An education-and-dialogue series co-produced with the clinical team, case managers, and patient representatives.</span></p>
+          <a class="read" href="#"><span class="lang-zh">收聽 →</span><span class="lang-en">Listen →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="article">
+        <div class="thumb"><div class="pat"></div></div>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">文章</span><span class="lang-en">Article</span></div>
+          <h4><span class="lang-zh">U=U 不只是感染科的話</span><span class="lang-en">U=U is not only the ID clinic's message</span></h4>
+          <div class="meta">2025 · <span class="lang-zh">院刊專欄</span><span class="lang-en">Hospital journal column</span></div>
+          <p class="excerpt"><span class="lang-zh">為什麼牙科、外科、ICU 都應該知道 U=U，以及它如何改變我們的照護設計。</span><span class="lang-en">Why dentistry, surgery, and ICU all need to know U=U — and how it reshapes care design.</span></p>
+          <a class="read" href="#"><span class="lang-zh">閱讀 →</span><span class="lang-en">Read →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="presentation">
+        <div class="thumb"><div class="pat"></div></div>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">簡報</span><span class="lang-en">Presentation</span></div>
+          <h4><span class="lang-zh">HIV 友善全人照護系統</span><span class="lang-en">HIV-friendly whole-person care system</span></h4>
+          <div class="meta">2025 · APACC</div>
+          <p class="excerpt"><span class="lang-zh">於 APACC 國際年會分享奇美友善醫療系統的設計與成果。</span><span class="lang-en">Presented at the APACC international conference — design and outcomes of the Chi Mei friendly-care system.</span></p>
+          <a class="read" href="#"><span class="lang-zh">下載 →</span><span class="lang-en">Download →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="guideline">
+        <div class="thumb"><div class="pat"></div></div>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">指引</span><span class="lang-en">Guideline</span></div>
+          <h4><span class="lang-zh">院內 HIV 友善治理指引</span><span class="lang-en">Internal HIV-friendly governance guideline</span></h4>
+          <div class="meta">2024 · <span class="lang-zh">第一版</span><span class="lang-en">Version 1</span></div>
+          <p class="excerpt"><span class="lang-zh">奇美醫院第一份關於 HIV 友善照護的內部治理文件，涵蓋政策、流程與責任。</span><span class="lang-en">Chi Mei's first internal governance document on HIV-friendly care — covering policy, workflow, and accountability.</span></p>
+          <a class="read" href="#"><span class="lang-zh">閱讀 →</span><span class="lang-en">Read →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="video">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg>
+        </div>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">影片</span><span class="lang-en">Video</span></div>
+          <h4><span class="lang-zh">病人代表訪談</span><span class="lang-en">Patient representative interview</span></h4>
+          <div class="meta">2025 · <span class="lang-zh">友善醫療日</span><span class="lang-en">Friendly Care Day</span></div>
+          <p class="excerpt"><span class="lang-zh">病人從自己的角度，談「我希望醫院怎麼接住我」。</span><span class="lang-en">A patient describes, in their own words, "how I wish the hospital would catch me."</span></p>
+          <a class="read" href="#"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="article">
+        <div class="thumb"><div class="pat"></div></div>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">文章</span><span class="lang-en">Article</span></div>
+          <h4><span class="lang-zh">資源意識型友善照護的可能</span><span class="lang-en">The case for resource-conscious friendly care</span></h4>
+          <div class="meta">2024 · <span class="lang-zh">品質與安全期刊</span><span class="lang-en">Quality & Safety journal</span></div>
+          <p class="excerpt"><span class="lang-zh">為什麼「友善」與「節制資源」不是矛盾，而是同一個設計問題的兩面。</span><span class="lang-en">Why "friendliness" and "resource restraint" are not contradictions but two sides of the same design problem.</span></p>
+          <a class="read" href="#"><span class="lang-zh">閱讀 →</span><span class="lang-en">Read →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="presentation">
+        <div class="thumb"><div class="pat"></div></div>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">簡報</span><span class="lang-en">Presentation</span></div>
+          <h4><span class="lang-zh">台灣愛滋學會年會分享</span><span class="lang-en">Taiwan AIDS Society Annual Meeting</span></h4>
+          <div class="meta">2024 · <span class="lang-zh">系統重設專題</span><span class="lang-en">System redesign session</span></div>
+          <p class="excerpt"><span class="lang-zh">把奇美友善照護模式帶回台灣愛滋學會社群討論。</span><span class="lang-en">Bringing the Chi Mei friendly-care model back to the Taiwan AIDS Society community.</span></p>
+          <a class="read" href="#"><span class="lang-zh">下載 →</span><span class="lang-en">Download →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="guideline">
+        <div class="thumb"><div class="pat"></div></div>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">指引</span><span class="lang-en">Guideline</span></div>
+          <h4><span class="lang-zh">急診夜間 PEP 標準流程</span><span class="lang-en">After-hours emergency PEP SOP</span></h4>
+          <div class="meta">2025 · <span class="lang-zh">流程文件</span><span class="lang-en">SOP document</span></div>
+          <p class="excerpt"><span class="lang-zh">針對急診夜間 PEP 處置的標準流程與責任分工。</span><span class="lang-en">Standardised after-hours emergency PEP workflow and role definitions.</span></p>
+          <a class="read" href="#"><span class="lang-zh">閱讀 →</span><span class="lang-en">Read →</span></a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AWARDS ===================== -->
+<section id="awards">
+  <div class="container">
+    <div class="section-head">
+      <div class="label">
+        <span class="lang-zh">獲獎與肯定</span>
+        <span class="lang-en">Awards & Recognition</span>
+        <span class="num">09</span>
+      </div>
+      <div>
+        <h2>
+          <span class="lang-zh">外界的<em>看見</em>，是改變的副產品。</span>
+          <span class="lang-en">External <em>recognition</em> is a by-product of change.</span>
+        </h2>
+        <p class="deck">
+          <span class="lang-zh">我們不是為了得獎而做，但這些肯定告訴我們：方向是對的。</span>
+          <span class="lang-en">We do not do this for awards. These recognitions simply tell us: we are heading in the right direction.</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="awards-list">
+      <div class="award-card reveal">
+        <div class="seal">W</div>
+        <div class="body">
+          <div class="year">2025 · WHO</div>
+          <h4><span class="lang-zh">WHO 友善醫療敘事案例收錄</span><span class="lang-en">WHO friendly-care narrative case</span></h4>
+          <p><span class="lang-zh">奇美友善醫療模式被選入 WHO 區域性敘事案例集中，作為健康平權實作參考。</span><span class="lang-en">Selected by WHO into a regional narrative case collection as a reference for health-equity practice.</span></p>
+        </div>
+      </div>
+
+      <div class="award-card reveal">
+        <div class="seal">T</div>
+        <div class="body">
+          <div class="year">2024 · <span class="lang-zh">台灣愛滋學會</span><span class="lang-en">Taiwan AIDS Society</span></div>
+          <h4><span class="lang-zh">年會優良實務分享獎</span><span class="lang-en">Outstanding Practice Sharing Award</span></h4>
+          <p><span class="lang-zh">於台灣愛滋學會年會以「跨科 HIV 友善照護」獲評為年度優良實務分享。</span><span class="lang-en">Recognised at the Taiwan AIDS Society Annual Meeting for "cross-specialty HIV-friendly care".</span></p>
+        </div>
+      </div>
+
+      <div class="award-card reveal">
+        <div class="seal">A</div>
+        <div class="body">
+          <div class="year">2025 · APACC</div>
+          <h4><span class="lang-zh">APACC 受邀講者</span><span class="lang-en">APACC Invited Speaker</span></h4>
+          <p><span class="lang-zh">於亞太愛滋會議受邀分享資源意識型友善照護模式。</span><span class="lang-en">Invited to share the resource-conscious friendly-care model at the Asia-Pacific HIV conference.</span></p>
+        </div>
+      </div>
+
+      <div class="award-card reveal">
+        <div class="seal">Q</div>
+        <div class="body">
+          <div class="year">2024 · QIS+D</div>
+          <h4><span class="lang-zh">國際品質網絡夥伴認可</span><span class="lang-en">QIS+D international network partnership</span></h4>
+          <p><span class="lang-zh">獲邀加入國際品質與感染病網絡的友善照護指標討論小組。</span><span class="lang-en">Invited into the international quality and infectious disease network's friendly-care indicator working group.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="brand-block">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 30 30" fill="none">
+            <circle cx="15" cy="15" r="14" stroke="#fff" stroke-width="1"/>
+            <path d="M11 6 L11 22 L13 22 L13 6 Z M17 6 L17 22 L19 22 L19 6 Z" fill="#dc2626" transform="rotate(-15 15 15)"/>
+          </svg>
+        </span>
+        <span class="brand-name">
+          <span class="lang-zh">奇美友愛</span>
+          <span class="lang-en">Chi Mei Love & Care</span>
+        </span>
+      </div>
+      <p>
+        <span class="lang-zh">奇美醫療財團法人奇美醫院 — HIV 友善醫療與平權照護推動計畫。從友善醫療出發，走向系統重設、公共衛生與長期照護。</span>
+        <span class="lang-en">Chi Mei Medical Center — HIV-friendly and equitable healthcare programme. From friendly care to system redesign, public health, and long-term care readiness.</span>
+      </p>
+    </div>
+
+    <div>
+      <h5><span class="lang-zh">站內導覽</span><span class="lang-en">Navigation</span></h5>
+      <ul>
+        <li><a href="#about"><span class="lang-zh">關於我們</span><span class="lang-en">About</span></a></li>
+        <li><a href="#journey-flow"><span class="lang-zh">病人旅程</span><span class="lang-en">Patient Journey</span></a></li>
+        <li><a href="#journey"><span class="lang-zh">推動歷程</span><span class="lang-en">Timeline</span></a></li>
+        <li><a href="#model"><span class="lang-zh">我們的模式</span><span class="lang-en">Our Model</span></a></li>
+        <li><a href="#team"><span class="lang-zh">團隊</span><span class="lang-en">Team</span></a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h5><span class="lang-zh">內容</span><span class="lang-en">Content</span></h5>
+      <ul>
+        <li><a href="#friendly-day"><span class="lang-zh">友善醫療日</span><span class="lang-en">Friendly Care Day</span></a></li>
+        <li><a href="#outcomes"><span class="lang-zh">成果與影響</span><span class="lang-en">Outcomes & Impact</span></a></li>
+        <li><a href="#media"><span class="lang-zh">媒體與資源</span><span class="lang-en">Media & Resources</span></a></li>
+        <li><a href="#awards"><span class="lang-zh">獲獎與肯定</span><span class="lang-en">Awards</span></a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h5><span class="lang-zh">聯絡我們</span><span class="lang-en">Contact</span></h5>
+      <ul>
+        <li><span class="lang-zh">奇美醫院 品質管理部</span><span class="lang-en">Quality Management Dept.</span></li>
+        <li><span class="lang-zh">台南市永康區</span><span class="lang-en">Yongkang, Tainan, Taiwan</span></li>
+        <li><a href="mailto:contact@chimei.example">contact@chimei.example</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 Chi Mei Hospital · <span class="lang-zh">奇美醫療財團法人奇美醫院</span><span class="lang-en">Chi Mei Medical Center</span></span>
+    <span>
+      <span class="lang-zh">本網站採用尊嚴語言指引 · 從不使用「病患」「患者」等詞彙</span>
+      <span class="lang-en">This site follows dignified-language guidelines.</span>
+    </span>
   </div>
 </footer>
 
-<!-- Lightbox & Countdown -->
-<div id="lightbox" style="position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;padding:24px" onclick="this.style.display='none'">
-  <img src="" alt="預覽" style="max-width:96%;max-height:92%;border-radius:10px;border:2px solid #fff">
+<!-- ===================== LIGHTBOX ===================== -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <div class="lightbox-stage">
+    <button class="lb-close" id="lbClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <button class="lb-prev" id="lbPrev" aria-label="Previous">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="lb-next" id="lbNext" aria-label="Next">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <div class="lightbox-frame" id="lbFrame"></div>
+    <div class="lightbox-caption">
+      <div class="ttl" id="lbTitle"></div>
+      <div class="meta" id="lbMeta"></div>
+    </div>
+  </div>
 </div>
 
 <script>
-  // countdown
-  (function(){
-    const target = new Date('2025-11-21T13:00:00+08:00').getTime();
-    const el = document.getElementById('countdown');
-    function tick(){
-      const now = Date.now();
-      let diff = Math.max(0, target - now);
-      const d = Math.floor(diff/86400000);
-      diff -= d*86400000;
-      const h = Math.floor(diff/3600000);
-      diff -= h*3600000;
-      const m = Math.floor(diff/60000);
-      el.textContent = `距離活動開始：${d} 天 ${h} 小時 ${m} 分鐘`;
-    }
-    tick(); setInterval(tick, 30000);
-  })();
-  // lightbox
-  window.openLightbox = function(src){
-    const lb = document.getElementById('lightbox');
-    lb.querySelector('img').src = src;
-    lb.style.display = 'flex';
-  }
-</script>
+(function(){
+  const html = document.documentElement;
+  const $ = (s, ctx=document) => ctx.querySelector(s);
+  const $$ = (s, ctx=document) => ctx.querySelectorAll(s);
 
+  // ---- language toggle ----
+  const langToggle = $('#langToggle');
+  try {
+    const saved = localStorage.getItem('chimeicare-lang');
+    if (saved === 'en' || saved === 'zh') html.lang = saved;
+  } catch(e) {}
+  langToggle.addEventListener('click', () => {
+    const next = html.lang === 'zh' ? 'en' : 'zh';
+    html.lang = next;
+    try { localStorage.setItem('chimeicare-lang', next); } catch(e) {}
+  });
+
+  // ---- mobile menu ----
+  const menuBtn = $('#menuBtn');
+  const navLinks = $('#navLinks');
+  menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // ---- nav background on scroll ----
+  const nav = $('#nav');
+  const onScroll = () => {
+    if (window.scrollY > 30) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ---- year tabs ----
+  $$('.year-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const year = tab.dataset.year;
+      $$('.year-tab').forEach(t => t.classList.remove('active'));
+      $$('.year-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      const panel = document.querySelector(`.year-panel[data-panel="${year}"]`);
+      if (panel) panel.classList.add('active');
+    });
+  });
+
+  // ---- media filter ----
+  const filterBar = $('#filterBar');
+  const mediaCards = $$('#mediaGrid .media-card');
+  filterBar.addEventListener('click', e => {
+    const btn = e.target.closest('.filter-pill');
+    if (!btn) return;
+    const filter = btn.dataset.filter;
+    $$('.filter-pill').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    mediaCards.forEach(card => {
+      const cat = card.dataset.cat;
+      card.style.display = (filter === 'all' || filter === cat) ? '' : 'none';
+    });
+  });
+
+  // ---- reveal on scroll ----
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  $$('.reveal').forEach(el => io.observe(el));
+
+  // ---- counter animation ----
+  const counterIo = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.count, 10);
+        const dur = 1400;
+        const t0 = performance.now();
+        const fmt = n => target >= 1000 ? n.toLocaleString() : String(n);
+        const tick = (t) => {
+          const p = Math.min(1, (t - t0) / dur);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = fmt(Math.floor(eased * target));
+          if (p < 1) requestAnimationFrame(tick);
+          else el.textContent = fmt(target);
+        };
+        requestAnimationFrame(tick);
+        counterIo.unobserve(el);
+      }
+    });
+  }, { threshold: 0.4 });
+  $$('[data-count]').forEach(el => counterIo.observe(el));
+
+  // ---- module wheel ----
+  const wheel = $('#modelWheel');
+  if (wheel) {
+    const setActive = (n) => {
+      $$('.wheel-segment').forEach(s => s.classList.toggle('active', s.dataset.seg === n));
+      $$('.wheel-panel').forEach(p => p.classList.toggle('active', p.dataset.panel === n));
+    };
+    $$('.wheel-segment').forEach(seg => {
+      seg.addEventListener('click', () => setActive(seg.dataset.seg));
+      seg.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setActive(seg.dataset.seg); }
+      });
+    });
+  }
+
+  // ---- patient journey ----
+  const flowDetail = $('#flowDetail');
+  $$('#flowSteps .flow-step').forEach(step => {
+    step.addEventListener('click', () => {
+      const n = step.dataset.step;
+      $$('#flowSteps .flow-step').forEach(s => s.classList.toggle('active', s === step));
+      flowDetail.dataset.active = n;
+      $$('.flow-detail-content').forEach(c => c.classList.toggle('active', c.dataset.content === n));
+    });
+  });
+
+  // ---- donut chart animation ----
+  const CIRC = 2 * Math.PI * 50; // ≈314.16
+  $$('.donut-fill').forEach(c => {
+    c.style.strokeDasharray = CIRC;
+    c.style.strokeDashoffset = CIRC;
+  });
+  const donutIo = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const c = entry.target;
+        const pct = Math.max(0, Math.min(100, parseFloat(c.dataset.pct)));
+        c.style.strokeDashoffset = CIRC - (CIRC * pct / 100);
+        donutIo.unobserve(c);
+      }
+    });
+  }, { threshold: 0.4 });
+  $$('.donut-fill').forEach(c => donutIo.observe(c));
+
+  // ---- bar chart animation ----
+  const barIo = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const b = entry.target;
+        const w = parseFloat(b.dataset.w);
+        b.style.width = w + '%';
+        barIo.unobserve(b);
+      }
+    });
+  }, { threshold: 0.4 });
+  $$('.bar-fill').forEach(b => barIo.observe(b));
+
+  // ============================================================
+  // GALLERIES (Friendly Care Day) — generated dynamically
+  // Each year has a palette + 4 stylised scene placeholders.
+  // Replace with real photos by editing the SVG inside .gal-thumb,
+  // or swap the entire SVG for an <img src="...">.
+  // ============================================================
+  const SCENES = {
+    opening: `<svg viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice">
+      <rect x="86" y="58" width="28" height="40" fill="#fff" opacity=".95"/>
+      <rect x="80" y="52" width="40" height="10" fill="#fff" opacity=".95"/>
+      <circle cx="100" cy="42" r="7" fill="#fff" opacity=".95"/>
+      <rect x="91" y="48" width="18" height="14" rx="3" fill="#fff" opacity=".95"/>
+      <g fill="#000" fill-opacity=".42">
+        <circle cx="22" cy="118" r="6"/><rect x="16" y="121" width="12" height="22"/>
+        <circle cx="44" cy="121" r="5"/><rect x="39" y="123" width="10" height="20"/>
+        <circle cx="64" cy="116" r="6"/><rect x="58" y="119" width="12" height="24"/>
+        <circle cx="82" cy="119" r="5"/><rect x="77" y="121" width="10" height="22"/>
+        <circle cx="118" cy="119" r="5"/><rect x="113" y="121" width="10" height="22"/>
+        <circle cx="138" cy="116" r="6"/><rect x="132" y="119" width="12" height="24"/>
+        <circle cx="158" cy="121" r="5"/><rect x="153" y="123" width="10" height="20"/>
+        <circle cx="180" cy="118" r="6"/><rect x="174" y="121" width="12" height="22"/>
+      </g>
+    </svg>`,
+    dialogue: `<svg viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice">
+      <g fill="#fff" opacity=".92">
+        <circle cx="60" cy="58" r="13"/>
+        <path d="M 42 72 Q 42 110 60 130 L 78 130 Q 78 110 78 72 Z"/>
+        <circle cx="140" cy="58" r="13"/>
+        <path d="M 122 72 Q 122 110 140 130 L 158 130 Q 158 110 158 72 Z"/>
+      </g>
+      <g fill="#fff" opacity=".7">
+        <circle cx="100" cy="76" r="5"/>
+        <circle cx="92" cy="86" r="3"/>
+        <circle cx="86" cy="92" r="2"/>
+      </g>
+    </svg>`,
+    workshop: `<svg viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice">
+      <g fill="#fff" opacity=".88">
+        <circle cx="100" cy="40" r="9"/>
+        <rect x="93" y="48" width="14" height="20" rx="3"/>
+        <circle cx="56" cy="64" r="9"/>
+        <rect x="49" y="72" width="14" height="20" rx="3"/>
+        <circle cx="144" cy="64" r="9"/>
+        <rect x="137" y="72" width="14" height="20" rx="3"/>
+        <circle cx="50" cy="108" r="9"/>
+        <rect x="43" y="116" width="14" height="22" rx="3"/>
+        <circle cx="150" cy="108" r="9"/>
+        <rect x="143" y="116" width="14" height="22" rx="3"/>
+        <circle cx="100" cy="124" r="9"/>
+      </g>
+      <circle cx="100" cy="84" r="20" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="3 3" opacity=".55"/>
+    </svg>`,
+    display: `<svg viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice">
+      <rect x="38" y="22" width="124" height="72" rx="3" fill="#fff" opacity=".96"/>
+      <rect x="46" y="32" width="68" height="6" fill="#000" opacity=".55"/>
+      <rect x="46" y="44" width="44" height="4" fill="#000" opacity=".4"/>
+      <rect x="46" y="54" width="56" height="4" fill="#000" opacity=".4"/>
+      <rect x="46" y="64" width="32" height="4" fill="#000" opacity=".4"/>
+      <circle cx="138" cy="62" r="14" fill="#ea580c" opacity=".7"/>
+      <line x1="98" y1="94" x2="102" y2="118" stroke="#fff" stroke-width="3" opacity=".7"/>
+      <g fill="#000" opacity=".55">
+        <circle cx="100" cy="124" r="8"/>
+        <rect x="91" y="130" width="18" height="20"/>
+      </g>
+    </svg>`,
+    panel: `<svg viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice">
+      <rect x="20" y="100" width="160" height="6" fill="#fff" opacity=".5"/>
+      <g fill="#fff" opacity=".92">
+        <circle cx="50" cy="62" r="11"/>
+        <rect x="38" y="74" width="24" height="30" rx="4"/>
+        <circle cx="100" cy="58" r="12"/>
+        <rect x="87" y="71" width="26" height="33" rx="4"/>
+        <circle cx="150" cy="62" r="11"/>
+        <rect x="138" y="74" width="24" height="30" rx="4"/>
+      </g>
+      <line x1="60" y1="40" x2="80" y2="40" stroke="#fff" stroke-width="2" opacity=".5"/>
+      <line x1="120" y1="40" x2="140" y2="40" stroke="#fff" stroke-width="2" opacity=".5"/>
+    </svg>`,
+    award: `<svg viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice">
+      <g fill="#fff" opacity=".96">
+        <circle cx="100" cy="58" r="22" stroke="#ea580c" stroke-width="3" fill="#fff"/>
+        <path d="M 88 76 L 84 110 L 100 100 L 116 110 L 112 76 Z"/>
+      </g>
+      <text x="100" y="64" text-anchor="middle" font-family="serif" font-size="20" font-style="italic" fill="#ea580c">★</text>
+      <g fill="#fff" opacity=".5">
+        <circle cx="38" cy="44" r="2"/>
+        <circle cx="160" cy="40" r="2"/>
+        <circle cx="170" cy="80" r="2"/>
+        <circle cx="32" cy="86" r="2"/>
+      </g>
+    </svg>`,
+  };
+
+  const PALETTES = {
+    '2025': ['#b04209,#0e7490','#7c2d12,#0c4a6e','#9a3412,#155e75','#7c2d12,#0891b2'],
+    '2024': ['#065f46,#134e4a','#064e3b,#0f766e','#047857,#155e75','#065f46,#0e7490'],
+    '2023': ['#7c2d12,#581c87','#9a3412,#6b21a8','#b04209,#7e22ce','#7c2d12,#86198f'],
+    '2022': ['#92400e,#9f1239','#a16207,#be123c','#b45309,#9f1239','#854d0e,#881337'],
+    '2021': ['#1e40af,#3730a3','#1e3a8a,#312e81','#1d4ed8,#3730a3','#1e3a8a,#4338ca'],
+  };
+
+  const GALLERY_DATA = {
+    '2025': [
+      {img:'assets/Poster101.jpg',     zh:'活動主視覺海報',                en:'Event main poster'},
+      {img:'assets/PosterBG.jpg',      zh:'嘉年華視覺',                   en:'Carnival visual'},
+      {img:'assets/liza.jpeg',         zh:'《Eyes on Ukraine》劇照',     en:'Eyes on Ukraine — film still'},
+      {img:'assets/01RK.jpeg',         zh:'劉仁凱｜性別論壇講者',          en:'Liu Ren-Kai · Gender Forum speaker'},
+      {img:'assets/02CY.jpeg',         zh:'謝佳吟護理師｜友愛論壇講者',     en:'Hsieh Chia-Yin, RN · Friendly Medicine Forum'},
+      {img:'assets/prize.png',         zh:'Love Wins Film Festival 榮譽', en:'Honored at Love Wins Film Festival'},
+    ],
+    '2024': [
+      {img:'assets/Carnival POster.jpg', zh:'2024 嘉年華海報',          en:'2024 carnival poster'},
+      {img:'assets/202401.jpg',          zh:'2024 活動現場',            en:'2024 event scene'},
+      {img:'assets/202403.JPG',          zh:'2024 活動花絮',            en:'2024 event highlights'},
+      {img:'assets/202404.JPG',          zh:'2024 活動花絮',            en:'2024 event highlights'},
+      {img:'assets/202405.jpg',          zh:'2024 活動花絮',            en:'2024 event highlights'},
+    ],
+    '2023': [
+      {scene:'display',  zh:'儀表板首次公開',          en:'Dashboard public launch'},
+      {scene:'workshop', zh:'PrEP 流程演練',          en:'PrEP workflow rehearsal'},
+      {scene:'dialogue', zh:'PEP 諮詢示範',           en:'PEP counselling demo'},
+      {scene:'opening',  zh:'季度檢視會',              en:'Quarterly review session'},
+    ],
+    '2022': [
+      {scene:'panel',    zh:'跨科首次同台',           en:'First cross-specialty stage'},
+      {scene:'workshop', zh:'坦誠對話小組',           en:'Honest-conversation circle'},
+      {scene:'display',  zh:'回顧簡報',              en:'Year in review'},
+      {scene:'award',    zh:'夥伴致謝',              en:'Partner appreciation'},
+    ],
+    '2021': [
+      {scene:'opening',  zh:'第一屆啟動',             en:'First edition kickoff'},
+      {scene:'workshop', zh:'第一線員工討論',          en:'Frontline staff discussion'},
+      {scene:'display',  zh:'基礎宣導',              en:'Foundational orientation'},
+      {scene:'dialogue', zh:'問卷成果分享',           en:'Survey insight sharing'},
+    ],
+  };
+
+  // build galleries
+  Object.keys(GALLERY_DATA).forEach(year => {
+    const panel = document.querySelector(`.year-panel[data-panel="${year}"]`);
+    if (!panel) return;
+    const items = GALLERY_DATA[year];
+    const palette = PALETTES[year];
+
+    const section = document.createElement('div');
+    section.className = 'gallery-section';
+    section.innerHTML = `
+      <div class="gal-label">
+        <span class="lang-zh">活動現場 · 點擊放大</span>
+        <span class="lang-en">From the day · click to enlarge</span>
+      </div>
+      <div class="gallery-grid"></div>
+    `;
+    const grid = section.querySelector('.gallery-grid');
+
+    items.forEach((it, idx) => {
+      const [c1, c2] = palette[idx % palette.length].split(',');
+      const thumb = document.createElement('div');
+      thumb.className = 'gal-thumb';
+      thumb.style.background = it.img ? '#0f172a' : `linear-gradient(135deg, ${c1} 0%, ${c2} 100%)`;
+      thumb.dataset.year = year;
+      thumb.dataset.index = idx;
+      const visual = it.img
+        ? `<img src="${it.img}" alt="${it.zh}" style="width:100%;height:100%;object-fit:cover;display:block">`
+        : SCENES[it.scene];
+      thumb.innerHTML = `
+        ${visual}
+        <div class="gal-cap"><span class="lang-zh">${it.zh}</span><span class="lang-en">${it.en}</span></div>
+        <div class="gal-zoom">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg>
+        </div>
+      `;
+      grid.appendChild(thumb);
+    });
+
+    panel.appendChild(section);
+  });
+
+  // ---- lightbox ----
+  const lb = $('#lightbox');
+  const lbFrame = $('#lbFrame');
+  const lbTitle = $('#lbTitle');
+  const lbMeta = $('#lbMeta');
+  const lbClose = $('#lbClose');
+  const lbPrev = $('#lbPrev');
+  const lbNext = $('#lbNext');
+  let lbState = { year: null, index: 0 };
+
+  const renderLb = () => {
+    const items = GALLERY_DATA[lbState.year];
+    if (!items) return;
+    const it = items[lbState.index];
+    const [c1, c2] = PALETTES[lbState.year][lbState.index % PALETTES[lbState.year].length].split(',');
+    if (it.img) {
+      lbFrame.style.background = '#0a0f1c';
+      lbFrame.innerHTML = `<img src="${it.img}" alt="${it.zh}" style="max-width:100%;max-height:100%;object-fit:contain;display:block;margin:0 auto">`;
+    } else {
+      lbFrame.style.background = `linear-gradient(135deg, ${c1} 0%, ${c2} 100%)`;
+      lbFrame.innerHTML = SCENES[it.scene];
+    }
+    lbTitle.innerHTML = `<span class="lang-zh">${it.zh}</span><span class="lang-en">${it.en}</span>`;
+    lbMeta.textContent = `${lbState.year} · ${lbState.index + 1} / ${items.length}`;
+  };
+  const openLb = (year, index) => {
+    lbState = { year, index };
+    renderLb();
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+  const closeLb = () => {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  const moveLb = (delta) => {
+    const items = GALLERY_DATA[lbState.year];
+    lbState.index = (lbState.index + delta + items.length) % items.length;
+    renderLb();
+  };
+
+  document.addEventListener('click', e => {
+    const thumb = e.target.closest('.gal-thumb');
+    if (thumb) openLb(thumb.dataset.year, parseInt(thumb.dataset.index, 10));
+  });
+  lbClose.addEventListener('click', closeLb);
+  lbPrev.addEventListener('click', () => moveLb(-1));
+  lbNext.addEventListener('click', () => moveLb(1));
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') moveLb(-1);
+    if (e.key === 'ArrowRight') moveLb(1);
+  });
+})();
+</script>
 </body>
 </html>
