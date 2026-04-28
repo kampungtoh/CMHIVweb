@@ -87,11 +87,13 @@ html[lang="en"] body { font-feature-settings: "ss01","ss02"; }
   letter-spacing: .01em;
 }
 .brand-mark {
-  width: 30px; height: 30px;
+  width: 36px; height: 36px;
   display: inline-grid; place-items: center;
   position: relative;
 }
 .brand-mark svg { width: 100%; height: 100%; }
+.brand-mark img.logo { width: 100%; height: 100%; object-fit: contain; display: block; }
+.footer .brand-mark { width: 40px; height: 40px; }
 .brand-name .sub {
   display: block;
   font-family: var(--f-body);
@@ -1691,7 +1693,8 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
 <nav class="nav" id="nav">
   <a class="brand" href="#top">
     <span class="brand-mark" aria-hidden="true">
-      <svg viewBox="0 0 30 30" fill="none">
+      <img class="logo" src="assets/logo.png" alt="奇美友愛 logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+      <svg viewBox="0 0 30 30" fill="none" style="display:none">
         <circle cx="15" cy="15" r="14" stroke="#fff" stroke-width="1"/>
         <path d="M11 6 L11 22 L13 22 L13 6 Z M17 6 L17 22 L19 22 L19 6 Z" fill="#dc2626" transform="rotate(-15 15 15)"/>
       </svg>
@@ -3400,6 +3403,48 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
         </div>
       </article>
 
+      <article class="media-card" data-cat="podcast">
+        <a href="https://hiv-story.org/portfolio/%E9%86%AB%E7%99%82%E4%BA%BA%E5%93%A1%E6%AD%A7%E8%A6%96%E8%AA%BF%E6%9F%A5%EF%BD%9C%E4%B8%BB%E8%AC%9B%E8%80%85-%E6%9D%9C%E6%BC%A2%E7%A5%A5/" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><rect x="22" y="18" width="4" height="20" fill="white"/><rect x="30" y="18" width="4" height="20" fill="white"/></svg>
+        </div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">演講・影音</span><span class="lang-en">Talk · Video</span></div>
+          <h4><span class="lang-zh">醫療人員愛滋歧視調查｜主講者・杜漢祥</span><span class="lang-en">Survey on HIV Stigma Among Medical Staff｜Speaker: Dr. Tu Han-Siong</span></h4>
+          <div class="meta"><span class="lang-zh">愛滋現場影音專案・HIVStory</span><span class="lang-en">HIVStory · AIDS On-Site Video Project</span></div>
+          <p class="excerpt"><span class="lang-zh">杜漢祥醫師主講「醫療人員愛滋歧視調查」結果，談如何用證據面對醫護人員的恐懼與誤解。</span><span class="lang-en">Dr. Tu presents the medical-staff HIV-stigma survey, framing fear and misconception as something to be addressed with evidence.</span></p>
+          <a class="read" href="https://hiv-story.org/portfolio/%E9%86%AB%E7%99%82%E4%BA%BA%E5%93%A1%E6%AD%A7%E8%A6%96%E8%AA%BF%E6%9F%A5%EF%BD%9C%E4%B8%BB%E8%AC%9B%E8%80%85-%E6%9D%9C%E6%BC%A2%E7%A5%A5/" target="_blank" rel="noopener"><span class="lang-zh">收聽 →</span><span class="lang-en">Listen →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="podcast">
+        <a href="https://open.firstory.me/story/cm9eoowap4p430108bruw406r" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><rect x="22" y="18" width="4" height="20" fill="white"/><rect x="30" y="18" width="4" height="20" fill="white"/></svg>
+        </div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">播客</span><span class="lang-en">Podcast</span></div>
+          <h4><span class="lang-zh">EP113 『慢性發炎』又怎樣！？府城一哥杜漢祥醫師，教你如何抗炎大作戰</span><span class="lang-en">EP113 So What if You Have Chronic Inflammation? Dr. Tu's Anti-inflammation Playbook</span></h4>
+          <div class="meta"><span class="lang-zh">愛健康 Podcast</span><span class="lang-en">Love Health Podcast</span></div>
+          <p class="excerpt"><span class="lang-zh">杜漢祥醫師談 HIV 病人合併慢性發炎的長期管理策略，從感染科視角看「老化」與共病。</span><span class="lang-en">Dr. Tu walks through long-term management of chronic inflammation in PLHIV — ageing and comorbidity from an ID perspective.</span></p>
+          <a class="read" href="https://open.firstory.me/story/cm9eoowap4p430108bruw406r" target="_blank" rel="noopener"><span class="lang-zh">收聽 →</span><span class="lang-en">Listen →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="podcast">
+        <a href="https://podcasts.apple.com/us/podcast/%E5%A5%87%E7%BE%8E%E5%A4%A7%E5%B0%8F%E4%BA%8B-%E4%BD%A0%E5%9C%A8%E4%B9%8E%E7%9A%84%E4%BA%8B/id1799904030" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><rect x="22" y="18" width="4" height="20" fill="white"/><rect x="30" y="18" width="4" height="20" fill="white"/></svg>
+        </div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">播客</span><span class="lang-en">Podcast</span></div>
+          <h4><span class="lang-zh">奇美大小事，你在乎的事｜杜漢祥主持</span><span class="lang-en">Chi Mei Big & Small Things｜Hosted by Dr. Tu</span></h4>
+          <div class="meta"><span class="lang-zh">奇美醫院內部 Podcast</span><span class="lang-en">Chi Mei in-house podcast</span></div>
+          <p class="excerpt"><span class="lang-zh">由杜漢祥部長主持的奇美院內 podcast，討論院內最新訊息、政策、組織變革與第一線同仁關心的議題。</span><span class="lang-en">Chi Mei's in-house podcast hosted by Director Tu — covering hospital news, policy, organisational change and frontline staff concerns.</span></p>
+          <a class="read" href="https://podcasts.apple.com/us/podcast/%E5%A5%87%E7%BE%8E%E5%A4%A7%E5%B0%8F%E4%BA%8B-%E4%BD%A0%E5%9C%A8%E4%B9%8E%E7%9A%84%E4%BA%8B/id1799904030" target="_blank" rel="noopener"><span class="lang-zh">收聽 →</span><span class="lang-en">Listen →</span></a>
+        </div>
+      </article>
+
       <article class="media-card" data-cat="article">
         <div class="thumb"><div class="pat"></div></div>
         <div class="body">
@@ -3750,7 +3795,8 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
     <div class="brand-block">
       <div class="brand">
         <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 30 30" fill="none">
+          <img class="logo" src="assets/logo.png" alt="奇美友愛 logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+          <svg viewBox="0 0 30 30" fill="none" style="display:none">
             <circle cx="15" cy="15" r="14" stroke="#fff" stroke-width="1"/>
             <path d="M11 6 L11 22 L13 22 L13 6 Z M17 6 L17 22 L19 22 L19 6 Z" fill="#dc2626" transform="rotate(-15 15 15)"/>
           </svg>
