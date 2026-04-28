@@ -1058,10 +1058,10 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
 
 /* ---------- footer ---------- */
 .footer {
-  background: var(--c-bg-deep);
-  color: rgba(255,255,255,.7);
+  background: var(--c-paper);
+  color: var(--c-text-soft);
   padding: 80px var(--pad) 40px;
-  border-top: 1px solid rgba(255,255,255,.06);
+  border-top: 1px solid var(--c-line);
 }
 .footer-grid {
   max-width: var(--maxw);
@@ -1070,7 +1070,7 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 48px;
   padding-bottom: 56px;
-  border-bottom: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid var(--c-line);
 }
 .footer h5 {
   font-family: var(--f-mono);
@@ -1082,7 +1082,7 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
   font-weight: 600;
 }
 .footer .brand-block .brand {
-  color: #fff;
+  color: var(--c-text);
   font-size: 22px;
   margin-bottom: 16px;
 }
@@ -1091,16 +1091,18 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
   line-height: 1.6;
   max-width: 40ch;
   margin: 0 0 24px;
+  color: var(--c-text-soft);
 }
 .footer ul { list-style: none; padding: 0; margin: 0; }
 .footer li { margin-bottom: 10px; font-size: 14px; }
+.footer a { color: var(--c-text-soft); transition: color .2s; }
 .footer a:hover { color: var(--c-accent); }
 .footer-bottom {
   max-width: var(--maxw);
   margin: 32px auto 0;
   display: flex; justify-content: space-between;
   font-size: 12px;
-  color: rgba(255,255,255,.4);
+  color: var(--c-text-mute);
   letter-spacing: .04em;
   flex-wrap: wrap; gap: 12px;
 }
