@@ -7,7 +7,7 @@
 <meta name="description" content="Chi Mei Hospital's HIV-friendly and equitable healthcare programme — from friendly care to system redesign, public health, and long-term care readiness.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,30..100&family=Manrope:wght@300..800&family=Noto+Sans+TC:wght@300..800&family=Noto+Serif+TC:wght@300..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300..800&family=Noto+Sans+TC:wght@300..800&family=Noto+Serif+TC:wght@300..900&display=swap" rel="stylesheet">
 <style>
 :root {
   --c-bg-deep: #2b1d12;       /* warm dark espresso */
@@ -28,8 +28,8 @@
   --c-cyan-soft: #e3ebd2;     /* moss cream */
   --c-ribbon: #c94d3e;        /* heartfelt red ribbon */
 
-  --f-display: "Fraunces","Noto Serif TC", Georgia, serif;
-  --f-body: "Manrope","Noto Sans TC", system-ui, sans-serif;
+  --f-display: "Lora","Noto Serif TC", Georgia, serif;
+  --f-body: "Plus Jakarta Sans","Noto Sans TC", system-ui, sans-serif;
   --f-mono: "JetBrains Mono", ui-monospace, monospace;
 
   --maxw: 1240px;
@@ -259,7 +259,6 @@ html[lang="en"] body { font-feature-settings: "ss01","ss02"; }
   letter-spacing: -.02em;
   margin: 0 0 24px;
   max-width: 16ch;
-  font-variation-settings: "SOFT" 30, "opsz" 144;
 }
 .hero h1 em {
   font-style: italic;
@@ -937,12 +936,25 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
   position: relative;
   overflow: hidden;
 }
+.media-card .thumb img.thumb-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
 .media-card .thumb::after {
   content: "";
   position: absolute; inset: 0;
   background: linear-gradient(135deg, rgba(217,106,58,.82), rgba(122,154,110,.55));
   mix-blend-mode: multiply;
+  z-index: 1;
 }
+.media-card .thumb:has(img.thumb-img)::after {
+  background: linear-gradient(180deg, rgba(43,29,18,0.0) 40%, rgba(43,29,18,.55) 100%);
+  mix-blend-mode: normal;
+}
+.media-card .thumb svg.play { z-index: 2; }
+.media-card .thumb .pat { z-index: 1; }
 .media-card .thumb svg.play {
   position: absolute;
   left: 50%; top: 50%; transform: translate(-50%,-50%);
@@ -1350,7 +1362,7 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
 }
 .wheel-segment.active .seg-icon { stroke: #fff; }
 .wheel-segment .seg-num {
-  font-family: "Manrope", sans-serif;
+  font-family: var(--f-body);
   font-size: 9px;
   letter-spacing: .15em;
   fill: var(--c-text-mute);
@@ -1371,7 +1383,7 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
   letter-spacing: 0;
 }
 .wheel-center-sub {
-  font-family: "Manrope", sans-serif;
+  font-family: var(--f-body);
   font-size: 8px;
   letter-spacing: .25em;
   fill: var(--c-accent);
@@ -3849,10 +3861,10 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
   </div>
 
   <div class="footer-bottom">
-    <span>© 2026 Chi Mei Hospital · <span class="lang-zh">奇美醫療財團法人奇美醫院</span><span class="lang-en">Chi Mei Medical Center</span></span>
+    <span>© 2026 Chi Mei Medical Center · <span class="lang-zh">奇美醫療財團法人奇美醫院</span><span class="lang-en">Chi Mei Medical Foundation Hospital</span></span>
     <span>
-      <span class="lang-zh">本網站採用尊嚴語言指引 · 從不使用「病患」「患者」等詞彙</span>
-      <span class="lang-en">This site follows dignified-language guidelines.</span>
+      <span class="lang-zh">最後更新：2026/04/28</span>
+      <span class="lang-en">Last updated: 2026/04/28</span>
     </span>
   </div>
 </footer>
@@ -3920,6 +3932,27 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
       const panel = document.querySelector(`.year-panel[data-panel="${year}"]`);
       if (panel) panel.classList.add('active');
     });
+  });
+
+  // ---- inject YouTube thumbnails into media cards ----
+  $$('#mediaGrid .media-card').forEach(card => {
+    const link = card.querySelector('a.thumb-link, a.read');
+    if (!link) return;
+    const m = link.href.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|playlist\?list=))([\w-]{11,})/);
+    if (!m) return;
+    const thumb = card.querySelector('.thumb');
+    if (!thumb || thumb.querySelector('img.thumb-img')) return;
+    const id = m[1];
+    const isPlaylist = link.href.includes('playlist?list=');
+    // Playlists don't have a stable thumbnail URL — use first video heuristic if present, otherwise skip
+    if (isPlaylist) return;
+    const img = document.createElement('img');
+    img.className = 'thumb-img';
+    img.loading = 'lazy';
+    img.alt = '';
+    img.src = `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
+    img.onerror = () => { img.remove(); };
+    thumb.prepend(img);
   });
 
   // ---- media filter ----
