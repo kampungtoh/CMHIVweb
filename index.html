@@ -3934,23 +3934,36 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
     });
   });
 
-  // ---- inject YouTube thumbnails into media cards ----
+  // ---- inject preview thumbnails into media cards ----
+  // Map of URL substring -> preview image (og:image, podcast cover, etc.)
+  const previewThumbs = {
+    'health.tvbs.com.tw/medical/320349': 'https://health-asset.tvbs.com.tw/img/program/upload/2019/11/29/20191129184311-b16038d2.jpg',
+    'health.ettoday.net/news/1621234': 'https://cdn2.ettoday.net/images/4636/d4636031.jpg',
+    'health.udn.com/health/story/6047/4192529': 'https://pgw.udn.com.tw/gw/photo.php?u=/photo/2019/11/28/realtime/7123318.jpg',
+    'uho.com.tw/article-45727': 'https://www.uho.com.tw/userfiles/sm/sm1200675_images_A1/uho_news_045727.jpg',
+    'managertoday.firstory.io/episodes/cml0b2n970hhv01059i54cpto': 'https://image.firstory-cdn.me/Image/ckufaibc5dc3u0966b6rc961b/QiXqydEzZpZcO-KBsi6QX.jpg',
+    'open.firstory.me/story/cm9eoowap4p430108bruw406r': 'https://files.soundon.fm/1744479829204-0d2e2569-100b-4d9a-9653-5a27b34e1df2.jpeg',
+    'id1799904030': 'https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/dc/97/03/dc970324-f88a-dbeb-2c69-f3ef44b971c9/mza_13455601783414956960.jpeg/600x600bb.jpg',
+  };
+  const playlistFirstEp = 'PLu0u5uG3noI7oeyQXdfbWp1X3juA9z_NW';
+
   $$('#mediaGrid .media-card').forEach(card => {
     const link = card.querySelector('a.thumb-link, a.read');
     if (!link) return;
-    const m = link.href.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|playlist\?list=))([\w-]{11,})/);
-    if (!m) return;
+    const href = link.href;
+    let src = null;
+    const watch = href.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=)([\w-]{11})/);
+    if (watch) src = `https://img.youtube.com/vi/${watch[1]}/mqdefault.jpg`;
+    else if (href.includes(playlistFirstEp)) src = 'https://img.youtube.com/vi/Xgpw2nyJo90/mqdefault.jpg';
+    else for (const key in previewThumbs) if (href.includes(key)) { src = previewThumbs[key]; break; }
+    if (!src) return;
     const thumb = card.querySelector('.thumb');
     if (!thumb || thumb.querySelector('img.thumb-img')) return;
-    const id = m[1];
-    const isPlaylist = link.href.includes('playlist?list=');
-    // Playlists don't have a stable thumbnail URL — use first video heuristic if present, otherwise skip
-    if (isPlaylist) return;
     const img = document.createElement('img');
     img.className = 'thumb-img';
     img.loading = 'lazy';
     img.alt = '';
-    img.src = `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
+    img.src = src;
     img.onerror = () => { img.remove(); };
     thumb.prepend(img);
   });
