@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>媒體與資源｜奇美友愛</title>
+<meta name="description" content="Media & Resources | Chi Mei Love & Care">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300..800&family=Noto+Sans+TC:wght@300..800&family=Noto+Serif+TC:wght@300..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a class="brand" href="index.html">
+    <span class="brand-mark" aria-hidden="true">
+      <img class="logo" src="assets/logo.png" alt="奇美友愛 logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+      <svg viewBox="0 0 30 30" fill="none" style="display:none">
+        <circle cx="15" cy="15" r="14" stroke="#fff" stroke-width="1"/>
+        <path d="M11 6 L11 22 L13 22 L13 6 Z M17 6 L17 22 L19 22 L19 6 Z" fill="#dc2626" transform="rotate(-15 15 15)"/>
+      </svg>
+    </span>
+    <span class="brand-name">
+      <span class="lang-zh">奇美友愛</span>
+      <span class="lang-en">Chi Mei Love & Care</span>
+      <span class="sub">Chi Mei Love &amp; Care</span>
+    </span>
+  </a>
+
+  <div class="nav-links" id="navLinks">
+    <a href="about.html"><span class="lang-zh">關於我們</span><span class="lang-en">About</span></a>
+    <a href="about.html#journey-flow"><span class="lang-zh">民眾旅程</span><span class="lang-en">Public Journey</span></a>
+    <a href="timeline.html"><span class="lang-zh">推動歷程</span><span class="lang-en">Timeline</span></a>
+    <a href="about.html#model"><span class="lang-zh">我們的模式</span><span class="lang-en">Our Model</span></a>
+    <a href="team.html"><span class="lang-zh">團隊</span><span class="lang-en">Team</span></a>
+    <a href="timeline.html#friendly-day"><span class="lang-zh">活動紀錄</span><span class="lang-en">Activity Records</span></a>
+    <a href="outcomes.html"><span class="lang-zh">成果</span><span class="lang-en">Outcomes</span></a>
+    <a href="media.html"><span class="lang-zh">媒體資源</span><span class="lang-en">Media</span></a>
+  </div>
+
+  <div class="nav-actions">
+    <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+      <span class="dot"></span>
+      <span class="lang-zh">EN</span>
+      <span class="lang-en">中文</span>
+    </button>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+        <path d="M3 6h18M3 12h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<header class="page-hero" id="top">
+  <div class="container">
+    <div class="page-hero-eyebrow">
+      <span class="ribbon" aria-hidden="true"></span>
+      <span class="lang-zh">奇美醫院 · HIV 友善醫療推動計畫</span>
+      <span class="lang-en">A Chi Mei Hospital Initiative · Since 2018</span>
+    </div>
+    <h1 class="page-hero-title">
+      <span class="lang-zh">媒體與資源</span>
+      <span class="lang-en">Media & Resources</span>
+    </h1>
+    <p class="page-hero-lede">
+      <span class="lang-zh">所有公開內容，一次找齊。</span>
+      <span class="lang-en">All public content, in one place.</span>
+    </p>
+  </div>
+</header>
+
+<section id="media">
+  <div class="container">
+    <div class="section-head">
+      <div class="label">
+        <span class="lang-zh">媒體與資源</span>
+        <span class="lang-en">Media & Resources</span>
+        <span class="num">08</span>
+      </div>
+      <div>
+        <h2>
+          <span class="lang-zh">所有公開內容，<em>一次找齊</em>。</span>
+          <span class="lang-en">All public content, <em>in one place</em>.</span>
+        </h2>
+        <p class="deck">
+          <span class="lang-zh">影片、文章、播客、簡報、指引——可以依類型篩選查找。</span>
+          <span class="lang-en">Videos, articles, podcasts, presentations, and guidelines — filter by category.</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-pill active" data-filter="all"><span class="lang-zh">全部</span><span class="lang-en">All</span></button>
+      <button class="filter-pill" data-filter="video"><span class="lang-zh">院方影片</span><span class="lang-en">Hospital videos</span></button>
+      <button class="filter-pill" data-filter="collab"><span class="lang-zh">合作影片</span><span class="lang-en">Creator collabs</span></button>
+      <button class="filter-pill" data-filter="series"><span class="lang-zh">2020 友愛專訪</span><span class="lang-en">2020 Interview Series</span></button>
+      <button class="filter-pill" data-filter="article"><span class="lang-zh">媒體報導</span><span class="lang-en">Press</span></button>
+      <button class="filter-pill" data-filter="podcast"><span class="lang-zh">播客</span><span class="lang-en">Podcast</span></button>
+      <button class="filter-pill" data-filter="government"><span class="lang-zh">官方認證</span><span class="lang-en">Government</span></button>
+    </div>
+
+    <div class="media-grid" id="mediaGrid">
+
+      <article class="media-card" data-cat="video">
+        <a href="https://www.youtube.com/watch?v=zAro8Js86aE" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg>
+        </div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">院方影片</span><span class="lang-en">Hospital video</span></div>
+          <h4><span class="lang-zh">在紅絲帶之下，與你一樣的每一天</span><span class="lang-en">Under the Red Ribbon — every day, just like yours</span></h4>
+          <div class="meta">2025 · <span class="lang-zh">世界愛滋日</span><span class="lang-en">World AIDS Day</span></div>
+          <p class="excerpt"><span class="lang-zh">奇美友愛 HIV 照護團隊於 2025 世界愛滋日推出的影像作品，紀錄日常裡的友善時刻。</span><span class="lang-en">A Chi Mei Love & Care HIV team film for World AIDS Day 2025, recording small moments of friendliness in everyday life.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=zAro8Js86aE" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="video">
+        <a href="https://www.youtube.com/watch?v=7jVP1Qha0VA" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg>
+        </div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">院方影片</span><span class="lang-en">Hospital video</span></div>
+          <h4><span class="lang-zh">奇美友愛街訪活動 · U Café</span><span class="lang-en">Chi Mei Love & Care Street Interviews · U Café</span></h4>
+          <div class="meta">2024 · <span class="lang-zh">街訪・U=U 衛教</span><span class="lang-en">Street outreach · U=U education</span></div>
+          <p class="excerpt"><span class="lang-zh">把 U=U 的訊息帶到醫院外，記錄民眾與團隊在街頭與咖啡桌邊的真實對話。</span><span class="lang-en">Taking U=U beyond the clinic — honest sidewalk and café conversations between the public and the team.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=7jVP1Qha0VA" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="video">
+        <a href="https://www.youtube.com/watch?v=vvf-oKEOG6M" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg>
+        </div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">院方影片</span><span class="lang-en">Hospital video</span></div>
+          <h4><span class="lang-zh">奇美友愛 HIV 照護團隊（2020 年版）</span><span class="lang-en">Chi Mei Love & Care HIV Care Team (2020)</span></h4>
+          <div class="meta">2020 · <span class="lang-zh">團隊介紹</span><span class="lang-en">Team profile</span></div>
+          <p class="excerpt"><span class="lang-zh">奇美友愛 HIV 照護團隊的正式介紹片：HIV 照護、匿名篩檢、PrEP/PEP 與性健康諮詢。</span><span class="lang-en">Official team introduction — HIV care, anonymous testing, PrEP/PEP and sexual-health consultation.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=vvf-oKEOG6M" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="podcast">
+        <a href="https://managertoday.firstory.io/episodes/cml0b2n970hhv01059i54cpto" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><rect x="22" y="18" width="4" height="20" fill="white"/><rect x="30" y="18" width="4" height="20" fill="white"/></svg>
+        </div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">播客</span><span class="lang-en">Podcast</span></div>
+          <h4><span class="lang-zh">EP583 從「病人跳窗」的震撼，埋下友善醫療的種子｜專訪杜漢祥</span><span class="lang-en">EP583 The patient who jumped — and the seed of friendly medicine｜Interview with Dr. Tu Han-Siong</span></h4>
+          <div class="meta">2026/02 · <span class="lang-zh">經理人月刊《總編會客室》</span><span class="lang-en">Manager Today Podcast</span></div>
+          <p class="excerpt"><span class="lang-zh">奇美醫院品質管理部部長杜漢祥，回顧奇美友善醫療從一名病人的悲劇出發，到把台灣經驗帶上 WHO 舞台的歷程。</span><span class="lang-en">A long-form interview with Dr. Tu Han-Siong on how a single tragedy seeded Chi Mei's friendly-care reform, all the way to the WHO stage.</span></p>
+          <a class="read" href="https://managertoday.firstory.io/episodes/cml0b2n970hhv01059i54cpto" target="_blank" rel="noopener"><span class="lang-zh">收聽 →</span><span class="lang-en">Listen →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="podcast">
+        <a href="https://hiv-story.org/portfolio/%E9%86%AB%E7%99%82%E4%BA%BA%E5%93%A1%E6%AD%A7%E8%A6%96%E8%AA%BF%E6%9F%A5%EF%BD%9C%E4%B8%BB%E8%AC%9B%E8%80%85-%E6%9D%9C%E6%BC%A2%E7%A5%A5/" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><rect x="22" y="18" width="4" height="20" fill="white"/><rect x="30" y="18" width="4" height="20" fill="white"/></svg>
+        </div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">演講・影音</span><span class="lang-en">Talk · Video</span></div>
+          <h4><span class="lang-zh">醫療人員愛滋歧視調查｜主講者・杜漢祥</span><span class="lang-en">Survey on HIV Stigma Among Medical Staff｜Speaker: Dr. Tu Han-Siong</span></h4>
+          <div class="meta"><span class="lang-zh">愛滋現場影音專案・HIVStory</span><span class="lang-en">HIVStory · AIDS On-Site Video Project</span></div>
+          <p class="excerpt"><span class="lang-zh">杜漢祥醫師主講「醫療人員愛滋歧視調查」結果，談如何用證據面對醫護人員的恐懼與誤解。</span><span class="lang-en">Dr. Tu presents the medical-staff HIV-stigma survey, framing fear and misconception as something to be addressed with evidence.</span></p>
+          <a class="read" href="https://hiv-story.org/portfolio/%E9%86%AB%E7%99%82%E4%BA%BA%E5%93%A1%E6%AD%A7%E8%A6%96%E8%AA%BF%E6%9F%A5%EF%BD%9C%E4%B8%BB%E8%AC%9B%E8%80%85-%E6%9D%9C%E6%BC%A2%E7%A5%A5/" target="_blank" rel="noopener"><span class="lang-zh">收聽 →</span><span class="lang-en">Listen →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="podcast">
+        <a href="https://open.firstory.me/story/cm9eoowap4p430108bruw406r" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><rect x="22" y="18" width="4" height="20" fill="white"/><rect x="30" y="18" width="4" height="20" fill="white"/></svg>
+        </div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">播客</span><span class="lang-en">Podcast</span></div>
+          <h4><span class="lang-zh">EP113 『慢性發炎』又怎樣！？府城一哥杜漢祥醫師，教你如何抗炎大作戰</span><span class="lang-en">EP113 So What if You Have Chronic Inflammation? Dr. Tu's Anti-inflammation Playbook</span></h4>
+          <div class="meta"><span class="lang-zh">愛健康 Podcast</span><span class="lang-en">Love Health Podcast</span></div>
+          <p class="excerpt"><span class="lang-zh">杜漢祥醫師談 HIV 病人合併慢性發炎的長期管理策略，從感染科視角看「老化」與共病。</span><span class="lang-en">Dr. Tu walks through long-term management of chronic inflammation in PLHIV — ageing and comorbidity from an ID perspective.</span></p>
+          <a class="read" href="https://open.firstory.me/story/cm9eoowap4p430108bruw406r" target="_blank" rel="noopener"><span class="lang-zh">收聽 →</span><span class="lang-en">Listen →</span></a>
+        </div>
+      </article>
+
+
+      <article class="media-card" data-cat="article">
+        <div class="thumb"><div class="pat"></div></div>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">媒體報導</span><span class="lang-en">Press</span></div>
+          <h4><span class="lang-zh">讓 i 發聲！U café 應援醫護　奇美醫推動友善醫療共創友善 U 世代</span><span class="lang-en">Let "i" Speak! U café Cheers on Healthcare — Chi Mei Builds a Friendly U Generation</span></h4>
+          <div class="meta">2024/05 · <span class="lang-zh">ETtoday 新聞雲</span><span class="lang-en">ETtoday News</span></div>
+          <p class="excerpt"><span class="lang-zh">U café 醫護應援咖啡車再度進駐奇美，把 U=U 與友善照護的訊息帶到院區同仁與民眾面前。</span><span class="lang-en">The U café cheer-on coffee truck returned to Chi Mei, bringing U=U and friendly-care messaging directly to staff and the public.</span></p>
+          <a class="read" href="https://www.ettoday.net/news/20240509/2735241.htm" target="_blank" rel="noopener"><span class="lang-zh">閱讀 →</span><span class="lang-en">Read →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="article">
+        <div class="thumb"><div class="pat"></div></div>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">媒體報導</span><span class="lang-en">Press</span></div>
+          <h4><span class="lang-zh">奇美醫學中心 U café 醫護應援咖啡車　讓愛留下痕跡，拉近彼此距離</span><span class="lang-en">Chi Mei's U café Cheer-on Coffee Truck — Letting Love Leave a Mark</span></h4>
+          <div class="meta">2023/03 · <span class="lang-zh">視傳媒 NVN</span><span class="lang-en">NVN News</span></div>
+          <p class="excerpt"><span class="lang-zh">U café 醫護應援咖啡車首次來到奇美，把街頭對話與 U=U 衛教帶進醫院，拉近院方與民眾的距離。</span><span class="lang-en">The U café cheer-on coffee truck made its first visit to Chi Mei — bringing sidewalk conversations and U=U education into the hospital and shortening the distance between staff and the public.</span></p>
+          <a class="read" href="https://nvns.net/news_view.php?new_sn=34157" target="_blank" rel="noopener"><span class="lang-zh">閱讀 →</span><span class="lang-en">Read →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="article">
+        <div class="thumb"><div class="pat"></div></div>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">媒體報導</span><span class="lang-en">Press</span></div>
+          <h4><span class="lang-zh">愛滋病只找特定族群？口交會不會得愛滋病？醫師解迷思</span><span class="lang-en">Does HIV only target certain groups? Doctor debunks myths</span></h4>
+          <div class="meta">2023/08 · <span class="lang-zh">TVBS 健康 2.0</span><span class="lang-en">TVBS Health 2.0</span></div>
+          <p class="excerpt"><span class="lang-zh">奇美醫院重症加護內科及感染科杜漢祥醫師澄清 HIV 常見迷思，強調規律篩檢與 U=U 的重要性。</span><span class="lang-en">Dr. Tu Han-Siong of Chi Mei's Critical Care & ID Department clears up common HIV myths and stresses regular screening and U=U.</span></p>
+          <a class="read" href="https://health.tvbs.com.tw/medical/320349" target="_blank" rel="noopener"><span class="lang-zh">閱讀 →</span><span class="lang-en">Read →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="podcast">
+        <a href="https://www.youtube.com/watch?v=BVEKVOEcyTo" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><rect x="22" y="18" width="4" height="20" fill="white"/><rect x="30" y="18" width="4" height="20" fill="white"/></svg>
+        </div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">播客</span><span class="lang-en">Podcast</span></div>
+          <h4><span class="lang-zh">急診迷思大公開：到底是愛滋歧視，還是合理感控？｜精華文字</span><span class="lang-en">ER myths: HIV stigma, or rational infection control?</span></h4>
+          <div class="meta">2022/10 · <span class="lang-zh">露德知音</span><span class="lang-en">Lourdes Podcast</span></div>
+          <p class="excerpt"><span class="lang-zh">露德知音 podcast 邀請奇美友愛團隊談急診現場面對 HIV 病人的友善設計，與感染管制如何平衡。</span><span class="lang-en">The Lourdes Podcast invites the Chi Mei team to discuss balancing friendly care with infection control in the ER.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=BVEKVOEcyTo" target="_blank" rel="noopener"><span class="lang-zh">收聽 →</span><span class="lang-en">Listen →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="article">
+        <div class="thumb"><div class="pat"></div></div>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">媒體報導</span><span class="lang-en">Press</span></div>
+          <h4><span class="lang-zh">奇美醫學中心推動 HIV 友善醫療　朝有溫度醫院邁進</span><span class="lang-en">Chi Mei advances HIV friendly medicine — towards a warmer hospital</span></h4>
+          <div class="meta">2020/12 · <span class="lang-zh">經濟日報（聯合報系）</span><span class="lang-en">Economic Daily News</span></div>
+          <p class="excerpt"><span class="lang-zh">2020 年全院友善醫療 campaign 對外發聲的旗艦稿：跨領域團隊、U=U、回應 WHO 90-90-90。</span><span class="lang-en">The flagship 2020 announcement of the hospital-wide friendly-medicine programme — cross-disciplinary team, U=U, WHO 90-90-90.</span></p>
+          <a class="read" href="https://money.udn.com/money/story/11800/5066155" target="_blank" rel="noopener"><span class="lang-zh">閱讀 →</span><span class="lang-en">Read →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="article">
+        <div class="thumb"><div class="pat"></div></div>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">媒體報導</span><span class="lang-en">Press</span></div>
+          <h4><span class="lang-zh">35 歲男咳嗽發燒以為感染肺炎治不好　檢查發現竟是愛滋病</span><span class="lang-en">A man's cough was treated as pneumonia — until he was diagnosed with HIV</span></h4>
+          <div class="meta">2020/01 · <span class="lang-zh">ETtoday 健康雲</span><span class="lang-en">ETtoday Health</span></div>
+          <p class="excerpt"><span class="lang-zh">奇美杜漢祥醫師受訪，談晚期 HIV 表現為 PJP 肺炎，以及奇美匿名快篩、LINE@ 諮詢資源。</span><span class="lang-en">Dr. Tu Han-Siong on late HIV presenting as PJP pneumonia, plus Chi Mei's anonymous-screening and LINE@ consultation services.</span></p>
+          <a class="read" href="https://health.ettoday.net/news/1621234" target="_blank" rel="noopener"><span class="lang-zh">閱讀 →</span><span class="lang-en">Read →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="article">
+        <div class="thumb"><div class="pat"></div></div>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">媒體報導</span><span class="lang-en">Press</span></div>
+          <h4><span class="lang-zh">醫病》一夜情後擔心患病速看醫生　醫：可預防愛滋</span><span class="lang-en">After a one-night stand, see a doctor fast — HIV is preventable</span></h4>
+          <div class="meta">2017/12 · <span class="lang-zh">自由健康網</span><span class="lang-en">Liberty Health</span></div>
+          <p class="excerpt"><span class="lang-zh">奇美杜漢祥醫師說明 PEP 暴露後預防：72 小時內投藥可達 90% 預防效果。</span><span class="lang-en">Dr. Tu Han-Siong explains PEP — antiretrovirals within 72 hours can be up to 90% effective at preventing infection.</span></p>
+          <a class="read" href="https://health.ltn.com.tw/article/breakingnews/2289171" target="_blank" rel="noopener"><span class="lang-zh">閱讀 →</span><span class="lang-en">Read →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="article">
+        <div class="thumb"><div class="pat"></div></div>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">媒體報導</span><span class="lang-en">Press</span></div>
+          <h4><span class="lang-zh">提升愛滋感染者生活品質　盼擴大同溫層、弭平歧視</span><span class="lang-en">Improving Quality of Life for People Living with HIV — Widening Solidarity, Closing the Gap of Stigma</span></h4>
+          <div class="meta">2023/02 · <span class="lang-zh">今健康</span><span class="lang-en">Good Doctor Web</span></div>
+          <p class="excerpt"><span class="lang-zh">奇美友愛團隊談如何提升感染者的生活品質，並透過擴大同溫層的方式，逐步弭平社會歧視。</span><span class="lang-en">The Chi Mei team on improving life quality for PLHIV and slowly closing the gap of social stigma by widening solidarity.</span></p>
+          <a class="read" href="https://gooddoctorweb.com/post/1593" target="_blank" rel="noopener"><span class="lang-zh">閱讀 →</span><span class="lang-en">Read →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card series-ep" data-cat="series">
+        <a href="https://www.youtube.com/watch?v=Xgpw2nyJo90" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div><svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg></div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">第 1 集</span><span class="lang-en">Episode 1</span></div>
+          <h4><span class="lang-zh">終結愛滋・友善醫療</span><span class="lang-en">Ending AIDS · Friendly Medicine</span></h4>
+          <div class="meta">2020/11 · <span class="lang-zh">邱仲慶院長 + 林秀娟教授</span><span class="lang-en">President Chiu + Prof. Lin</span></div>
+          <p class="excerpt"><span class="lang-zh">由院長與林秀娟教授開場，介紹 WHO 三零目標與奇美的友善醫療承諾。</span><span class="lang-en">An opening dialogue framing the WHO Three-Zeros vision and Chi Mei's friendly-care commitment.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=Xgpw2nyJo90" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card series-ep" data-cat="series">
+        <a href="https://www.youtube.com/watch?v=TWNuqOjjqPw" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div><svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg></div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">第 2 集</span><span class="lang-en">Episode 2</span></div>
+          <h4><span class="lang-zh">疾病治療及預防的前線</span><span class="lang-en">The Frontline of Treatment and Prevention</span></h4>
+          <div class="meta">2020/06 · <span class="lang-zh">急診・24/7 PEP</span><span class="lang-en">ER · 24/7 PEP</span></div>
+          <p class="excerpt"><span class="lang-zh">急診作為 HIV 暴露後預防（PEP）的第一線，談 24 小時不打烊的服務系統。</span><span class="lang-en">The ER as the frontline of post-exposure prophylaxis — a 24/7 PEP system.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=TWNuqOjjqPw" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card series-ep" data-cat="series">
+        <a href="https://www.youtube.com/watch?v=9ytD56awrZs" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div><svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg></div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">第 3 集</span><span class="lang-en">Episode 3</span></div>
+          <h4><span class="lang-zh">愛滋照護的最後一哩路</span><span class="lang-en">The Last Mile of HIV Care</span></h4>
+          <div class="meta">2020/11 · <span class="lang-zh">ICU・安寧・長照</span><span class="lang-en">ICU · hospice · long-term care</span></div>
+          <p class="excerpt"><span class="lang-zh">面對晚期愛滋的 ICU、安寧與長照銜接，談友善照護的「最後一哩路」。</span><span class="lang-en">ICU, hospice and long-term-care handoff for late-stage HIV — the last mile of friendly care.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=9ytD56awrZs" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card series-ep" data-cat="series">
+        <a href="https://www.youtube.com/watch?v=oB5R9ud1T50" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div><svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg></div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">第 4 集</span><span class="lang-en">Episode 4</span></div>
+          <h4><span class="lang-zh">HIV 手術有那麼可怕？</span><span class="lang-en">Is Surgery for HIV+ Patients That Scary?</span></h4>
+          <div class="meta">2020/11 · <span class="lang-zh">外科・標準防護</span><span class="lang-en">Surgery · standard precautions</span></div>
+          <p class="excerpt"><span class="lang-zh">外科團隊談 HIV 病人手術的標準防護與心理準備，去除手術台上的污名。</span><span class="lang-en">The surgical team on standard precautions and mindset — removing stigma from the operating room.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=oB5R9ud1T50" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card series-ep" data-cat="series">
+        <a href="https://www.youtube.com/watch?v=olJaNMA6ZHA" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div><svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg></div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">第 5 集</span><span class="lang-en">Episode 5</span></div>
+          <h4><span class="lang-zh">關懷及友善：打破人與人之間藩籬</span><span class="lang-en">Care & Friendliness: Breaking the Walls Between People</span></h4>
+          <div class="meta">2020/11 · <span class="lang-zh">護理團隊視角</span><span class="lang-en">Nursing perspective</span></div>
+          <p class="excerpt"><span class="lang-zh">護理團隊談如何在每一次照護裡降低污名，把「友善」變成日常動作。</span><span class="lang-en">Nurses on how to reduce stigma in every contact — turning friendliness into a daily habit.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=olJaNMA6ZHA" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card series-ep" data-cat="series">
+        <a href="https://www.youtube.com/watch?v=dZWc-mX867c" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div><svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg></div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">第 6 集</span><span class="lang-en">Episode 6</span></div>
+          <h4><span class="lang-zh">為愛篩檢・為愛治療</span><span class="lang-en">Screen for Love · Treat for Love</span></h4>
+          <div class="meta">2020/11 · <span class="lang-zh">U=U 篩檢與同日治療</span><span class="lang-en">U=U · same-day treatment</span></div>
+          <p class="excerpt"><span class="lang-zh">介紹同日篩檢同日治療與 U=U：「測不到等於不傳染」的科學共識。</span><span class="lang-en">Same-day diagnosis-to-treatment and U=U — undetectable equals untransmittable.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=dZWc-mX867c" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card series-ep" data-cat="series">
+        <a href="https://www.youtube.com/watch?v=4PsHM6QueDs" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div><svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg></div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">第 7 集</span><span class="lang-en">Episode 7</span></div>
+          <h4><span class="lang-zh">身心靈的全人照護</span><span class="lang-en">Whole-person Care: Body, Mind & Spirit</span></h4>
+          <div class="meta">2020/11 · <span class="lang-zh">高齡・心理健康・chemsex</span><span class="lang-en">Ageing · mental health · chemsex</span></div>
+          <p class="excerpt"><span class="lang-zh">面對 HIV 高齡化、心理健康與 chemsex 議題，談全人照護的多重面向。</span><span class="lang-en">Ageing with HIV, mental health and chemsex — the many faces of whole-person care.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=4PsHM6QueDs" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card series-ep" data-cat="series">
+        <a href="https://www.youtube.com/watch?v=G1e4yps-v48" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div><svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg></div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">第 8 集</span><span class="lang-en">Episode 8</span></div>
+          <h4><span class="lang-zh">感染者的生育權：我還可以生小孩？</span><span class="lang-en">Reproductive Rights: Can I Still Have Children?</span></h4>
+          <div class="meta">2020/11 · <span class="lang-zh">生育權・洗精・防垂直感染</span><span class="lang-en">Sperm washing · vertical-transmission prevention</span></div>
+          <p class="excerpt"><span class="lang-zh">談感染者的生育權、洗精技術，以及如何阻斷母嬰垂直感染。</span><span class="lang-en">Reproductive rights, sperm washing, and stopping mother-to-child transmission.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=G1e4yps-v48" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card series-ep" data-cat="series">
+        <a href="https://www.youtube.com/watch?v=NlggMEAel4o" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div><svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg></div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">第 9 集</span><span class="lang-en">Episode 9</span></div>
+          <h4><span class="lang-zh">拒絕與接受：HIV 該怎麼說？</span><span class="lang-en">Rejection & Acceptance: How Do I Disclose HIV?</span></h4>
+          <div class="meta">2020/11 · <span class="lang-zh">手術・牙科・侵入性處置前的告知</span><span class="lang-en">Disclosure before surgery / dental / invasive care</span></div>
+          <p class="excerpt"><span class="lang-zh">病人在手術、牙科、侵入性處置前是否要告知？告知會帶來什麼？</span><span class="lang-en">Should patients disclose before surgery, dental or invasive procedures? What happens if they do?</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=NlggMEAel4o" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card series-ep" data-cat="series">
+        <a href="https://www.youtube.com/watch?v=YKa_1qggs1A" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div><svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg></div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">第 10 集</span><span class="lang-en">Episode 10</span></div>
+          <h4><span class="lang-zh">感染者的就學、就業及生活權</span><span class="lang-en">Education, Employment, and Daily Life Rights</span></h4>
+          <div class="meta">2020/11 · <span class="lang-zh">社工資源・權益保障</span><span class="lang-en">Social work · rights advocacy</span></div>
+          <p class="excerpt"><span class="lang-zh">談感染者在就學、就業、日常生活中可動用的社工資源與法律保障。</span><span class="lang-en">Education, employment and daily-life rights — and the social-work and legal resources available.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=YKa_1qggs1A" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card series-ep" data-cat="series">
+        <a href="https://www.youtube.com/watch?v=tRadaOYl6lI" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div><svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg></div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">第 11 集</span><span class="lang-en">Episode 11</span></div>
+          <h4><span class="lang-zh">疾病預防知多少</span><span class="lang-en">How Much Do You Know About Prevention?</span></h4>
+          <div class="meta">2020/12 · PrEP / PEP / <span class="lang-zh">疫苗</span><span class="lang-en">vaccines</span></div>
+          <p class="excerpt"><span class="lang-zh">PrEP 暴露前預防、PEP 暴露後預防、疫苗與慢性病防護的整合介紹。</span><span class="lang-en">A combined primer on PrEP, PEP, vaccines, and chronic-disease prevention.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=tRadaOYl6lI" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card series-ep" data-cat="series">
+        <a href="https://www.youtube.com/watch?v=0VBbO3Slz0Y" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div><svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg></div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">第 12 集</span><span class="lang-en">Episode 12</span></div>
+          <h4><span class="lang-zh">邁向 HIV 的新紀元</span><span class="lang-en">Towards a New Era of HIV</span></h4>
+          <div class="meta">2020/12 · <span class="lang-zh">世界愛滋日・90-90-90 → 95-95-95</span><span class="lang-en">World AIDS Day · 90-90-90 → 95-95-95</span></div>
+          <p class="excerpt"><span class="lang-zh">世界愛滋日專集：從 90-90-90 邁向 95-95-95，看 HIV 終結之路。</span><span class="lang-en">A World AIDS Day special — from 90-90-90 to 95-95-95 and the road to ending AIDS.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=0VBbO3Slz0Y" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="series" style="grid-column: span 2;">
+        <a href="https://www.youtube.com/playlist?list=PLu0u5uG3noI7oeyQXdfbWp1X3juA9z_NW" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg>
+        </div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">2020 友愛專訪系列</span><span class="lang-en">2020 Interview Series</span></div>
+          <h4><span class="lang-zh">奇美友愛・專訪系列（共 12 集）</span><span class="lang-en">Chi Mei Love & Care · Interview Series (12 episodes)</span></h4>
+          <div class="meta">2020/11–12 · <span class="lang-zh">YouTube Playlist</span><span class="lang-en">YouTube playlist</span></div>
+          <p class="excerpt"><span class="lang-zh">2020 全院友善醫療 campaign 對外發聲的核心內容：12 集涵蓋從 ER 前線、外科、ICU、生育權、就學就業，到 90-90-90 終結愛滋的全景。</span><span class="lang-en">The voice of the 2020 hospital-wide friendly-medicine campaign — 12 episodes spanning ER frontlines, surgery, ICU, reproductive rights, education and employment, all the way to 90-90-90 ending AIDS.</span></p>
+          <a class="read" href="https://www.youtube.com/playlist?list=PLu0u5uG3noI7oeyQXdfbWp1X3juA9z_NW" target="_blank" rel="noopener"><span class="lang-zh">觀看完整系列 →</span><span class="lang-en">Watch full series →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="government">
+        <div class="thumb"><div class="pat"></div></div>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">官方認證</span><span class="lang-en">Government recognition</span></div>
+          <h4><span class="lang-zh">一站式愛滋匿名快速篩檢服務　12 家合作醫院</span><span class="lang-en">One-stop anonymous rapid HIV screening · 12 partner hospitals</span></h4>
+          <div class="meta">2020 · <span class="lang-zh">衛福部疾管署新聞稿</span><span class="lang-en">Taiwan CDC press release</span></div>
+          <p class="excerpt"><span class="lang-zh">奇美獲列為衛福部全國 12 家合作醫院之一，提供一站式匿名快篩服務。</span><span class="lang-en">Chi Mei is listed among the 12 nationwide partner hospitals offering one-stop anonymous rapid HIV screening.</span></p>
+          <a class="read" href="https://www.mohw.gov.tw/cp-4258-47311-1.html" target="_blank" rel="noopener"><span class="lang-zh">查看 →</span><span class="lang-en">View →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="government">
+        <div class="thumb"><div class="pat"></div></div>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">官方認證</span><span class="lang-en">Government recognition</span></div>
+          <h4><span class="lang-zh">非職業暴露 PEP 醫療院所名單</span><span class="lang-en">Non-occupational PEP designated providers</span></h4>
+          <div class="meta">2020 · <span class="lang-zh">衛福部 / 地方衛生局</span><span class="lang-en">MOHW / Local Health Bureau</span></div>
+          <p class="excerpt"><span class="lang-zh">奇美獲衛福部認可為非職業暴露 PEP 服務院所，提供感染科與急診時段。</span><span class="lang-en">Chi Mei is a designated nPEP provider with infectious-disease clinic and emergency-department service hours.</span></p>
+          <a class="read" href="https://social.chcg.gov.tw/files/09%E9%9D%9E%E8%81%B7%E6%A5%AD%E6%9A%B4%E9%9C%B2%E6%84%9B%E6%BB%8B%E7%97%85%E6%AF%92%E5%BE%8C%E9%A0%90%E9%98%B2%E6%80%A7%E6%8A%95%E8%97%A5%E4%B9%8B%E6%80%A5%E9%96%80%E8%A8%BA%E6%9C%8D%E5%8B%99%E6%99%82%E9%96%93%E8%A1%A8(109%E5%B9%B4%E8%AA%BF%E6%9F%A5_1090921%E6%9B%B4%E6%96%B0)_8_1090923.pdf" target="_blank" rel="noopener"><span class="lang-zh">查看 PDF →</span><span class="lang-en">View PDF →</span></a>
+        </div>
+      </article>
+
+      <!-- ===== Creator collaborations ===== -->
+
+      <article class="media-card" data-cat="collab">
+        <a href="https://www.youtube.com/watch?v=cHGU8f591iA" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg>
+        </div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">合作影片</span><span class="lang-en">Creator collab</span></div>
+          <h4><span class="lang-zh">性知識大亂鬥 ft. 阿滴、白癡公主、Joeman、酷炫</span><span class="lang-en">Sex Knowledge Showdown ft. RyersEnglish, BaiChi, Joeman, KuShine</span></h4>
+          <div class="meta">2022 · HowFun</div>
+          <p class="excerpt"><span class="lang-zh">與 HowFun 頻道合作的多人性教育綜藝節目，加入大量台灣指標性 YouTuber，把 HIV 與性健康知識帶給更廣的觀眾。</span><span class="lang-en">A HowFun multi-creator sex-ed game show — bringing HIV and sexual-health knowledge to a wide YouTuber audience.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=cHGU8f591iA" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="collab">
+        <a href="https://www.youtube.com/watch?v=ML5n_7wO9f0" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg>
+        </div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">合作影片</span><span class="lang-en">Creator collab</span></div>
+          <h4><span class="lang-zh">大人の開箱 EP010｜在幹大事的時候要小心的事</span><span class="lang-en">Adult Unboxing EP010｜Things to Watch For in the Bedroom</span></h4>
+          <div class="meta">2021 · <span class="lang-zh">志祺七七 X 圖文不符</span><span class="lang-en">Shasha77</span></div>
+          <p class="excerpt"><span class="lang-zh">志祺七七《大人の開箱》與奇美感染科合作，把肛交、口交、指交等性健康常識，用節目方式公開談清楚。</span><span class="lang-en">Shasha77's "Adult Unboxing" partners with Chi Mei's ID specialists to talk through everyday sexual-health knowledge.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=ML5n_7wO9f0" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="collab">
+        <a href="https://www.youtube.com/watch?v=mYholllzDXw" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg>
+        </div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">合作影片</span><span class="lang-en">Creator collab</span></div>
+          <h4><span class="lang-zh">山姆大叔急診魂 #25｜愛滋病等於絕症嗎？你不了解的 HIV 病毒</span><span class="lang-en">Uncle Sam's ER Soul #25｜Is HIV a Death Sentence? Things You Don't Know About HIV</span></h4>
+          <div class="meta">2021 · <span class="lang-zh">山姆大叔急診魂</span><span class="lang-en">Uncle Sam's ER Soul</span></div>
+          <p class="excerpt"><span class="lang-zh">急診醫師 YouTuber 山姆大叔與奇美合作，破除 HIV 是「絕症」的迷思，把 U=U 與現代治療進展說清楚。</span><span class="lang-en">ER-physician YouTuber Uncle Sam teams up with Chi Mei to bust the "HIV is a death sentence" myth and walk through U=U.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=mYholllzDXw" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="collab">
+        <a href="https://www.youtube.com/watch?v=-8SRcPzKi8U" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg>
+        </div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">合作影片</span><span class="lang-en">Creator collab</span></div>
+          <h4><span class="lang-zh">山姆大叔急診魂 #31｜匿名篩檢步驟大公開</span><span class="lang-en">Uncle Sam's ER Soul #31｜Anonymous Screening Walk-through</span></h4>
+          <div class="meta">2022 · <span class="lang-zh">山姆大叔急診魂</span><span class="lang-en">Uncle Sam's ER Soul</span></div>
+          <p class="excerpt"><span class="lang-zh">山姆大叔走訪奇美，把匿名篩檢的真實流程從掛號到結果完整呈現，降低民眾「跨出第一步」的門檻。</span><span class="lang-en">Uncle Sam visits Chi Mei to walk through real anonymous-screening flow — registration to result — and lower the barrier to that first step.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=-8SRcPzKi8U" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="collab">
+        <a href="https://www.youtube.com/watch?v=13Di70gkZXs" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg>
+        </div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">合作影片</span><span class="lang-en">Creator collab</span></div>
+          <h4><span class="lang-zh">愛の543｜我有愛滋，你 OK 嗎？ ft. 杜漢祥、陳晁陞</span><span class="lang-en">Love 543｜I Have HIV — Are You OK? ft. Drs. Tu &amp; Chen</span></h4>
+          <div class="meta">2023 · <span class="lang-zh">感染誌 HIVStory</span><span class="lang-en">HIVStory</span></div>
+          <p class="excerpt"><span class="lang-zh">感染誌《愛の543》邀請奇美杜漢祥與陳晁陞醫師，談感染者揭露身份的兩難與接住對方的方式。</span><span class="lang-en">HIVStory's "Love 543" invites Chi Mei's Drs. Tu and Chen to discuss disclosure dilemmas and how to catch each other.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=13Di70gkZXs" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="collab">
+        <a href="https://www.youtube.com/watch?v=9RAS_JFUfmk" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg>
+        </div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">合作影片</span><span class="lang-en">Creator collab</span></div>
+          <h4><span class="lang-zh">帥醫師出擊！從心血管問題深入愛滋治療（ep1）</span><span class="lang-en">Handsome Doctor in Action — Cardiovascular Issues meet HIV Care (ep1)</span></h4>
+          <div class="meta">2023 · <span class="lang-zh">感染誌 HIVStory</span><span class="lang-en">HIVStory</span></div>
+          <p class="excerpt"><span class="lang-zh">「帥醫師」訪談系列首集：從心血管共病切入，看當代 HIV 照護早已不只關心病毒。</span><span class="lang-en">Episode 1 of the "Handsome Doctor" series — entering HIV care through cardiovascular comorbidity.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=9RAS_JFUfmk" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="collab">
+        <a href="https://www.youtube.com/watch?v=5vBeIuC8njs" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg>
+        </div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">合作影片</span><span class="lang-en">Creator collab</span></div>
+          <h4><span class="lang-zh">與帥醫師深入！感染者長期服藥的心血管照顧（ep2）</span><span class="lang-en">Deeper with the Handsome Doctor — Long-term ART &amp; Cardiovascular Care (ep2)</span></h4>
+          <div class="meta">2023 · <span class="lang-zh">感染誌 HIVStory</span><span class="lang-en">HIVStory</span></div>
+          <p class="excerpt"><span class="lang-zh">第二集：長期穩定服藥的感染者，怎麼一起照顧好心血管？以證據與臨床經驗整理建議。</span><span class="lang-en">Episode 2: how to manage cardiovascular health alongside long-term ART — evidence + clinic experience.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=5vBeIuC8njs" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="collab">
+        <a href="https://www.youtube.com/watch?v=jxSOEQVRINc" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg>
+        </div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">合作影片</span><span class="lang-en">Creator collab</span></div>
+          <h4><span class="lang-zh">原來帥醫師不只看診！愛滋醫病對話的故事（ep3）</span><span class="lang-en">More than the Clinic — Stories from the HIV Doctor-Patient Conversation (ep3)</span></h4>
+          <div class="meta">2023 · <span class="lang-zh">感染誌 HIVStory</span><span class="lang-en">HIVStory</span></div>
+          <p class="excerpt"><span class="lang-zh">第三集：診間之外，醫病關係如何長出信任。從個案故事看奇美的友善照護日常。</span><span class="lang-en">Episode 3: how trust grows beyond the consult room — friendly care through real patient stories.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=jxSOEQVRINc" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="collab">
+        <a href="https://www.youtube.com/watch?v=twI4I1ZDJKU" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg>
+        </div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">合作影片</span><span class="lang-en">Creator collab</span></div>
+          <h4><span class="lang-zh">治療新伴侶，藥換嗎？ ft. @FJ234FJ234</span><span class="lang-en">A New Partner in Treatment — Should I Switch Regimens? ft. @FJ234FJ234</span></h4>
+          <div class="meta">2024 · <span class="lang-zh">感染誌 HIVStory ft. FJ234</span><span class="lang-en">HIVStory ft. FJ234</span></div>
+          <p class="excerpt"><span class="lang-zh">杜漢祥醫師與創作者 FJ234 對談新一代 ART 配伍與「換藥不換藥」的思考框架。</span><span class="lang-en">Dr. Tu and creator FJ234 discuss next-generation ART regimens and the framework for switching.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=twI4I1ZDJKU" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+      <article class="media-card" data-cat="collab">
+        <a href="https://www.youtube.com/watch?v=NNudUjnbXj8" target="_blank" rel="noopener" class="thumb-link">
+        <div class="thumb"><div class="pat"></div>
+          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><path d="M22 18 L40 28 L22 38 Z" fill="white"/></svg>
+        </div></a>
+        <div class="body">
+          <div class="tag"><span class="lang-zh">合作影片</span><span class="lang-en">Creator collab</span></div>
+          <h4><span class="lang-zh">EP85｜感染 HIV 也能無套？德國的千人愛愛實驗</span><span class="lang-en">EP85｜Can You Have Condomless Sex with HIV? Germany's PARTNER Study</span></h4>
+          <div class="meta">2023 · Peggy Fo Show</div>
+          <p class="excerpt"><span class="lang-zh">Peggy Fo Show 邀請奇美團隊，把 PARTNER 研究與 U=U 解釋給一般觀眾，一次釐清最常被誤解的問題。</span><span class="lang-en">Peggy Fo Show invites the Chi Mei team to explain the PARTNER study and U=U for a general audience.</span></p>
+          <a class="read" href="https://www.youtube.com/watch?v=NNudUjnbXj8" target="_blank" rel="noopener"><span class="lang-zh">觀看 →</span><span class="lang-en">Watch →</span></a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="brand-block">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <img class="logo" src="assets/logo.png" alt="奇美友愛 logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+          <svg viewBox="0 0 30 30" fill="none" style="display:none">
+            <circle cx="15" cy="15" r="14" stroke="#fff" stroke-width="1"/>
+            <path d="M11 6 L11 22 L13 22 L13 6 Z M17 6 L17 22 L19 22 L19 6 Z" fill="#dc2626" transform="rotate(-15 15 15)"/>
+          </svg>
+        </span>
+        <span class="brand-name">
+          <span class="lang-zh">奇美友愛</span>
+          <span class="lang-en">Chi Mei Love & Care</span>
+        </span>
+      </div>
+      <p>
+        <span class="lang-zh">奇美醫療財團法人奇美醫院 — HIV 友善醫療與平權照護推動計畫。從友善醫療出發，走向系統重設、公共衛生與長期照護。</span>
+        <span class="lang-en">Chi Mei Medical Center — HIV-friendly and equitable healthcare programme. From friendly care to system redesign, public health, and long-term care readiness.</span>
+      </p>
+    </div>
+
+    <div>
+      <h5><span class="lang-zh">站內導覽</span><span class="lang-en">Navigation</span></h5>
+      <ul>
+        <li><a href="about.html"><span class="lang-zh">關於我們</span><span class="lang-en">About</span></a></li>
+        <li><a href="about.html#journey-flow"><span class="lang-zh">民眾旅程</span><span class="lang-en">Public Journey</span></a></li>
+        <li><a href="timeline.html"><span class="lang-zh">推動歷程</span><span class="lang-en">Timeline</span></a></li>
+        <li><a href="about.html#model"><span class="lang-zh">我們的模式</span><span class="lang-en">Our Model</span></a></li>
+        <li><a href="team.html"><span class="lang-zh">團隊</span><span class="lang-en">Team</span></a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h5><span class="lang-zh">內容</span><span class="lang-en">Content</span></h5>
+      <ul>
+        <li><a href="timeline.html#friendly-day"><span class="lang-zh">活動紀錄</span><span class="lang-en">Activity Records</span></a></li>
+        <li><a href="outcomes.html"><span class="lang-zh">成果與影響</span><span class="lang-en">Outcomes & Impact</span></a></li>
+        <li><a href="media.html"><span class="lang-zh">媒體與資源</span><span class="lang-en">Media & Resources</span></a></li>
+        <li><a href="awards.html"><span class="lang-zh">獲獎與肯定</span><span class="lang-en">Awards</span></a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h5><span class="lang-zh">聯絡我們</span><span class="lang-en">Contact</span></h5>
+      <ul>
+        <li><span class="lang-zh">奇美醫療財團法人奇美醫院</span><span class="lang-en">Chi Mei Medical Foundation Hospital</span></li>
+        <li><span class="lang-zh">奇美友愛 HIV 照護團隊</span><span class="lang-en">Chi Mei Love & Care HIV Team</span></li>
+        <li><span class="lang-zh">台南市永康區中華路 901 號</span><span class="lang-en">901 Zhonghua Rd., Yongkang Dist., Tainan, Taiwan</span></li>
+        <li><a href="mailto:aids@chimei.org.tw">aids@chimei.org.tw</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 Chi Mei Medical Center · <span class="lang-zh">奇美醫療財團法人奇美醫院</span><span class="lang-en">Chi Mei Medical Foundation Hospital</span></span>
+    <span>
+      <span class="lang-zh">最後更新：2026/04/28</span>
+      <span class="lang-en">Last updated: 2026/04/28</span>
+    </span>
+  </div>
+</footer>
+
+<script src="assets/app.js" defer></script>
+</body>
+</html>
