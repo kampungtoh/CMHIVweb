@@ -315,7 +315,7 @@ html[lang="en"] body { font-feature-settings: "ss01","ss02"; }
 
 .hero-stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
   border-top: 1px solid rgba(255,255,255,.14);
   padding-top: 32px;
@@ -344,9 +344,17 @@ html[lang="en"] body { font-feature-settings: "ss01","ss02"; }
   color: rgba(255,255,255,.6);
   line-height: 1.4;
 }
+.hero-stats .stat .label small.note {
+  display: block;
+  margin-top: 4px;
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: none;
+  color: rgba(255,255,255,.45);
+  font-family: var(--f-mono);
+}
 @media (max-width: 880px) {
   .hero { padding-top: 100px; }
-  .hero-issue { display: none; }
   .hero-stats { grid-template-columns: repeat(2,1fr); gap: 28px 0; }
   .hero-stats .stat { border-right: none; padding-right: 0; }
   .hero-stats .stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.1); padding-right: 16px; }
@@ -1921,17 +1929,10 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
         </div>
       </div>
       <div class="stat">
-        <div class="num"><span data-count="92">0</span><span class="unit">%</span></div>
+        <div class="num"><span data-count="99">0</span><span class="unit">%</span></div>
         <div class="label">
-          <span class="lang-zh">病人病毒抑制率</span>
-          <span class="lang-en">Viral suppression rate</span>
-        </div>
-      </div>
-      <div class="stat">
-        <div class="num"><span data-count="12">0</span><span class="unit">+</span></div>
-        <div class="label">
-          <span class="lang-zh">跨科友善照護點</span>
-          <span class="lang-en">Cross-department friendly clinics</span>
+          <span class="lang-zh">病毒測不到率<small class="note">統計至 2025/12</small></span>
+          <span class="lang-en">Viral suppression rate<small class="note">As of Dec 2025</small></span>
         </div>
       </div>
       <div class="stat">
