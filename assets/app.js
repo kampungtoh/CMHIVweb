@@ -3,6 +3,37 @@
   const $ = (s, ctx=document) => ctx.querySelector(s);
   const $$ = (s, ctx=document) => ctx.querySelectorAll(s);
 
+  // ---- page intro fade-in ----
+  // Small body-level transition so navigating between pages feels smoother
+  document.body.classList.add('page-loading');
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => document.body.classList.add('page-ready'));
+  });
+
+  // ---- scroll progress bar ----
+  const progress = document.createElement('div');
+  progress.className = 'scroll-progress';
+  document.body.prepend(progress);
+  const updateProgress = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+    progress.style.transform = `scaleX(${pct / 100})`;
+  };
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
+
+  // ---- active nav state (highlight the nav link matching current page) ----
+  (() => {
+    const here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    $$('.nav-links a').forEach(a => {
+      const target = (a.getAttribute('href') || '').split('#')[0].toLowerCase();
+      if (target && target === here) a.classList.add('current');
+      // Treat empty path as index.html so nav highlights "About" only on /about etc.
+      if (here === '' && target === 'index.html') a.classList.add('current');
+    });
+  })();
+
   // ---- language toggle ----
   const langToggle = $('#langToggle');
   try {
@@ -99,17 +130,19 @@
   // ---- media filter ----
   const filterBar = $('#filterBar');
   const mediaCards = $$('#mediaGrid .media-card');
-  filterBar.addEventListener('click', e => {
-    const btn = e.target.closest('.filter-pill');
-    if (!btn) return;
-    const filter = btn.dataset.filter;
-    $$('.filter-pill').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    mediaCards.forEach(card => {
-      const cat = card.dataset.cat;
-      card.style.display = (filter === 'all' || filter === cat) ? '' : 'none';
+  if (filterBar) {
+    filterBar.addEventListener('click', e => {
+      const btn = e.target.closest('.filter-pill');
+      if (!btn) return;
+      const filter = btn.dataset.filter;
+      $$('.filter-pill').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      mediaCards.forEach(card => {
+        const cat = card.dataset.cat;
+        card.style.display = (filter === 'all' || filter === cat) ? '' : 'none';
+      });
     });
-  });
+  }
 
   // ---- reveal on scroll ----
   const io = new IntersectionObserver((entries) => {
@@ -380,8 +413,9 @@
     panel.appendChild(section);
   });
 
-  // ---- lightbox ----
+  // ---- lightbox (only on pages that include the lightbox markup) ----
   const lb = $('#lightbox');
+  if (!lb) return;
   const lbFrame = $('#lbFrame');
   const lbTitle = $('#lbTitle');
   const lbMeta = $('#lbMeta');

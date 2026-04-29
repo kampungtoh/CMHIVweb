@@ -405,14 +405,28 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
 .about-pull {
   font-family: var(--f-display);
   font-style: italic;
-  font-weight: 350;
+  font-weight: 400;
   font-size: clamp(22px, 2.4vw, 32px);
-  line-height: 1.4;
+  line-height: 1.45;
   color: var(--c-text);
-  max-width: 30ch;
-  border-left: 3px solid var(--c-accent);
-  padding-left: 28px;
-  margin: 0 0 56px;
+  max-width: 36ch;
+  padding: 32px 28px 32px 56px;
+  margin: 0 auto 64px;
+  position: relative;
+  background: linear-gradient(180deg, var(--c-paper-soft) 0%, transparent 100%);
+  border-radius: var(--r-soft);
+}
+.about-pull::before {
+  content: "“";
+  position: absolute;
+  left: 14px;
+  top: 4px;
+  font-family: var(--f-display);
+  font-size: 100px;
+  color: var(--c-accent);
+  opacity: .5;
+  line-height: 1;
+  font-style: normal;
 }
 .about-grid {
   display: grid;
@@ -1981,3 +1995,108 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
 /* When inner pages mount sections that originally had a top padding-from-section,
    ensure the inner page-hero plus the first section stack cleanly. */
 .page-hero + section { padding-top: clamp(64px, 8vw, 120px); }
+
+/* ============================================================
+   STEP 3a — Page transitions, scroll progress, active nav state
+   ============================================================ */
+
+/* Top scroll-progress bar (1px terracotta line growing left->right) */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--c-accent) 0%, var(--c-ribbon) 100%);
+  transform: scaleX(0);
+  transform-origin: 0 0;
+  z-index: 200;
+  pointer-events: none;
+  transition: transform .12s ease-out;
+}
+
+/* Page intro fade — body briefly hidden, then reveals once .page-ready is on */
+body.page-loading {
+  opacity: 0;
+}
+body.page-ready {
+  opacity: 1;
+  transition: opacity .45s ease;
+}
+
+/* Active nav link state */
+.nav-links a.current {
+  color: var(--c-text);
+}
+.nav-links a.current::after {
+  width: 100%;
+}
+
+/* Smooth anchor jumps even when navigating to a new page with #fragment */
+html { scroll-padding-top: 96px; }
+
+/* ============================================================
+   STEP 3b — Warmth flourishes
+   ============================================================ */
+
+/* Slightly more responsive hover on the homepage navigator cards */
+.site-nav-card { will-change: transform; }
+.site-nav-card::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--c-accent), var(--c-ribbon));
+  border-radius: var(--r-soft) 0 0 var(--r-soft);
+  opacity: 0;
+  transition: opacity .25s;
+}
+.site-nav-card:hover::before { opacity: 1; }
+
+/* Stamp-style "since 2018" mark for hero — gentle parallel to the ribbon */
+.hero-eyebrow,
+.page-hero-eyebrow,
+.event-eyebrow {
+  position: relative;
+}
+
+/* Reveal-on-scroll: smoother default + gentle stagger via transition-delay nth-child */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.in { opacity: 1; transform: none; }
+.about-grid .reveal:nth-child(2) { transition-delay: .08s; }
+.about-grid .reveal:nth-child(3) { transition-delay: .16s; }
+.awards-list .reveal:nth-child(2) { transition-delay: .06s; }
+.awards-list .reveal:nth-child(3) { transition-delay: .12s; }
+.awards-list .reveal:nth-child(4) { transition-delay: .18s; }
+.awards-list .reveal:nth-child(5) { transition-delay: .24s; }
+
+/* Hand-drawn-style soft underline on h2 em emphasis (uses a subtle SVG-like stroke) */
+section h2 em,
+.page-hero-title em,
+.event-spotlight h2 em {
+  position: relative;
+  white-space: nowrap;
+}
+section h2 em::after,
+.page-hero-title em::after,
+.event-spotlight h2 em::after {
+  content: "";
+  position: absolute;
+  left: 2%;
+  right: 2%;
+  bottom: -4px;
+  height: 6px;
+  background: var(--c-accent);
+  opacity: .35;
+  border-radius: 4px;
+  transform: skew(-10deg);
+}
+
+/* Slightly larger touch target + warmer hover on btn-ghost */
+.btn-ghost { background: rgba(255, 252, 244, .04); }
+.btn-ghost:hover { background: var(--c-accent); border-color: var(--c-accent); color: #fff; transform: translateY(-1px); }
+
+/* Print-friendliness: hide nav, scroll progress & ctas when printing */
+@media print {
+  .nav, .scroll-progress, .menu-btn, .lang-toggle, .nav-actions { display: none !important; }
+  body { background: #fff !important; color: #000 !important; }
+}

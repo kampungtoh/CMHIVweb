@@ -681,6 +681,26 @@
   </div>
 </footer>
 
+<!-- ===================== LIGHTBOX ===================== -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <div class="lightbox-stage">
+    <button class="lb-close" id="lbClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <button class="lb-prev" id="lbPrev" aria-label="Previous">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="lb-next" id="lbNext" aria-label="Next">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <div class="lightbox-frame" id="lbFrame"></div>
+    <div class="lightbox-caption">
+      <div class="ttl" id="lbTitle"></div>
+      <div class="meta" id="lbMeta"></div>
+    </div>
+  </div>
+</div>
+
 <script src="assets/app.js" defer></script>
 </body>
 </html>
