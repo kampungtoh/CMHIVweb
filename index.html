@@ -614,6 +614,54 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
 
 /* ---------- team ---------- */
 #team { background: var(--c-paper); }
+.team-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 56px;
+}
+.team-photo {
+  margin: 0;
+  background: var(--c-card);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-soft);
+  overflow: hidden;
+  box-shadow: 0 6px 18px -12px rgba(75,40,20,.18);
+}
+.team-photo img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  background: var(--c-paper-soft);
+}
+.team-photo .team-photo-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, var(--c-paper-soft), var(--c-accent-soft));
+  place-items: center;
+  text-align: center;
+  font-size: 14px;
+  color: var(--c-text-soft);
+  padding: 20px;
+  gap: 6px;
+}
+.team-photo .team-photo-placeholder small {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--c-text-mute);
+  letter-spacing: .05em;
+}
+.team-photo figcaption {
+  padding: 14px 18px;
+  font-family: var(--f-display);
+  font-size: 16px;
+  color: var(--c-text);
+  border-top: 1px solid var(--c-line);
+}
+@media (max-width: 760px) {
+  .team-photos { grid-template-columns: 1fr; gap: 16px; margin-bottom: 40px; }
+}
 .team-tier { margin-bottom: 64px; }
 .team-tier-head {
   display: flex; align-items: baseline; gap: 18px;
@@ -1718,17 +1766,17 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
     <span class="brand-name">
       <span class="lang-zh">奇美友愛</span>
       <span class="lang-en">Chi Mei Love & Care</span>
-      <span class="sub">HIV-Friendly Care</span>
+      <span class="sub">Chi Mei Love &amp; Care</span>
     </span>
   </a>
 
   <div class="nav-links" id="navLinks">
     <a href="#about"><span class="lang-zh">關於我們</span><span class="lang-en">About</span></a>
-    <a href="#journey-flow"><span class="lang-zh">病人旅程</span><span class="lang-en">Journey</span></a>
+    <a href="#journey-flow"><span class="lang-zh">民眾旅程</span><span class="lang-en">Public Journey</span></a>
     <a href="#journey"><span class="lang-zh">推動歷程</span><span class="lang-en">Timeline</span></a>
     <a href="#model"><span class="lang-zh">我們的模式</span><span class="lang-en">Our Model</span></a>
     <a href="#team"><span class="lang-zh">團隊</span><span class="lang-en">Team</span></a>
-    <a href="#friendly-day"><span class="lang-zh">友善醫療日</span><span class="lang-en">Friendly Care Day</span></a>
+    <a href="#friendly-day"><span class="lang-zh">活動紀錄</span><span class="lang-en">Activity Records</span></a>
     <a href="#outcomes"><span class="lang-zh">成果</span><span class="lang-en">Outcomes</span></a>
     <a href="#media"><span class="lang-zh">媒體資源</span><span class="lang-en">Media</span></a>
   </div>
@@ -1819,8 +1867,8 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
         <span class="arrow">→</span>
       </a>
       <a href="#friendly-day" class="btn btn-ghost">
-        <span class="lang-zh">活動歷程</span>
-        <span class="lang-en">Programme milestones</span>
+        <span class="lang-zh">活動紀錄</span>
+        <span class="lang-en">Activity Records</span>
       </a>
     </div>
 
@@ -2013,8 +2061,8 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
   <div class="container">
     <div class="section-head">
       <div class="label">
-        <span class="lang-zh">病人旅程</span>
-        <span class="lang-en">Patient Journey</span>
+        <span class="lang-zh">民眾旅程</span>
+        <span class="lang-en">Public Journey</span>
         <span class="num">02</span>
       </div>
       <div>
@@ -2533,6 +2581,36 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
       </div>
     </div>
 
+    <!-- Team photos -->
+    <div class="team-photos">
+      <figure class="team-photo">
+        <img src="assets/team-hiv.jpg" alt="奇美友愛 HIV 照護團隊" loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+        <div class="team-photo-placeholder" style="display:none">
+          <span class="lang-zh">奇美友愛 HIV 照護團隊團體照</span>
+          <span class="lang-en">Chi Mei Love &amp; Care HIV Team — group photo</span>
+          <small>assets/team-hiv.jpg</small>
+        </div>
+        <figcaption>
+          <span class="lang-zh">奇美友愛 HIV 照護團隊</span>
+          <span class="lang-en">Chi Mei Love &amp; Care HIV Care Team</span>
+        </figcaption>
+      </figure>
+      <figure class="team-photo">
+        <img src="assets/team-task-force.jpg" alt="友善醫療推動小組" loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+        <div class="team-photo-placeholder" style="display:none">
+          <span class="lang-zh">友善醫療推動小組團體照</span>
+          <span class="lang-en">Friendly Medicine Task Force — group photo</span>
+          <small>assets/team-task-force.jpg</small>
+        </div>
+        <figcaption>
+          <span class="lang-zh">友善醫療推動小組</span>
+          <span class="lang-en">Friendly Medicine Task Force</span>
+        </figcaption>
+      </figure>
+    </div>
+
     <!-- Tier 1 -->
     <div class="team-tier lvl-1">
       <div class="team-tier-head">
@@ -2683,8 +2761,8 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
   <div class="container">
     <div class="section-head">
       <div class="label">
-        <span class="lang-zh">活動歷程</span>
-        <span class="lang-en">Programme Milestones</span>
+        <span class="lang-zh">活動紀錄</span>
+        <span class="lang-en">Activity Records</span>
         <span class="num">06</span>
       </div>
       <div>
@@ -3832,7 +3910,7 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
       <h5><span class="lang-zh">站內導覽</span><span class="lang-en">Navigation</span></h5>
       <ul>
         <li><a href="#about"><span class="lang-zh">關於我們</span><span class="lang-en">About</span></a></li>
-        <li><a href="#journey-flow"><span class="lang-zh">病人旅程</span><span class="lang-en">Patient Journey</span></a></li>
+        <li><a href="#journey-flow"><span class="lang-zh">民眾旅程</span><span class="lang-en">Public Journey</span></a></li>
         <li><a href="#journey"><span class="lang-zh">推動歷程</span><span class="lang-en">Timeline</span></a></li>
         <li><a href="#model"><span class="lang-zh">我們的模式</span><span class="lang-en">Our Model</span></a></li>
         <li><a href="#team"><span class="lang-zh">團隊</span><span class="lang-en">Team</span></a></li>
@@ -3842,7 +3920,7 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
     <div>
       <h5><span class="lang-zh">內容</span><span class="lang-en">Content</span></h5>
       <ul>
-        <li><a href="#friendly-day"><span class="lang-zh">友善醫療日</span><span class="lang-en">Friendly Care Day</span></a></li>
+        <li><a href="#friendly-day"><span class="lang-zh">活動紀錄</span><span class="lang-en">Activity Records</span></a></li>
         <li><a href="#outcomes"><span class="lang-zh">成果與影響</span><span class="lang-en">Outcomes & Impact</span></a></li>
         <li><a href="#media"><span class="lang-zh">媒體與資源</span><span class="lang-en">Media & Resources</span></a></li>
         <li><a href="#awards"><span class="lang-zh">獲獎與肯定</span><span class="lang-en">Awards</span></a></li>
@@ -3967,6 +4045,25 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
     img.onerror = () => { img.remove(); };
     thumb.prepend(img);
   });
+
+  // ---- sort media cards by year (newest first) ----
+  (() => {
+    const grid = $('#mediaGrid');
+    if (!grid) return;
+    const cards = Array.from(grid.querySelectorAll('.media-card'));
+    const keyOf = (card) => {
+      // Pull the first year (and optional /MM) out of the .meta line
+      const meta = card.querySelector('.meta');
+      const text = meta ? meta.textContent : '';
+      const m = text.match(/(\d{4})(?:\/(\d{1,2}))?/);
+      const year = m ? parseInt(m[1], 10) : 0;
+      const month = m && m[2] ? parseInt(m[2], 10) : 0;
+      // Cards without a year (year=0) should fall to the bottom
+      return year === 0 ? -Infinity : year * 100 + month;
+    };
+    cards.sort((a, b) => keyOf(b) - keyOf(a));
+    cards.forEach(c => grid.appendChild(c));
+  })();
 
   // ---- media filter ----
   const filterBar = $('#filterBar');
