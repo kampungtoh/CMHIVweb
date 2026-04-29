@@ -1855,10 +1855,15 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
       <g class="ring-2" stroke="#ea580c" stroke-opacity=".4" fill="none">
         <circle cx="270" cy="270" r="100" stroke-width="1.2" stroke-dasharray="4 6"/>
       </g>
-      <!-- abstract care ribbon mark, geometric -->
+      <!-- AIDS awareness red ribbon -->
       <g transform="translate(270 270)">
-        <path d="M -8 -60 L -8 60 L 0 70 L 8 60 L 8 -60 Z" fill="#dc2626" opacity=".85" transform="rotate(-12)"/>
-        <path d="M -8 -60 L -8 60 L 0 70 L 8 60 L 8 -60 Z" fill="#ea580c" opacity=".7" transform="rotate(12)"/>
+        <!-- back strip (darker, left-leaning) -->
+        <path d="M -22 -40 L 8 50 L -2 56 L -32 -34 Z" fill="#a30000" opacity=".92"/>
+        <!-- front strip (right-leaning) -->
+        <path d="M 22 -40 L -8 50 L 2 56 L 32 -34 Z" fill="#dc2626" opacity=".96"/>
+        <!-- top loop -->
+        <path d="M -22 -40 C -32 -58, -8 -72, 0 -65 C 8 -72, 32 -58, 22 -40"
+              stroke="#dc2626" stroke-width="11" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
       </g>
       <!-- orbiting dots -->
       <g class="ring">
@@ -1870,13 +1875,7 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
     </svg>
   </div>
 
-  <div class="hero-issue">
-    <span class="lang-zh">Issue / 第二屆友善醫療日</span>
-    <span class="lang-en">Volume / 2nd Friendly Medicine Day</span>
-    <span class="num">II</span>
-    <span class="lang-zh">2018 — 2025</span>
-    <span class="lang-en">2018 — 2025</span>
-  </div>
+
 
   <div class="hero-grid">
     <div class="hero-eyebrow">
@@ -3566,19 +3565,6 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
         </div>
       </article>
 
-      <article class="media-card" data-cat="podcast">
-        <a href="https://podcasts.apple.com/us/podcast/%E5%A5%87%E7%BE%8E%E5%A4%A7%E5%B0%8F%E4%BA%8B-%E4%BD%A0%E5%9C%A8%E4%B9%8E%E7%9A%84%E4%BA%8B/id1799904030" target="_blank" rel="noopener" class="thumb-link">
-        <div class="thumb"><div class="pat"></div>
-          <svg class="play" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="rgba(0,0,0,.3)"/><rect x="22" y="18" width="4" height="20" fill="white"/><rect x="30" y="18" width="4" height="20" fill="white"/></svg>
-        </div></a>
-        <div class="body">
-          <div class="tag"><span class="lang-zh">播客</span><span class="lang-en">Podcast</span></div>
-          <h4><span class="lang-zh">奇美大小事，你在乎的事｜杜漢祥主持</span><span class="lang-en">Chi Mei Big & Small Things｜Hosted by Dr. Tu</span></h4>
-          <div class="meta"><span class="lang-zh">奇美醫院內部 Podcast</span><span class="lang-en">Chi Mei in-house podcast</span></div>
-          <p class="excerpt"><span class="lang-zh">由杜漢祥部長主持的奇美院內 podcast，討論院內最新訊息、政策、組織變革與第一線同仁關心的議題。</span><span class="lang-en">Chi Mei's in-house podcast hosted by Director Tu — covering hospital news, policy, organisational change and frontline staff concerns.</span></p>
-          <a class="read" href="https://podcasts.apple.com/us/podcast/%E5%A5%87%E7%BE%8E%E5%A4%A7%E5%B0%8F%E4%BA%8B-%E4%BD%A0%E5%9C%A8%E4%B9%8E%E7%9A%84%E4%BA%8B/id1799904030" target="_blank" rel="noopener"><span class="lang-zh">收聽 →</span><span class="lang-en">Listen →</span></a>
-        </div>
-      </article>
 
       <article class="media-card" data-cat="article">
         <div class="thumb"><div class="pat"></div></div>
@@ -4074,7 +4060,6 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
     'peopo.org/news/604382': 'https://www.peopo.org/files/public/styles/wide/public/images/6085/123.png.webp?itok=xiVc2f58',
     'managertoday.firstory.io/episodes/cml0b2n970hhv01059i54cpto': 'https://image.firstory-cdn.me/Image/ckufaibc5dc3u0966b6rc961b/QiXqydEzZpZcO-KBsi6QX.jpg',
     'open.firstory.me/story/cm9eoowap4p430108bruw406r': 'https://files.soundon.fm/1744479829204-0d2e2569-100b-4d9a-9653-5a27b34e1df2.jpeg',
-    'id1799904030': 'https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/dc/97/03/dc970324-f88a-dbeb-2c69-f3ef44b971c9/mza_13455601783414956960.jpeg/600x600bb.jpg',
   };
   const playlistFirstEp = 'PLu0u5uG3noI7oeyQXdfbWp1X3juA9z_NW';
 
