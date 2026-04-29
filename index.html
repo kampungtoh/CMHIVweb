@@ -1114,6 +1114,47 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
   color: rgba(255,255,255,.7);
   line-height: 1.55;
 }
+.award-card .award-photo {
+  display: block;
+  width: 100%;
+  max-height: 240px;
+  object-fit: cover;
+  margin: 14px 0 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.04);
+}
+.award-card .award-photo-placeholder {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 180px;
+  margin: 14px 0 12px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(217,106,58,.25), rgba(122,154,110,.2));
+  font-size: 13px;
+  color: rgba(255,255,255,.78);
+  text-align: center;
+  padding: 14px;
+  gap: 6px;
+}
+.award-card .award-photo-placeholder small {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: rgba(255,255,255,.55);
+  letter-spacing: .05em;
+}
+.award-card a.award-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--c-accent);
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--c-accent);
+  padding-bottom: 2px;
+}
+.award-card a.award-link:hover { color: var(--c-accent-soft); }
 @media (max-width: 760px) { .awards-list { grid-template-columns: 1fr; } }
 
 /* ---------- footer ---------- */
@@ -3837,29 +3878,46 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
 
     <div class="awards-list">
       <div class="award-card reveal">
+        <div class="seal">疾</div>
+        <div class="body">
+          <div class="year">2025 · <span class="lang-zh">衛福部疾管署</span><span class="lang-en">Taiwan CDC</span></div>
+          <h4><span class="lang-zh">非公務類個人防疫績優獎</span><span class="lang-en">Outstanding Disease-Prevention Individual (Non-public-sector)</span></h4>
+          <p><span class="lang-zh">杜漢祥醫師榮獲衛福部疾管署 2025 年度非公務類個人防疫績優獎，肯定其長期投入 HIV 友善醫療與公共衛生的貢獻。</span><span class="lang-en">Dr. Tu Han-Siong received Taiwan CDC's 2025 Outstanding Disease-Prevention Individual Award (non-public-sector), recognising his long-term contribution to HIV-friendly care and public health.</span></p>
+        </div>
+      </div>
+
+      <div class="award-card reveal">
         <div class="seal">W</div>
         <div class="body">
           <div class="year">2025 · WHO</div>
-          <h4><span class="lang-zh">WHO 友善醫療敘事案例收錄</span><span class="lang-en">WHO friendly-care narrative case</span></h4>
-          <p><span class="lang-zh">奇美友善醫療模式被選入 WHO 區域性敘事案例集中，作為健康平權實作參考。</span><span class="lang-en">Selected by WHO into a regional narrative case collection as a reference for health-equity practice.</span></p>
+          <h4><span class="lang-zh">參與 WHO 準則制定</span><span class="lang-en">Contributor to WHO Guidelines</span></h4>
+          <p><span class="lang-zh">奇美友愛團隊受邀參與 WHO 相關 HIV 服務準則的制定與審閱。</span><span class="lang-en">The Chi Mei Love &amp; Care team contributed to the development and review of relevant WHO HIV-service guidelines.</span></p>
+          <a class="award-link" href="https://www.who.int/teams/global-hiv-hepatitis-and-stis-programmes/hiv" target="_blank" rel="noopener"><span class="lang-zh">查看 WHO 準則 →</span><span class="lang-en">View WHO guideline →</span></a>
         </div>
       </div>
 
       <div class="award-card reveal">
-        <div class="seal">T</div>
+        <div class="seal">台</div>
         <div class="body">
-          <div class="year">2024 · <span class="lang-zh">台灣愛滋學會</span><span class="lang-en">Taiwan AIDS Society</span></div>
-          <h4><span class="lang-zh">年會優良實務分享獎</span><span class="lang-en">Outstanding Practice Sharing Award</span></h4>
-          <p><span class="lang-zh">於台灣愛滋學會年會以「跨科 HIV 友善照護」獲評為年度優良實務分享。</span><span class="lang-en">Recognised at the Taiwan AIDS Society Annual Meeting for "cross-specialty HIV-friendly care".</span></p>
+          <div class="year">2025 · <span class="lang-zh">台灣愛滋病學會</span><span class="lang-en">Taiwan AIDS Society</span></div>
+          <h4><span class="lang-zh">年會「友善醫療」實務分享</span><span class="lang-en">Annual Meeting · Friendly Medicine Practice Session</span></h4>
+          <p><span class="lang-zh">於 2025 台灣愛滋病學會年會分享「友善醫療」實務經驗。</span><span class="lang-en">Shared "Friendly Medicine" practice at the 2025 Taiwan AIDS Society Annual Meeting.</span></p>
         </div>
       </div>
 
       <div class="award-card reveal">
-        <div class="seal">A</div>
+        <div class="seal">金</div>
         <div class="body">
-          <div class="year">2025 · APACC</div>
-          <h4><span class="lang-zh">APACC 受邀講者</span><span class="lang-en">APACC Invited Speaker</span></h4>
-          <p><span class="lang-zh">於亞太愛滋會議受邀分享資源意識型友善照護模式。</span><span class="lang-en">Invited to share the resource-conscious friendly-care model at the Asia-Pacific HIV conference.</span></p>
+          <div class="year">2023 · NHQA · <span class="lang-zh">國家新創獎・金獎（台灣第一）</span><span class="lang-en">National Healthcare Quality Award · Gold (1st in Taiwan)</span></div>
+          <h4><span class="lang-zh">邁向零歧視　跨領域 HIV 全人照護友善醫療</span><span class="lang-en">Towards Zero Discrimination — Interdisciplinary, Whole-Person, Friendly HIV Care</span></h4>
+          <img class="award-photo" src="assets/nhqa-trophy.jpg" alt="2023 NHQA 金獎獎盃 / 2023 NHQA Gold Award trophy" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+          <div class="award-photo-placeholder" style="display:none">
+            <span class="lang-zh">獎盃照片（請上傳）</span>
+            <span class="lang-en">Trophy photo (please upload)</span>
+            <small>assets/nhqa-trophy.jpg</small>
+          </div>
+          <p><span class="lang-zh">以「邁向零歧視　跨領域 HIV 全人照護友善醫療」為題，榮獲 2023 國家新創獎金獎，亦是台灣首例。</span><span class="lang-en">Won the 2023 NHQA Gold Award — the first in Taiwan — for the project "Towards Zero Discrimination: Interdisciplinary, Whole-Person, Friendly HIV Care".</span></p>
         </div>
       </div>
 
@@ -3867,8 +3925,8 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
         <div class="seal">Q</div>
         <div class="body">
           <div class="year">2023 · QIS+D</div>
-          <h4><span class="lang-zh">QIS+D 醫療品質競賽肯定</span><span class="lang-en">QIS+D quality symposium recognition</span></h4>
-          <p><span class="lang-zh">以 HIV 友善照護模式參賽 QIS+D 醫療品質競賽，把日常的友善設計轉譯成可被審查的品質指標並獲得肯定。</span><span class="lang-en">Entered the QIS+D quality symposium with the HIV-friendly care model — translating everyday friendly-care design into reviewable quality indicators and earning formal recognition.</span></p>
+          <h4><span class="lang-zh">導入 QIS+D 品質管理模式</span><span class="lang-en">Adopted the QIS+D Quality-Management Model</span></h4>
+          <p><span class="lang-zh">導入 QIS+D 品質管理模式，把日常的友善設計轉譯成可被審查的品質指標並獲得肯定，並受邀至日本、泰國及韓國分享。</span><span class="lang-en">Adopted the QIS+D quality-management model to translate everyday friendly-care design into reviewable quality indicators, earning recognition and invitations to share the work in Japan, Thailand and Korea.</span></p>
         </div>
       </div>
     </div>
