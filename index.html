@@ -1798,6 +1798,94 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
 
 /* selection */
 ::selection { background: var(--c-accent); color: #fff; }
+
+/* ============================================================
+   #news — Latest Announcements
+   ============================================================ */
+#news { background: var(--c-paper-soft); }
+.news-list {
+  list-style: none;
+  margin: 32px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.news-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: clamp(20px, 4vw, 48px);
+  align-items: start;
+  background: var(--c-card);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-soft);
+  padding: 24px 28px;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+  box-shadow: 0 6px 18px -14px rgba(75,40,20,.18);
+}
+.news-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--c-accent);
+  box-shadow: 0 18px 36px -18px rgba(176,73,42,.22);
+}
+.news-meta { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.news-date {
+  font-family: var(--f-mono);
+  font-size: 14px;
+  letter-spacing: .04em;
+  color: var(--c-text);
+  font-weight: 600;
+}
+.news-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: var(--c-accent-soft);
+  color: var(--c-accent-deep);
+}
+.news-tag-event   .news-tag { background: var(--c-accent-soft); color: var(--c-accent-deep); }
+.news-tag-video   .news-tag { background: rgba(122,154,110,.22); color: #4d6a3f; }
+.news-tag-press   .news-tag { background: rgba(154,116,80,.22); color: #6b4f3a; }
+.news-tag-podcast .news-tag { background: rgba(108,92,140,.22); color: #5a4a78; }
+.news-tag-award   .news-tag { background: rgba(201,77,62,.22); color: #9a3322; }
+.news-tag-news    .news-tag { background: rgba(122,154,110,.18); color: #4d6a3f; }
+.news-title {
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: clamp(20px, 2vw, 24px);
+  line-height: 1.3;
+  margin: 0 0 8px;
+  color: var(--c-text);
+}
+.news-desc {
+  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--c-text-soft);
+}
+.news-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--c-text);
+  font-weight: 600;
+  border-bottom: 1px solid var(--c-text);
+  padding-bottom: 2px;
+  transition: color .2s, border-color .2s;
+  text-decoration: none;
+}
+.news-cta:hover { color: var(--c-accent); border-color: var(--c-accent); }
+@media (max-width: 760px) {
+  .news-item { grid-template-columns: 1fr; gap: 14px; padding: 22px 22px; }
+  .news-meta { flex-direction: row; align-items: center; gap: 12px; }
+}
 </style>
 </head>
 <body>
@@ -1952,6 +2040,44 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
     </div>
   </div>
 </header>
+
+<!-- ===================== LATEST ANNOUNCEMENTS =====================
+     如何更新公告：
+     在頁面底部的 JavaScript 區塊裡找到「const NEWS = [...]」陣列，
+     複製其中一筆物件、修改欄位、放到陣列最上面，存檔即可。
+     最新的會自動排在最前面。
+
+     How to add a new announcement:
+     Open the JavaScript block at the bottom and find the
+     `const NEWS = [...]` array. Copy any item, change the fields,
+     paste it at the top of the array, and save. The newest will
+     automatically appear first.
+================================================================= -->
+<section id="news">
+  <div class="container">
+    <div class="section-head">
+      <div class="label">
+        <span class="lang-zh">最新公告</span>
+        <span class="lang-en">Latest</span>
+        <span class="num">10</span>
+      </div>
+      <div>
+        <h2>
+          <span class="lang-zh">最近<em>正在發生</em>的事。</span>
+          <span class="lang-en">What's <em>happening lately</em>.</span>
+        </h2>
+        <p class="deck">
+          <span class="lang-zh">活動、影片、媒體報導、得獎消息——團隊最新動態的入口。</span>
+          <span class="lang-en">Events, videos, press, awards — the team's latest updates land here first.</span>
+        </p>
+      </div>
+    </div>
+
+    <ul class="news-list" id="newsList" aria-label="Latest announcements">
+      <!-- NEWS array (in <script> below) renders into here -->
+    </ul>
+  </div>
+</section>
 
 <!-- ===================== ABOUT ===================== -->
 <section id="about">
@@ -4157,6 +4283,96 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); }
 <script>
 (function(){
   const html = document.documentElement;
+
+  // ============================================================
+  // 最新公告 / LATEST ANNOUNCEMENTS
+  // ============================================================
+  // 編輯方式：直接修改下面的 NEWS 陣列。
+  // 每筆是一個物件，欄位如下：
+  //   date     "YYYY/MM/DD" 或 "YYYY/MM"     顯示日期、也用來排序
+  //   tag      'event' | 'news' | 'video'
+  //            | 'press' | 'award' | 'podcast'
+  //   titleZh  中文標題（必填）
+  //   titleEn  英文標題（必填）
+  //   descZh   中文一句說明（建議填）
+  //   descEn   英文一句說明（建議填）
+  //   href     點擊時前往的網址（內部頁如 'event2025.html'
+  //              或外部 'https://…'）— 留空則不顯示按鈕
+  //   ctaZh    按鈕中文（預設「查看 →」）
+  //   ctaEn    按鈕英文（預設 'View →'）
+  //
+  // 新增公告：複製任何一筆，改欄位後放在陣列最上面，存檔即可。
+  // 最新的會自動排在最前面（依 date 欄位字串遞減排序）。
+  // ------------------------------------------------------------
+  const NEWS = [
+    {
+      date: '2025/11/21',
+      tag: 'event',
+      titleZh: '奇美友善醫療日嘉年華｜Eyes on Ukraine 全球首映季',
+      titleEn: 'Friendly Medicine Day Carnival｜Eyes on Ukraine Premiere Season',
+      descZh: '紀錄片放映、性別論壇、友愛論壇、表演、餐點、抽獎與互動遊戲，13:00–17:00 在奇美第五醫療大樓國際會議廳。',
+      descEn: 'Documentary screening, two forums, performances, food, raffles & interactive games · Int\'l Conference Hall, 5F Bldg.',
+      href: 'event2025.html',
+      ctaZh: '查看活動 →',
+      ctaEn: 'View event →',
+    },
+    {
+      date: '2025/12/01',
+      tag: 'video',
+      titleZh: '紅絲帶之下｜2025 世界愛滋日影像作品上線',
+      titleEn: 'Under the Red Ribbon｜2025 World AIDS Day film',
+      descZh: '奇美友愛 HIV 照護團隊紀錄日常裡的友善時刻——「與你一樣的每一天」。',
+      descEn: 'A short film by the team capturing everyday moments of friendliness.',
+      href: 'https://www.youtube.com/watch?v=zAro8Js86aE',
+      ctaZh: '觀看 →',
+      ctaEn: 'Watch →',
+    },
+    {
+      date: '2026/02',
+      tag: 'podcast',
+      titleZh: '經理人月刊 EP583｜專訪杜漢祥部長',
+      titleEn: 'Manager Today EP583｜Interview with Director Tu',
+      descZh: '從「病人跳窗」的震撼，埋下友善醫療的種子——一段把奇美經驗帶上 WHO 舞台的故事。',
+      descEn: 'How a single tragedy seeded Chi Mei\'s friendly-care reform — and carried Taiwanese practice onto the WHO stage.',
+      href: 'https://managertoday.firstory.io/episodes/cml0b2n970hhv01059i54cpto',
+      ctaZh: '收聽 →',
+      ctaEn: 'Listen →',
+    },
+  ];
+
+  // Render NEWS items into #newsList (newest first).
+  (() => {
+    const list = document.querySelector('#newsList');
+    if (!list || !NEWS.length) return;
+    const TAG_LABELS = {
+      event:   { zh: '活動',     en: 'Event' },
+      news:    { zh: '訊息',     en: 'News' },
+      video:   { zh: '影片',     en: 'Video' },
+      press:   { zh: '媒體報導',  en: 'Press' },
+      award:   { zh: '獲獎',     en: 'Award' },
+      podcast: { zh: '播客',     en: 'Podcast' },
+    };
+    const sorted = [...NEWS].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    list.innerHTML = sorted.map(item => {
+      const t = TAG_LABELS[item.tag] || TAG_LABELS.news;
+      const ctaZh = item.ctaZh || '查看 →';
+      const ctaEn = item.ctaEn || 'View →';
+      const desc = (item.descZh || item.descEn) ? `
+        <p class="news-desc"><span class="lang-zh">${item.descZh || ''}</span><span class="lang-en">${item.descEn || ''}</span></p>` : '';
+      const cta = item.href ? `
+        <a class="news-cta" href="${item.href}"${/^https?:/.test(item.href) ? ' target="_blank" rel="noopener"' : ''}><span class="lang-zh">${ctaZh}</span><span class="lang-en">${ctaEn}</span></a>` : '';
+      return `<li class="news-item news-tag-${item.tag}">
+        <div class="news-meta">
+          <time class="news-date">${item.date}</time>
+          <span class="news-tag"><span class="lang-zh">${t.zh}</span><span class="lang-en">${t.en}</span></span>
+        </div>
+        <div>
+          <h3 class="news-title"><span class="lang-zh">${item.titleZh}</span><span class="lang-en">${item.titleEn}</span></h3>${desc}${cta}
+        </div>
+      </li>`;
+    }).join('');
+  })();
+
   const $ = (s, ctx=document) => ctx.querySelector(s);
   const $$ = (s, ctx=document) => ctx.querySelectorAll(s);
 
