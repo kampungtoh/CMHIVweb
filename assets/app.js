@@ -23,15 +23,28 @@
   window.addEventListener('resize', updateProgress);
   updateProgress();
 
-  // ---- active nav state (highlight the nav link matching current page) ----
+  // ---- active nav state (scroll spy on hash anchor sections) ----
   (() => {
-    const here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-    $$('.nav-links a').forEach(a => {
-      const target = (a.getAttribute('href') || '').split('#')[0].toLowerCase();
-      if (target && target === here) a.classList.add('current');
-      // Treat empty path as index.html so nav highlights "About" only on /about etc.
-      if (here === '' && target === 'index.html') a.classList.add('current');
-    });
+    const navAnchors = Array.from($$('.nav-links a[href^="#"]'));
+    if (!navAnchors.length) return;
+    const targets = navAnchors
+      .map(a => ({ link: a, sec: document.querySelector(a.getAttribute('href')) }))
+      .filter(t => t.sec);
+    if (!targets.length) return;
+    const observer = new IntersectionObserver(entries => {
+      // Pick the most-visible intersecting target this tick.
+      let best = null;
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        if (!best || e.intersectionRatio > best.intersectionRatio) best = e;
+      });
+      if (!best) return;
+      const id = '#' + best.target.id;
+      navAnchors.forEach(a =>
+        a.classList.toggle('current', a.getAttribute('href') === id)
+      );
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: [0, 0.1, 0.4, 1] });
+    targets.forEach(t => observer.observe(t.sec));
   })();
 
   // ---- language toggle ----
