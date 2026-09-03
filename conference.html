@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全球 HIV 相關國際會議 2026 至 2027</title>
+<meta name="description" content="2026 至 2027 年全球 HIV/AIDS 重要國際會議時序表，含日期、地點、摘要投稿截止日與官方連結。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f8f9; --card:#ffffff; --ink:#1f2933; --ink-2:#5b6672; --ink-3:#8b95a1;
+  --line:#e3e7eb; --brand:#0f6e56; --brand-bg:#e1f5ee;
+  --tbd:#854f0b; --tbd-bg:#faeeda; --tw:#0c447c; --tw-bg:#e6f1fb;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:48px 20px 72px}
+header{margin-bottom:32px}
+h1{font-size:30px;font-weight:700;letter-spacing:.5px}
+.sub{font-size:15px;color:var(--ink-2);margin-top:8px}
+.updated{font-size:13px;color:var(--ink-3);margin-top:4px}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:28px 0 32px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.stat .lab{font-size:13px;color:var(--ink-2)}
+.stat .val{font-size:26px;font-weight:700;color:var(--brand);margin-top:2px}
+.stat .note{font-size:13px;color:var(--ink-3)}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.f-btn{font:inherit;font-size:14px;padding:8px 18px;border:1px solid var(--line);background:var(--card);color:var(--ink-2);border-radius:999px;cursor:pointer;transition:.15s}
+.f-btn:hover{border-color:var(--brand);color:var(--brand)}
+.f-btn.on{background:var(--brand);border-color:var(--brand);color:#fff}
+
+h2.year{font-size:20px;font-weight:700;margin:36px 0 4px;padding-bottom:10px;border-bottom:2px solid var(--brand)}
+h2.year:first-of-type{margin-top:0}
+
+.ev{display:grid;grid-template-columns:150px 1fr;gap:20px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-top:14px}
+.ev.hide{display:none}
+.ev.past{opacity:.55}
+.date{font-size:14px;font-weight:500;color:var(--brand)}
+.date.tbd{color:var(--tbd)}
+.date.past{color:var(--ink-3)}
+.name{font-size:17px;font-weight:500}
+.meta{font-size:14px;color:var(--ink-2);margin-top:3px}
+.deadline{font-size:13px;color:var(--tbd);background:var(--tbd-bg);display:inline-block;padding:3px 10px;border-radius:6px;margin-top:8px}
+.ev a{font-size:13px;color:var(--tw);text-decoration:none;border-bottom:1px solid transparent;transition:.15s}
+.ev a:hover{border-bottom-color:var(--tw)}
+.link-row{margin-top:8px}
+.pill{display:inline-block;font-size:12px;padding:2px 10px;border-radius:6px;margin-left:8px;vertical-align:2px}
+.pill.tw{background:var(--tw-bg);color:var(--tw)}
+.pill.tbd{background:var(--tbd-bg);color:var(--tbd)}
+.pill.done{background:#f1efe8;color:#5f5e5a}
+
+footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3)}
+
+@media(max-width:640px){
+  .wrap{padding:32px 16px 56px}
+  h1{font-size:24px}
+  .ev{grid-template-columns:1fr;gap:6px;padding:16px 18px}
+}
+@media print{
+  body{background:#fff}
+  .filters{display:none}
+  .ev{break-inside:avoid;border-color:#ccc}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>全球 HIV 相關國際會議</h1>
+  <p class="sub">2026 至 2027 年時序表，含摘要投稿截止日與官方連結</p>
+  <p class="updated">資料更新：2026 年 9 月</p>
+</header>
+
+<section class="stats">
+  <div class="stat">
+    <div class="lab">最近一場國內會議</div>
+    <div class="val">10月28日</div>
+    <div class="note">APCS 2026，高雄</div>
+  </div>
+  <div class="stat">
+    <div class="lab">最近的投稿死線</div>
+    <div class="val">10月1日</div>
+    <div class="note">CROI 2027 一般摘要</div>
+  </div>
+  <div class="stat">
+    <div class="lab">日期待公布場次</div>
+    <div class="val">4 場</div>
+    <div class="note">含 HIVR4P 亞太場</div>
+  </div>
+</section>
+
+<nav class="filters">
+  <button class="f-btn on" data-f="all">全部</button>
+  <button class="f-btn" data-f="up">即將舉行</button>
+  <button class="f-btn" data-f="tbd">待公布</button>
+  <button class="f-btn" data-f="tw">台灣相關</button>
+</nav>
+
+<h2 class="year">2026 年</h2>
+
+<article class="ev past" data-s="past">
+  <div class="date past">2月22至25日</div>
+  <div>
+    <div class="name">CROI 2026<span class="pill done">已結束</span></div>
+    <div class="meta">丹佛，美國</div>
+  </div>
+</article>
+
+<article class="ev past" data-s="past">
+  <div class="date past">6月18至20日</div>
+  <div>
+    <div class="name">第11屆 APACC<span class="pill done">已結束</span></div>
+    <div class="meta">千葉／東京，日本</div>
+  </div>
+</article>
+
+<article class="ev past" data-s="past">
+  <div class="date past">7月26至31日</div>
+  <div>
+    <div class="name">AIDS 2026　第26屆世界愛滋病大會<span class="pill done">已結束</span></div>
+    <div class="meta">里約熱內盧，巴西　主題 Rethink. Rebuild. Rise.</div>
+  </div>
+</article>
+
+<article class="ev" data-s="up tw">
+  <div class="date">10月28至29日</div>
+  <div>
+    <div class="name">APCS 2026　第8屆亞太藥愛研討會<span class="pill tw">國內</span></div>
+    <div class="meta">高雄展覽館，台灣　首度移師台北以外城市，與台灣同志遊行同期</div>
+    <div class="link-row"><a href="https://www.apcsymposium.org" target="_blank" rel="noopener">apcsymposium.org</a></div>
+  </div>
+</article>
+
+<article class="ev" data-s="up">
+  <div class="date">11月2至3日</div>
+  <div>
+    <div class="name">HepHIV 2026</div>
+    <div class="meta">都柏林，愛爾蘭</div>
+  </div>
+</article>
+
+<article class="ev" data-s="up">
+  <div class="date">11月8至11日</div>
+  <div>
+    <div class="name">HIV Glasgow 2026</div>
+    <div class="meta">格拉斯哥 SEC，英國　單軌議程，實體與線上並行</div>
+    <div class="link-row"><a href="https://hivglasgow.org/" target="_blank" rel="noopener">hivglasgow.org</a></div>
+  </div>
+</article>
+
+<h2 class="year">2027 年</h2>
+
+<article class="ev" data-s="tbd tw">
+  <div class="date tbd">2月（待定）</div>
+  <div>
+    <div class="name">台灣愛滋病學會年會<span class="pill tw">國內</span><span class="pill tbd">日期待公布</span></div>
+    <div class="meta">台北，台灣</div>
+  </div>
+</article>
+
+<article class="ev" data-s="up">
+  <div class="date">3月21至24日</div>
+  <div>
+    <div class="name">CROI 2027　第34屆</div>
+    <div class="meta">聖地牙哥，美國</div>
+    <div class="deadline">一般摘要截止：2026 年 10 月 1 日</div>
+    <div class="link-row"><a href="https://www.croiconference.org/" target="_blank" rel="noopener">croiconference.org</a></div>
+  </div>
+</article>
+
+<article class="ev" data-s="up">
+  <div class="date">6月（日期待定）</div>
+  <div>
+    <div class="name">第12屆 APACC</div>
+    <div class="meta">曼谷，泰國</div>
+  </div>
+</article>
+
+<article class="ev" data-s="up">
+  <div class="date">7月12至15日</div>
+  <div>
+    <div class="name">IAS 2027　第14屆 HIV Science 大會</div>
+    <div class="meta">日內瓦 Palexpo，瑞士　預計約 5000 人參加</div>
+    <div class="deadline">註冊自 2026 年 11 月開放</div>
+    <div class="link-row"><a href="https://www.iasociety.org/conferences/ias2027" target="_blank" rel="noopener">iasociety.org</a></div>
+  </div>
+</article>
+
+<article class="ev" data-s="up">
+  <div class="date">10月6至9日</div>
+  <div>
+    <div class="name">EACS 2027　第21屆歐洲愛滋病大會</div>
+    <div class="meta">布拉格，捷克</div>
+    <div class="link-row"><a href="https://eacs-conference.com/eacs-2027/" target="_blank" rel="noopener">eacs-conference.com</a></div>
+  </div>
+</article>
+
+<article class="ev" data-s="tbd">
+  <div class="date tbd">10月（待定）</div>
+  <div>
+    <div class="name">APCS 2027　第9屆亞太藥愛研討會<span class="pill tbd">地點待公布</span></div>
+    <div class="meta">主辦城市尚未公布</div>
+  </div>
+</article>
+
+<article class="ev" data-s="tbd">
+  <div class="date tbd">日期待定</div>
+  <div>
+    <div class="name">HIVR4P　第6屆 HIV 預防研究大會<span class="pill tbd">待公布</span></div>
+    <div class="meta">由亞太及太平洋島國區主辦，主辦城市與日期尚未公布</div>
+    <div class="link-row"><a href="https://www.iasociety.org/" target="_blank" rel="noopener">iasociety.org</a></div>
+  </div>
+</article>
+
+<footer>
+  日期以各大會官方網站公告為準，投稿截止日與註冊時程可能調整，建議行前再次確認。
+</footer>
+
+</div>
+
+<script>
+document.querySelectorAll('.f-btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('.f-btn').forEach(function (b) { b.classList.remove('on'); });
+    btn.classList.add('on');
+    var f = btn.dataset.f;
+    document.querySelectorAll('.ev').forEach(function (ev) {
+      var s = ev.dataset.s || '';
+      ev.classList.toggle('hide', f !== 'all' && s.indexOf(f) === -1);
+    });
+    document.querySelectorAll('.year').forEach(function (h) {
+      var next = h.nextElementSibling, visible = false;
+      while (next && next.classList.contains('ev')) {
+        if (!next.classList.contains('hide')) visible = true;
+        next = next.nextElementSibling;
+      }
+      h.style.display = visible ? '' : 'none';
+    });
+  });
+});
+</script>
+</body>
+</html>
